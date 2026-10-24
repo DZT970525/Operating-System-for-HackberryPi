@@ -23,7 +23,7 @@ alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-fo
 
 PINN consumes the JSON index, rather than the GitHub HTML release page. Anonymous installation requires this repository and its release assets to be public.
 
-Select **Ubuntu_HackberryPi**. Allow at least 16.5 GiB for this OS, plus space for PINN and any other systems. The root partition can use additional allocated space.
+Select **Ubuntu 24.04.5 for HackberryPi**. Allow at least 16.5 GiB for this OS, plus space for PINN and any other systems. The root partition can use additional allocated space.
 
 PINN downloads the boot and base-root tarballs. The included `partition_setup.sh` then downloads six supplemental system/application archives, verifies each SHA-256 checksum and extracts them into the new root. These separate payloads keep each GitHub Release asset below the 2 GiB limit. Keep the network connected throughout installation. The setup script updates boot and fstab references using the partition identifiers assigned by PINN.
 
