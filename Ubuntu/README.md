@@ -1,34 +1,27 @@
-# Ubuntu for HackberryPi
+# Ubuntu for HackberryPi — PINN
 
-Ubuntu 24.04.5 LTS ARM64 factory-state backup for HackberryPi. Retains device-specific DPI display and boot configuration; not a generic PC installer.
+Ubuntu 24.04.5 LTS ARM64 for HackberryPi CM5, prepared for PINN multi-boot installation. Device-specific DPI boot configuration is retained.
+
+**Status: packaging/upload in progress; not ready to install yet.**
 
 ## Included
 
-- Google Chrome as default browser.
-- ChatGPT and Chrome pinned to the left Dock, with desktop shortcuts.
-- Touchscreen Dock reveal/dismiss gestures and a five-second hide delay.
-- Matrix digital-rain screensaver, defaulting to ten minutes.
-- Ubuntu native first-boot setup: language, keyboard, network, timezone, device name, account and password.
-- English, German, French and Spanish language packs.
+Chrome as default browser; ChatGPT and Chrome Dock/desktop shortcuts; touchscreen Dock gestures; five-second Dock hide delay; Matrix screensaver after ten minutes; Ubuntu native customer first-boot setup; English, German, French and Spanish language packs. Seller accounts and logins were cleared. Pinyin and Clash Verge were removed.
 
-Seller accounts, application logins, saved Wi-Fi connections and old SSH host keys were cleared. Pinyin and Clash Verge were removed. Customizations apply to new customer accounts.
+## PINN online installation
 
-## Backup and restore
+After the release and metadata are complete and publicly accessible, append this to PINN recovery.cmdline (keep it on one line):
 
-Download every image part and checksum from the same Release. Parts are a single gzip stream split to fit GitHub's asset limits, not individually bootable images.
-
-Uncompressed size: 31,914,983,424 bytes. Use a destination card at least this large.
-
-Join parts in numeric order and decompress on Linux/macOS:
-
-```sh
-cat ubuntu-hackberrypi-factory-2026-10-24.img.gz.part* | gzip -dc > ubuntu-hackberrypi-factory.img
+```text
+alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Ubuntu/os_list_v3.json
 ```
 
-Verify SHA-256 checksums, then write the resulting `.img` with Raspberry Pi Imager or another raw-image writer. Writing erases the destination card.
+PINN reads JSON metadata, not this GitHub HTML page. The package uses boot/root partition tarballs and a partition_setup.sh script that maps the real partitions assigned by PINN. Larger application payloads are fetched and checksum-verified by that script to stay within GitHub per-file limits.
 
-## Validation
+For offline installation, download every metadata file and every payload archive from the same Release into one OS folder under a USB drive os directory. PINN standard download of only the main tarballs is not sufficient for this package.
 
-Filesystem and fresh-account configuration checks passed. A physical test of the prepared factory first-boot UI is still pending. Create distribution images before completing first-boot setup; creating an account consumes factory state.
+## Compatibility and validation
 
-This repository is initially private for backup.
+Use a PINN build with CM5 and the required display support. Filesystem and fresh-account configuration tests passed. A real PINN install, first boot and multi-OS switch test on HackberryPi remain pending; this is a preview package.
+
+The repository is initially private. Anonymous PINN downloads will not work until the repository and release assets are public.
