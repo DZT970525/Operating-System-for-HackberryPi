@@ -1,0 +1,22 @@
+{
+  "os_list": [
+    {
+      "os_name": "Ubuntu_HackberryPi",
+      "description": "Ubuntu Desktop ARM64 for HackberryPi CM5 - Chrome, ChatGPT, Touch Dock and Matrix",
+      "release_date": "2026-10-24",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 16896,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Ubuntu/Ubuntu_HackberryPi.png",
+      "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-factory-2026-10-24/marketing.tar",
+      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Ubuntu/os.json",
+      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Ubuntu/partitions.json",
+      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Ubuntu/partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-factory-2026-10-24/hbu_boot.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-factory-2026-10-24/hbu_root.tar.gz"
+      ]
+    }
+  ]
+}

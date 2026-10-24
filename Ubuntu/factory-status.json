@@ -1,0 +1,29 @@
+{
+  "mode": "Ubuntu native GNOME Initial Setup",
+  "first_boot": [
+    "language",
+    "keyboard",
+    "network",
+    "timezone",
+    "hostname",
+    "account",
+    "password"
+  ],
+  "preloaded_languages": [
+    "English",
+    "German",
+    "French",
+    "Spanish"
+  ],
+  "applications": [
+    "ChatGPT",
+    "Google Chrome",
+    "Touch Dock",
+    "Matrix screensaver"
+  ],
+  "seller_accounts_removed": true,
+  "seller_logins_removed": true,
+  "cloud_init_disabled": true,
+  "keyboard_and_region_preserved": true,
+  "actual_first_boot_validation": "pending"
+}

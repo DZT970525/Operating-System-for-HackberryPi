@@ -1,0 +1,21 @@
+{
+  "partitions": [
+    {
+      "label": "hbu_boot",
+      "filesystem_type": "fat",
+      "partition_size_nominal": 512,
+      "want_maximised": false,
+      "uncompressed_tarball_size": 195,
+      "sha256sum": "f46491680e9caed33cd1502b4b6ebb6596b378505ebdf82bb9b718358a879665",
+      "mkfs_options": "-F 32"
+    },
+    {
+      "label": "hbu_root",
+      "filesystem_type": "ext4",
+      "partition_size_nominal": 16384,
+      "want_maximised": true,
+      "uncompressed_tarball_size": 10633,
+      "sha256sum": "9a39369c12ec5373fdc220fa1bca00535980bb8d9037236002927ed2db0cb328"
+    }
+  ]
+}

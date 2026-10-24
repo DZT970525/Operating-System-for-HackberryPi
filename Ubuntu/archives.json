@@ -1,0 +1,50 @@
+[
+  {
+    "name": "hbu_boot.tar.gz",
+    "bytes": 178958720,
+    "uncompressed_tar_bytes": 203765760,
+    "sha256": "f46491680e9caed33cd1502b4b6ebb6596b378505ebdf82bb9b718358a879665"
+  },
+  {
+    "name": "hbu_root.tar.gz",
+    "bytes": 557758675,
+    "uncompressed_tar_bytes": 2441707520,
+    "sha256": "9a39369c12ec5373fdc220fa1bca00535980bb8d9037236002927ed2db0cb328"
+  },
+  {
+    "name": "hbu_usr_bin.tar.gz",
+    "bytes": 117728113,
+    "uncompressed_tar_bytes": 321290240,
+    "sha256": "6345341549529af3b84fecae6e14d734bb6aa8d71d64e030779555f16029bbb3"
+  },
+  {
+    "name": "hbu_usr_lib_arch.tar.gz",
+    "bytes": 440941243,
+    "uncompressed_tar_bytes": 1309429760,
+    "sha256": "78ed0794c76c7d88b601cc0d82e945cb490c5cdcd103eadef9cafb6ef75197d6"
+  },
+  {
+    "name": "hbu_usr_lib_other.tar.gz",
+    "bytes": 1213630272,
+    "uncompressed_tar_bytes": 1863301120,
+    "sha256": "3f390dbb5249b1cb548c329eb2fb3e4efec6a124bcb638f0c7cef1a68b6f61ab"
+  },
+  {
+    "name": "hbu_usr_share.tar.gz",
+    "bytes": 518296295,
+    "uncompressed_tar_bytes": 1243699200,
+    "sha256": "04bcfbabfac6bc5d5c7e425d3c5567a1a780a3141a866ff7dfecf43c039a1736"
+  },
+  {
+    "name": "hbu_apps.tar.gz",
+    "bytes": 960835604,
+    "uncompressed_tar_bytes": 2149027840,
+    "sha256": "ec95245f1ffbca50dcde0a4c07f4327412cb1dd9b836ca74a41f3925433954b5"
+  },
+  {
+    "name": "hbu_snapd.tar.gz",
+    "bytes": 1589309241,
+    "uncompressed_tar_bytes": 1820170240,
+    "sha256": "83fbe503e65224e9378f38a28e34f8bb1160567e016d5942e18c12da77c7ecfd"
+  }
+]

@@ -1,0 +1,18 @@
+{
+  "name": "Ubuntu_HackberryPi",
+  "description": "Ubuntu Desktop ARM64 for HackberryPi CM5 - Chrome, ChatGPT, Touch Dock and Matrix",
+  "release_date": "2026-10-24",
+  "version": "24.04.5-factory-pinn-preview",
+  "kernel": "6.8.0-1065-raspi",
+  "supported_models": [
+    "Compute Module 5"
+  ],
+  "supports_backup": true,
+  "nominal_size": 16896,
+  "group": "General",
+  "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/Ubuntu",
+  "sha256sum": "cb531e1340060dcd8468f47c846115b2b59b45e203f2b2d146e215562ceb4687",
+  "supports_usb_boot": true,
+  "supports_usb_root": true,
+  "download_size": 5577458163
+}
