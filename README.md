@@ -6,7 +6,6 @@ Customized ARM64 systems for **HackberryPi CM5**, published as PINN installation
 | --- | --- | --- |
 | Ubuntu 24.04.5 for HackberryPi | [Ubuntu](Ubuntu/README.md) | Create an account using native first-boot setup |
 | Kali Linux 2026.3 for HackberryPi | [Kali](Kali/README.md) | Username `kali`, password `kali` — both lowercase; use `sudo` for administrator commands |
-
 | Fyde OS for HackBerry Pi (FydeOS 23.0) | [FydeOS](FydeOS/README.md) | Native first-run setup with your own account and any required vendor license |
 
 Change the Kali password after your first login. Saved user logins, Wi-Fi credentials and personal history are excluded from the published Kali package.
