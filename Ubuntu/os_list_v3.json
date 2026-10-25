@@ -19,6 +19,26 @@
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-factory-2026-10-24/hbu_boot.tar.gz",
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-factory-2026-10-24/hbu_root.tar.gz"
       ]
+    },
+    {
+      "os_name": "Kali Linux 2026.3 for HackberryPi",
+      "description": "Kali ARM64 GNOME/Wayland for HackberryPi CM5 - display, touch, ChatGPT and battery",
+      "release_date": "2026-10-25",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 20992,
+      "group": "General",
+      "download_size": 6208738643,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/Kali_HackberryPi.png",
+      "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-hackberrypi-2026-10-25/marketing.tar",
+      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/os.json",
+      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/partitions.json",
+      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-hackberrypi-2026-10-25/hbk_boot.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-hackberrypi-2026-10-25/hbk_root.tar.gz"
+      ]
     }
   ]
 }
