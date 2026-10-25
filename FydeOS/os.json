@@ -1,0 +1,19 @@
+{
+  "name": "Fyde OS for HackBerry Pi",
+  "description": "FydeOS 23.0 ARM64 factory PINN preview for HackBerry Pi CM5 - display, touch, battery and ChatGPT",
+  "release_date": "2026-10-26",
+  "version": "23.0-16700.56.23.8-pinn-preview",
+  "kernel": "6.12.95-v8-gda5f07d40254-dirty",
+  "supported_models": [
+    "Compute Module 5"
+  ],
+  "group": "General",
+  "nominal_size": 12432,
+  "download_size": 1808058893,
+  "supports_backup": true,
+  "supports_usb_boot": false,
+  "supports_usb_root": false,
+  "use_partuuid": false,
+  "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/FydeOS",
+  "sha256sum": "848ee280ed263f302c6fecc3e4a11d7a9a3826cf558a70beceaf94cbfe01f8cf"
+}

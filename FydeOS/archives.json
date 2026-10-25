@@ -1,0 +1,44 @@
+[
+  {
+    "name": "hbf_apps.tar.gz",
+    "bytes": 807635118,
+    "uncompressed_tar_bytes": 1164195840,
+    "sha256": "b137df815a05f62db8be19cffe2dc8cb3abc443b62f444f3143ecc5460acd076"
+  },
+  {
+    "name": "hbf_boot.tar.gz",
+    "bytes": 24109794,
+    "uncompressed_tar_bytes": 35850240,
+    "sha256": "2ff02f574cb6f6d6ff6542d62552a90cd6fd7c9a962c7a1697ba0cdb19dbee5d"
+  },
+  {
+    "name": "hbf_oem.tar.gz",
+    "bytes": 182,
+    "uncompressed_tar_bytes": 10240,
+    "sha256": "5909bea4a5efc389f2b307a5d61d82548923bc2c3679770d2e75bfbf9fc9452a"
+  },
+  {
+    "name": "hbf_root.tar.gz",
+    "bytes": 98159278,
+    "uncompressed_tar_bytes": 235427840,
+    "sha256": "0bd97be82d9785a2e7a3613cd091752140951bc57150fa7206559370745cefd3"
+  },
+  {
+    "name": "hbf_runtime.tar.gz",
+    "bytes": 211845131,
+    "uncompressed_tar_bytes": 518215680,
+    "sha256": "99f609b811556f8b18c53c902abb5a5a3ac030c515be3c546071e3a91758b5c3"
+  },
+  {
+    "name": "hbf_share.tar.gz",
+    "bytes": 476422842,
+    "uncompressed_tar_bytes": 645672960,
+    "sha256": "e30cd601fba6a11ee3b2c65442827d311dbc2ccb661def98118e7a7a0e5be867"
+  },
+  {
+    "name": "hbf_state.tar.gz",
+    "bytes": 189886548,
+    "uncompressed_tar_bytes": 590417920,
+    "sha256": "e1e571a81f877378ca2b21931f0989ab1bca4ac6cf758de79aa766b82e30738f"
+  }
+]

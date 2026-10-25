@@ -1,0 +1,29 @@
+{
+  "os_list": [
+    {
+      "os_name": "Fyde OS for HackBerry Pi",
+      "description": "FydeOS 23.0 ARM64 factory PINN preview for HackBerry Pi CM5 - display, touch, battery and ChatGPT",
+      "release_date": "2026-10-26",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 12432,
+      "download_size": 1808058893,
+      "group": "General",
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/FydeOS_HackBerryPi.png",
+      "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/marketing.tar",
+      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/os.json",
+      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/partitions.json",
+      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_boot.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_root.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_state.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_oem.tar.gz"
+      ]
+    }
+  ]
+}

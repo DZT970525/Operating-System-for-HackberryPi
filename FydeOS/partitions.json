@@ -1,0 +1,37 @@
+{
+  "partitions": [
+    {
+      "label": "hbf_boot",
+      "filesystem_type": "fat",
+      "partition_size_nominal": 128,
+      "want_maximised": false,
+      "uncompressed_tarball_size": 35,
+      "sha256sum": "2ff02f574cb6f6d6ff6542d62552a90cd6fd7c9a962c7a1697ba0cdb19dbee5d",
+      "mkfs_options": "-F 32"
+    },
+    {
+      "label": "hbf_root",
+      "filesystem_type": "ext4",
+      "partition_size_nominal": 4096,
+      "want_maximised": false,
+      "uncompressed_tarball_size": 2445,
+      "sha256sum": "0bd97be82d9785a2e7a3613cd091752140951bc57150fa7206559370745cefd3"
+    },
+    {
+      "label": "hbf_state",
+      "filesystem_type": "ext4",
+      "partition_size_nominal": 8192,
+      "want_maximised": true,
+      "uncompressed_tarball_size": 564,
+      "sha256sum": "e1e571a81f877378ca2b21931f0989ab1bca4ac6cf758de79aa766b82e30738f"
+    },
+    {
+      "label": "hbf_oem",
+      "filesystem_type": "ext4",
+      "partition_size_nominal": 16,
+      "want_maximised": false,
+      "uncompressed_tarball_size": 1,
+      "sha256sum": "5909bea4a5efc389f2b307a5d61d82548923bc2c3679770d2e75bfbf9fc9452a"
+    }
+  ]
+}
