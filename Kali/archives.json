@@ -1,0 +1,62 @@
+[
+  {
+    "name": "hbk_bin.tar.gz",
+    "bytes": 572147559,
+    "uncompressed_tar_bytes": 1588131840,
+    "sha256": "bbf17d8a65b10b9bd7c3fe3f5dee2d1bf0df8ae313962e97b8ee1e1cab955112"
+  },
+  {
+    "name": "hbk_boot.tar.gz",
+    "bytes": 80467147,
+    "uncompressed_tar_bytes": 92497920,
+    "sha256": "e11a0076222f2a7d658c1ea719f23b3349b6522fb55172ef087531a4d3ab45cb"
+  },
+  {
+    "name": "hbk_chatgpt.tar.gz",
+    "bytes": 681151179,
+    "uncompressed_tar_bytes": 1693552640,
+    "sha256": "6ebb08dc26999570992d08acee07311a81d598638a9942c12fe7ddc6ef1b59bc"
+  },
+  {
+    "name": "hbk_firmware.tar.gz",
+    "bytes": 417559068,
+    "uncompressed_tar_bytes": 739328000,
+    "sha256": "26338ca73d6fb895eadaac873235be4d9c7fa16b71c6b26fe03b93f552812d1b"
+  },
+  {
+    "name": "hbk_lib_arch.tar.gz",
+    "bytes": 977449477,
+    "uncompressed_tar_bytes": 2734336000,
+    "sha256": "406f2e0e31e3b5551f0df7a8632c84e207d9a44786e48c12fccafd62885677e3"
+  },
+  {
+    "name": "hbk_lib_other.tar.gz",
+    "bytes": 981048553,
+    "uncompressed_tar_bytes": 2720174080,
+    "sha256": "1c34bf6467e9462e7253080620cac3b19c843add0fefd9a39ffe248ae8035cbe"
+  },
+  {
+    "name": "hbk_network_support.tar.gz",
+    "bytes": 8982,
+    "uncompressed_tar_bytes": 40960,
+    "sha256": "ded0c6cb9a3938acb1698c1b4f2aca9711867504bc2f525493bf07d2ebeb6c59"
+  },
+  {
+    "name": "hbk_python.tar.gz",
+    "bytes": 400021551,
+    "uncompressed_tar_bytes": 1408204800,
+    "sha256": "d56c3175fa8e020eda559dc7c2aad30073872235be4a57252a7167f2983b1065"
+  },
+  {
+    "name": "hbk_root.tar.gz",
+    "bytes": 365492657,
+    "uncompressed_tar_bytes": 1320847360,
+    "sha256": "00fe6c3b5e44b6db8d0f35403cdf2410f193c7c8f9f5dffb3844f4d550b3cc34"
+  },
+  {
+    "name": "hbk_share.tar.gz",
+    "bytes": 1733392470,
+    "uncompressed_tar_bytes": 4353976320,
+    "sha256": "9e0b3504df3c716c17324304309cb06fb1bd1f4c645b627c051353b090654fcc"
+  }
+]

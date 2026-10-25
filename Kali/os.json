@@ -1,0 +1,18 @@
+{
+  "name": "Kali Linux 2026.3 for HackberryPi",
+  "description": "Kali ARM64 GNOME/Wayland for HackberryPi CM5 - display, touch, ChatGPT and battery",
+  "release_date": "2026-10-25",
+  "version": "2026.3-hackberrypi-pinn-preview",
+  "kernel": "6.12.34+rpt-rpi-2712",
+  "supported_models": [
+    "Compute Module 5"
+  ],
+  "supports_backup": true,
+  "nominal_size": 20992,
+  "group": "General",
+  "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/Kali",
+  "sha256sum": "21d899e8326f4da8c69da7a11a16be0c8b1173d41565934520b8730cdae5ae55",
+  "supports_usb_boot": true,
+  "supports_usb_root": true,
+  "download_size": 6208738643
+}

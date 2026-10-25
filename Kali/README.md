@@ -24,13 +24,13 @@ alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-fo
 
 Select **Kali Linux 2026.3 for HackberryPi** in **General**. Allow at least **20.5 GiB** for Kali, in addition to PINN and other operating systems. More space is recommended for updates and tools. Existing cards using this repository's Ubuntu feed will also receive the Kali entry.
 
-Keep the network connected. PINN first downloads the boot and base-root archives. `partition_setup.sh` then downloads seven additional archives, verifies their SHA-256 checksums and assembles the installed system. Each asset stays below GitHub's 2 GiB limit. The script rewrites the kernel command line and `/etc/fstab` with PINN's actual partition identifiers. Stock automatic partition resizing is disabled to protect the multiboot layout.
+Keep the network connected. PINN first downloads the boot and base-root archives. `partition_setup.sh` then downloads eight additional archives, verifies their SHA-256 checksums and assembles the installed system. Each asset stays below GitHub's 2 GiB limit. The script rewrites the kernel command line and `/etc/fstab` with PINN's actual partition identifiers. Stock automatic partition resizing is disabled to protect the multiboot layout.
 
 The Release assets are **PINN filesystem archives**, not a raw `.img` for Raspberry Pi Imager. They must be installed through PINN.
 
 ## Offline installation and checksums
 
-Download all **nine `hbk_*.tar.gz` files**, `marketing.tar`, `SHA256SUMS` and the metadata from this folder. Put them together in a PINN OS directory such as `os/Kali_HackberryPi/` on a supported USB drive. Run `sha256sum -c SHA256SUMS` from that directory before installation. PINN's ordinary two-tarball download/export alone does not include the seven supplemental archives.
+Download all **ten `hbk_*.tar.gz` files**, `marketing.tar`, `SHA256SUMS` and the metadata from this folder. Put them together in a PINN OS directory such as `os/Kali_HackberryPi/` on a supported USB drive. Run `sha256sum -c SHA256SUMS` from that directory before installation. PINN's ordinary two-tarball download/export alone does not include the eight supplemental archives.
 
 A PINN backup created after a successful installation contains the complete assembled root. Its restore path keeps the installed user's data and identity.
 
