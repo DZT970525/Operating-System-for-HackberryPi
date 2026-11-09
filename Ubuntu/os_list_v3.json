@@ -1,6 +1,28 @@
 {
   "os_list": [
     {
+      "os_name": "RPiOS — Raspberry Pi OS for HackberryPi",
+      "description": "Raspberry Pi OS Desktop ARM64 Bookworm for HackberryPi CM5 - 900 workspace, Display Scale, native touchscreen scrolling and battery",
+      "release_date": "2026-11-09",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 8704,
+      "group": "General",
+      "download_size": 1756836132,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/RPiOS_HackberryPi.png",
+      "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/marketing.tar",
+      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/os.json",
+      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/partitions.json",
+      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_boot.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_root.tar.gz"
+      ]
+    },
+    {
       "os_name": "Ubuntu 24.04.5 for HackberryPi",
       "description": "Ubuntu Desktop ARM64 for HackberryPi CM5 - Chrome, ChatGPT, Touch Dock and Matrix",
       "release_date": "2026-10-24",
