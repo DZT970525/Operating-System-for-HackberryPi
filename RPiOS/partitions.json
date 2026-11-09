@@ -1,0 +1,21 @@
+{
+  "partitions": [
+    {
+      "label": "hbr_boot",
+      "filesystem_type": "fat",
+      "partition_size_nominal": 512,
+      "want_maximised": false,
+      "uncompressed_tarball_size": 76,
+      "sha256sum": "dfa772f30dba8860400230332ccb6bd2b7bb060e3cd6403ee4a0aac48f23068e",
+      "mkfs_options": "-F 32"
+    },
+    {
+      "label": "hbr_root",
+      "filesystem_type": "ext4",
+      "partition_size_nominal": 8192,
+      "want_maximised": true,
+      "uncompressed_tarball_size": 4775,
+      "sha256sum": "fb0f8119747b65069e1719a44b1ac64b9695a4ebf57ea20cd7c99c429f6c3ed9"
+    }
+  ]
+}

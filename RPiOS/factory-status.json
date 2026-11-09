@@ -1,0 +1,90 @@
+{
+  "system": "RPiOS — Raspberry Pi OS for HackberryPi CM5",
+  "base_system": {
+    "reference_date": "2024-11-19",
+    "debian_version": "12.8",
+    "codename": "bookworm",
+    "architecture": "arm64",
+    "kernel": "6.6.51+rpt-rpi-2712"
+  },
+  "default_login": {
+    "username": "pi",
+    "password": "pi",
+    "root_password_login": "locked"
+  },
+  "standalone_image": {
+    "bytes": 9130999808,
+    "boot_partition_mib": 512,
+    "root_partition_mib": 8192,
+    "fresh_filesystems": true,
+    "discarded_free_blocks_from_source": true,
+    "filesystem_checks": "passed",
+    "full_tree_checksum_and_metadata_comparison": "passed",
+    "online_root_growth": "passed",
+    "target_tool_compatibility": "Bookworm util-linux 2.38.1; sysfs partition index",
+    "physical_rebuilt_image_boot": "pending",
+    "archive_name": "RPiOS-HackberryPi-CM5-20261109.img.xz",
+    "compressed_bytes": 1389986648,
+    "compressed_sha256": "9e24938732479319a1329936c6538a166af54b0c64968af95cbd8f1a832a01b0",
+    "extract_size": 9130999808,
+    "extract_sha256": "47965c95cefb49bc588b7e0c9626af120e2e2b14cf42d0fcd5250f3ede85edad",
+    "compressed_stream_full_verification": "passed",
+    "uploadable_as_single_github_asset": true
+  },
+  "pinn_installation": {
+    "adapter_unit_checks": "passed",
+    "automated_actual_installation": "passed",
+    "physical_pinn_multiboot": "pending",
+    "partition_growth": "disabled; allocation belongs to PINN",
+    "supports_backup": true,
+    "boot_partition_number": 6,
+    "root_partition_number": 7,
+    "preserved_feature_hashes": 23,
+    "preserved_boot_files": 381,
+    "preserved_hardlink_groups": 562,
+    "growth_activation_removed": true,
+    "uid1000_access": true,
+    "target_python_cli_runs": true,
+    "restore_customer_state_preserved": true,
+    "repair_customer_state_preserved": true,
+    "firstboot_identity_helper_executed": true,
+    "unique_device_keys_generated": true,
+    "identity_helper_idempotent": true,
+    "unrelated_partition_sentinels_unchanged": 4,
+    "mbr_and_ebr_sectors_unchanged": true,
+    "cleanup_complete": true,
+    "network_downloads_used": false,
+    "automated_test_finished_at": "2026-11-09T20:03:37.838370+08:00"
+  },
+  "factory_cleanup": {
+    "status": "passed",
+    "private_application_and_network_state_removed": true,
+    "browser_profiles_and_keyrings_removed": true,
+    "personal_files_histories_and_logs_removed": true,
+    "original_machine_and_ssh_identity_removed": true,
+    "fresh_per_device_identity": true,
+    "source_card_modified": false,
+    "deleted_source_free_blocks_excluded": true
+  },
+  "preserved_features": {
+    "native_panel": [
+      720,
+      720
+    ],
+    "default_workspace": [
+      900,
+      900
+    ],
+    "manual_scale_range": [
+      480,
+      1080
+    ],
+    "touchscreen_desktop_pinch_zoom": false,
+    "native_touchscreen_scrolling": true,
+    "english_display_scale_app": true,
+    "factory_hardware_support": true,
+    "preserved_files_verified": 26,
+    "display_source_archive": "display-scale-source.tar.gz"
+  },
+  "physical_validation_note": "The source card was in use. The rebuilt sanitized image and PINN edition still require physical boot/install and multiboot testing."
+}

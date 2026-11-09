@@ -1,0 +1,18 @@
+{
+  "name": "RPiOS — Raspberry Pi OS for HackberryPi",
+  "description": "Raspberry Pi OS Desktop ARM64 Bookworm for HackberryPi CM5 - 900 workspace, Display Scale, native touchscreen scrolling and battery",
+  "release_date": "2026-11-09",
+  "version": "2024-11-19-hackberrypi-pinn-preview",
+  "kernel": "6.6.51+rpt-rpi-2712",
+  "supported_models": [
+    "Compute Module 5"
+  ],
+  "supports_backup": true,
+  "nominal_size": 8704,
+  "group": "General",
+  "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/RPiOS",
+  "sha256sum": "75e3b9dc5d71c8d54b1b676056baa1c69763aa68ea9cb373016e5f337967b92b",
+  "supports_usb_boot": false,
+  "supports_usb_root": false,
+  "download_size": 1756836132
+}

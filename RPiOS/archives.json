@@ -1,0 +1,38 @@
+[
+  {
+    "name": "hbr_boot.tar.gz",
+    "bytes": 67262008,
+    "uncompressed_tar_bytes": 79226880,
+    "sha256": "dfa772f30dba8860400230332ccb6bd2b7bb060e3cd6403ee4a0aac48f23068e"
+  },
+  {
+    "name": "hbr_payload_01.tar.gz",
+    "bytes": 512703419,
+    "uncompressed_tar_bytes": 1302937600,
+    "sha256": "d31135219ea0634878664581d467fec1fc42cfd66fb741e720c8d37ce1dcb7e1"
+  },
+  {
+    "name": "hbr_payload_02.tar.gz",
+    "bytes": 523361470,
+    "uncompressed_tar_bytes": 1306716160,
+    "sha256": "de66ed7b989d7063be91aa3903e0de108a17490a08ef534a80c40115d6994e8a"
+  },
+  {
+    "name": "hbr_payload_03.tar.gz",
+    "bytes": 444400367,
+    "uncompressed_tar_bytes": 1263503360,
+    "sha256": "f8f24cb1a3b6fbeeba2e9e8bfdb9323e15a760bfec26d8af44489e20e7f9ae1c"
+  },
+  {
+    "name": "hbr_payload_04.tar.gz",
+    "bytes": 209108475,
+    "uncompressed_tar_bytes": 1133506560,
+    "sha256": "eae43eb2e221349638af940cdcc0481e8351da6fe8049e3955631c7b38c0c0ed"
+  },
+  {
+    "name": "hbr_root.tar.gz",
+    "bytes": 393,
+    "uncompressed_tar_bytes": 10240,
+    "sha256": "fb0f8119747b65069e1719a44b1ac64b9695a4ebf57ea20cd7c99c429f6c3ed9"
+  }
+]
