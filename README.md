@@ -1,6 +1,6 @@
 # Operating Systems for HackberryPi
 
-Customized ARM64 systems for **HackberryPi CM5**. All five systems have PINN installation packages. **RPiOS is also available as a complete disk image for Raspberry Pi Imager.**
+Customized ARM64 systems for **HackberryPi CM5**, with separate download sources for **PINN** and **Raspberry Pi Imager**.
 
 | System | Documentation | Default login |
 | --- | --- | --- |
@@ -11,10 +11,6 @@ Customized ARM64 systems for **HackberryPi CM5**. All five systems have PINN ins
 | Omarchy 4.5.0 for HackberryPi | [Omarchy](Omarchy/README.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 
 Change the RPiOS, Kali or Omarchy default password after first login. Saved application logins, network credentials and personal histories are excluded from the published copies.
-
-## RPiOS with Raspberry Pi Imager
-
-Download the complete [RPiOS `.img.xz` image](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz) and write it with **Raspberry Pi Imager → Use custom** to a 16 GB or larger SD card. This installs RPiOS directly and does not require PINN. See the [RPiOS instructions](RPiOS/README.md#standalone-installation-with-raspberry-pi-imager) for the full steps and validation status.
 
 ## PINN download source
 
@@ -29,3 +25,48 @@ All five systems appear in **General**. The older `Ubuntu/os_list_v3.json` endpo
 Packages and checksums are under [Releases](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases). Read each system's installation notes before downloading. PINN packages contain filesystem archives and supplemental application archives. Read each release's notes for standalone image availability; PINN filesystem archives cannot be flashed as a whole disk image. Keep the network connected throughout online installation.
 
 The customized Kali and sanitized Omarchy standalone systems have been boot-tested by the owner. All five PINN packages remain previews until installation and multiboot have been tested through PINN on the device. Ubuntu needs at least 16.5 GiB, Kali at least 20.5 GiB and Omarchy at least **16.25 GiB**, plus PINN and other systems. Fyde OS needs at least 12.2 GiB and supports SD installation only. Its four-partition PINN edition disables native whole-disk OTA and Powerwash; reset or upgrade by reinstalling through PINN. Read the RPiOS notes for its minimum storage allocation of **8.5 GiB** and the Omarchy notes for its Btrfs setup requirements.
+
+## Raspberry Pi Imager download source
+
+Install one system directly on an SD card with [Raspberry Pi Imager](https://www.raspberrypi.com/software/). The two methods below produce or download a **complete disk image**, including its partition layout.
+
+| System | Download method | Installation notes |
+| --- | --- | --- |
+| RPiOS — Raspberry Pi OS for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz) | [RPiOS](RPiOS/README.md) |
+| Omarchy 4.5.0 for HackberryPi | Automatic download-and-merge tool ZIP: [Download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-imager-hackberrypi-2026-11-09/Omarchy-Imager-Download-Tools-20261109.zip) | [Omarchy](Imager/Omarchy.md) |
+
+**The online catalog currently contains RPiOS only.** Omarchy uses the download-and-merge helper followed by **Use custom**; it is not an online JSON entry.
+
+### RPiOS: online download in Imager
+
+1. Open Raspberry Pi Imager and choose **App Options → Content Repository → Edit**.
+2. Select **Use custom URL** and paste:
+
+   ```
+   https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json
+   ```
+
+3. Choose **Apply & Restart**.
+4. Select **HackberryPi CM5**, **RPiOS**, and your SD card. Continue writing and verification; Imager downloads the complete image automatically.
+
+Alternatively, download the RPiOS `.img.xz` file from the table and select it with **Use custom** in Imager.
+
+### Omarchy: automatic download and merge
+
+1. Download and extract **Omarchy-Imager-Download-Tools-20261109.zip** into a computer folder with **about 11 GB of free working space**. The disk must support files larger than 4 GB.
+2. Run the launcher for your computer as a normal user; the download helper needs no administrator rights:
+   - Windows: double-click `download-omarchy.cmd`.
+   - macOS: open `download-omarchy.command`.
+   - Linux: run `sh ./download-omarchy.sh` from that extracted folder.
+3. Let the helper download **10 parts**, verify their SHA-256 values, and merge them. It verifies the completed compressed image before reporting success. The output appears in the same folder:
+
+   ```
+   Omarchy-4.5.0-HackberryPi-CM5-20261109.img.gz
+   ```
+
+4. In Raspberry Pi Imager choose **Use custom** and select that **`.img.gz` file directly**. Manual decompression is not needed.
+5. Select a **16 GB or larger SD card**, confirm writing and let verification finish. Insert the card in HackberryPi CM5 and boot.
+
+The helper prepares a local image file; SD-card selection and writing take place in Imager. The `hbr_*.tar.gz` and `hbo_*.tar.gz` PINN filesystem archives belong to the PINN method and are not whole-disk images for **Use custom**.
+
+The rebuilt RPiOS image still awaits a physical boot test. The Omarchy helper reconstructs the same sanitized standalone image that the owner boot-tested. Read each release's current validation status before installing; the PINN installation and multiboot preview limits above remain separate.
