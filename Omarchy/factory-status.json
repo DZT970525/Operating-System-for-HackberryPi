@@ -1,0 +1,48 @@
+{
+  "system": "Omarchy 4.5.0 for HackberryPi CM5",
+  "default_login": {
+    "username": "pi",
+    "password": "pi",
+    "root_password_login": "locked"
+  },
+  "standalone_boot": {
+    "status": "owner-confirmed",
+    "date": "2026-11-09"
+  },
+  "pinn_installation": {
+    "automated_adapter_test": "passed",
+    "physical_pinn_multiboot": "pending",
+    "boot_partition": 6,
+    "root_partition": 7,
+    "preserved_files_verified": 63,
+    "hardlink_groups_preserved": 1047,
+    "other_partitions_unchanged": 5,
+    "uid1000_access": "passed"
+  },
+  "factory_cleanup": {
+    "private_subscriptions_removed": true,
+    "agent_and_browser_logins_removed": true,
+    "wifi_vpn_and_pairings_removed": true,
+    "personal_history_and_recordings_removed": true,
+    "fresh_per_device_identity": true
+  },
+  "preserved_features": {
+    "codex_version": "0.167.0",
+    "codex_voice_keys": [
+      "F11",
+      "F12"
+    ],
+    "vox": "installed binary, autostart, launcher, source, tests and license",
+    "scale_default": 900,
+    "scale_range": [
+      480,
+      1080
+    ],
+    "native_panel": [
+      720,
+      720
+    ]
+  },
+  "partition_growth": "disabled for PINN; allocation belongs to the installer",
+  "supports_backup": false
+}

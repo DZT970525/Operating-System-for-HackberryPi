@@ -1,0 +1,26 @@
+{
+  "os_list": [
+    {
+      "os_name": "Omarchy 4.5.0 for HackberryPi",
+      "description": "Omarchy ARM64 Hyprland for HackberryPi CM5 - touch scaling, battery, Agents and Codex Voice",
+      "release_date": "2026-11-09",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 16640,
+      "group": "General",
+      "download_size": 4865515781,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/Omarchy_HackberryPi.png",
+      "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/marketing.tar",
+      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/os.json",
+      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/partitions.json",
+      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/hbo_boot.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/hbo_root.tar.gz"
+      ]
+    }
+  ]
+}

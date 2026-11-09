@@ -1,0 +1,22 @@
+{
+  "partitions": [
+    {
+      "label": "hbo_boot",
+      "filesystem_type": "fat",
+      "partition_size_nominal": 256,
+      "want_maximised": false,
+      "uncompressed_tarball_size": 71,
+      "sha256sum": "e9a16e2ed2556af07f01589ce965b65ee477f36b544f5ed13c0eb769e628cc91",
+      "mkfs_options": "-F 32"
+    },
+    {
+      "label": "hbo_root",
+      "filesystem_type": "btrfs",
+      "partition_size_nominal": 16384,
+      "want_maximised": true,
+      "uncompressed_tarball_size": 11511,
+      "sha256sum": "63acbdb580b1dde7f6ea2fa9ee1c928dc6942946199761e68d006b7e225984fc",
+      "mkfs_options": "-f -s 4096 -n 16384 -m dup -d single"
+    }
+  ]
+}

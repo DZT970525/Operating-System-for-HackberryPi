@@ -1,0 +1,18 @@
+{
+  "name": "Omarchy 4.5.0 for HackberryPi",
+  "description": "Omarchy ARM64 Hyprland for HackberryPi CM5 - touch scaling, battery, Agents and Codex Voice",
+  "release_date": "2026-11-09",
+  "version": "4.5.0-hackberrypi-pinn-preview",
+  "kernel": "6.18.57-1-rpi-16k",
+  "supported_models": [
+    "Compute Module 5"
+  ],
+  "supports_backup": false,
+  "nominal_size": 16640,
+  "group": "General",
+  "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/Omarchy",
+  "sha256sum": "e741b289177b69035d6f877698b5413695650351bcf948aeb94ea71891654b9d",
+  "supports_usb_boot": false,
+  "supports_usb_root": false,
+  "download_size": 4865515781
+}

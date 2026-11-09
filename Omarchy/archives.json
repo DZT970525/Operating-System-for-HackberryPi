@@ -1,0 +1,80 @@
+[
+  {
+    "name": "hbo_boot.tar.gz",
+    "bytes": 46083480,
+    "uncompressed_tar_bytes": 73656320,
+    "sha256": "e9a16e2ed2556af07f01589ce965b65ee477f36b544f5ed13c0eb769e628cc91"
+  },
+  {
+    "name": "hbo_payload_01.tar.gz",
+    "bytes": 502860925,
+    "uncompressed_tar_bytes": 1286932480,
+    "sha256": "804941200102b26e41c18af004e894a096f1e3d97a3b5c9ceab33f02ed8281a8"
+  },
+  {
+    "name": "hbo_payload_02.tar.gz",
+    "bytes": 385694130,
+    "uncompressed_tar_bytes": 1304811520,
+    "sha256": "75b24a21a24419ce2e52d987736d445cda8d9c9b960a680c1aea599e85de4166"
+  },
+  {
+    "name": "hbo_payload_03.tar.gz",
+    "bytes": 502201686,
+    "uncompressed_tar_bytes": 1298227200,
+    "sha256": "d76d966972858876373a5b247876eb90946028b98d9ab977363a324a061dcfbe"
+  },
+  {
+    "name": "hbo_payload_04.tar.gz",
+    "bytes": 513270426,
+    "uncompressed_tar_bytes": 1205616640,
+    "sha256": "17dc25d4dcf02d91c7e9789761ec0b54b7bd804c0d8dbdafb1ac412c2c568c7b"
+  },
+  {
+    "name": "hbo_payload_05.tar.gz",
+    "bytes": 504021492,
+    "uncompressed_tar_bytes": 1304289280,
+    "sha256": "6beb0708d4d8097e6e4f1c9562391b651acf49cef7a55634185c6eb0c8c35c11"
+  },
+  {
+    "name": "hbo_payload_06.tar.gz",
+    "bytes": 454042155,
+    "uncompressed_tar_bytes": 1283235840,
+    "sha256": "85ea580507729600def13c5a0f52839a8c5e372cef50d511219a889d97c5c9b3"
+  },
+  {
+    "name": "hbo_payload_07.tar.gz",
+    "bytes": 426838588,
+    "uncompressed_tar_bytes": 1287475200,
+    "sha256": "3076e275b07fb1928691b50586498690a41bd3b748561a3a03ae59e788d024be"
+  },
+  {
+    "name": "hbo_payload_08.tar.gz",
+    "bytes": 640834656,
+    "uncompressed_tar_bytes": 1283112960,
+    "sha256": "84f20da8ae5d7aedd6f43995f336d159e1a23803334a94bd750e8a1cc5e737e8"
+  },
+  {
+    "name": "hbo_payload_09.tar.gz",
+    "bytes": 599354281,
+    "uncompressed_tar_bytes": 1154938880,
+    "sha256": "f1afcebc89a0a9ff6fe1382c695a9cee3037acef5573e1b77f260ff56a226e1e"
+  },
+  {
+    "name": "hbo_payload_10.tar.gz",
+    "bytes": 290313287,
+    "uncompressed_tar_bytes": 661032960,
+    "sha256": "1f4dc0dc8fd8373ac77ce033019bdfc86eb8fb125236ab17bbed50d0041ba5af"
+  },
+  {
+    "name": "hbo_root.tar.gz",
+    "bytes": 675,
+    "uncompressed_tar_bytes": 10240,
+    "sha256": "63acbdb580b1dde7f6ea2fa9ee1c928dc6942946199761e68d006b7e225984fc"
+  },
+  {
+    "name": "vox-source.tar.gz",
+    "bytes": 30825,
+    "uncompressed_tar_bytes": 133120,
+    "sha256": "6bd559623b1b2c28c03c30ecd1fbd77941ab07a98c45facd011a21c6ba8f61a5"
+  }
+]
