@@ -32,6 +32,24 @@
       "init_format": "none",
       "capabilities": [],
       "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/RPiOS"
+    },
+    {
+      "name": "FydeOS 23.0 for HackberryPi",
+      "description": "ARM64 standalone image with 900 × 900 workspace and English Display Scale v1.2 (640–1080). Native FydeOS first-run account setup.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/FydeOS_HackBerryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-imager-hackberrypi-2026-11-10/FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz",
+      "extract_size": 10224664576,
+      "extract_sha256": "5413fb46b6dd91b3a55fbb060d5b58b0c59634c6fabe4256a5bf11a424facb0d",
+      "image_download_size": 2080986044,
+      "image_download_sha256": "201e6ffa4a5d9507537d7dfebfd662433ad385784535fe0046ba91e8a79f9028",
+      "release_date": "2026-11-10",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/FydeOS.md"
     }
   ]
 }

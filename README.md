@@ -7,7 +7,7 @@ Customized ARM64 systems for **HackberryPi CM5**, with separate download sources
 | RPiOS — Raspberry Pi OS for HackberryPi | [RPiOS](RPiOS/README.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 | Ubuntu 24.04.5 for HackberryPi | [Ubuntu](Ubuntu/README.md) | Create an account using native first-boot setup |
 | Kali Linux 2026.3 for HackberryPi | [Kali](Kali/README.md) | Username `kali`, password `kali` — both lowercase; use `sudo` for administrator commands |
-| Fyde OS for HackBerry Pi (FydeOS 23.0) | [FydeOS](FydeOS/README.md) | Native first-run setup with your own account and any required vendor license |
+| Fyde OS for HackBerry Pi (FydeOS 23.0) | [PINN](FydeOS/README.md) · [Imager](Imager/FydeOS.md) | Native first-run setup with your own account and any required vendor license |
 | Omarchy 4.5.0 for HackberryPi | [Omarchy](Omarchy/README.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 
 Change the RPiOS, Kali or Omarchy default password after first login. Saved application logins, network credentials and personal histories are excluded from the published copies.
@@ -33,11 +33,12 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
 | System | Download method | Installation notes |
 | --- | --- | --- |
 | RPiOS — Raspberry Pi OS for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz) | [RPiOS](RPiOS/README.md) |
+| FydeOS 23.0 for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete image](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-imager-hackberrypi-2026-11-10/FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz) | [FydeOS](Imager/FydeOS.md) |
 | Omarchy 4.5.0 for HackberryPi | Automatic download-and-merge tool ZIP: [Download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-imager-hackberrypi-2026-11-09/Omarchy-Imager-Download-Tools-20261109.zip) | [Omarchy](Imager/Omarchy.md) |
 
-**The online catalog currently contains RPiOS only.** Omarchy uses the download-and-merge helper followed by **Use custom**; it is not an online JSON entry.
+**The online catalog contains RPiOS and FydeOS.** Omarchy uses the download-and-merge helper followed by **Use custom**; it is not an online JSON entry.
 
-### RPiOS: online download in Imager
+### RPiOS and FydeOS: online download in Imager
 
 1. Open Raspberry Pi Imager and choose **App Options → Content Repository → Edit**.
 2. Select **Use custom URL** and paste:
@@ -47,9 +48,9 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
    ```
 
 3. Choose **Apply & Restart**.
-4. Select **HackberryPi CM5**, **RPiOS**, and your SD card. Continue writing and verification; Imager downloads the complete image automatically.
+4. Select **HackberryPi CM5**, choose **RPiOS** or **FydeOS**, and select your SD card. Continue writing and verification; Imager downloads the complete image automatically.
 
-Alternatively, download the RPiOS `.img.xz` file from the table and select it with **Use custom** in Imager.
+Alternatively, download a complete compressed image from the table and select it with **Use custom** in Imager. Read the [FydeOS installation notes](Imager/FydeOS.md) for its first-run setup and Display Scale controls.
 
 ### Omarchy: automatic download and merge
 
@@ -69,4 +70,5 @@ Alternatively, download the RPiOS `.img.xz` file from the table and select it wi
 
 The helper prepares a local image file; SD-card selection and writing take place in Imager. The `hbr_*.tar.gz` and `hbo_*.tar.gz` PINN filesystem archives belong to the PINN method and are not whole-disk images for **Use custom**.
 
-The rebuilt RPiOS image still awaits a physical boot test. The Omarchy helper reconstructs the same sanitized standalone image that the owner boot-tested. Read each release's current validation status before installing; the PINN installation and multiboot preview limits above remain separate.
+The FydeOS source card with Display Scale was tested and accepted by the owner; the sanitized standalone release image awaits a separate physical flash and first-run test. The rebuilt RPiOS image still awaits a physical boot test. The Omarchy helper reconstructs the same sanitized standalone image that the owner boot-tested. Read each release's current validation status before installing; the PINN installation and multiboot preview limits above remain separate.
+
