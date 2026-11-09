@@ -20,7 +20,7 @@ The helper runs without administrator rights on Windows, macOS and Linux. Extrac
 4. Select the intended SD card, confirm writing and let verification finish. Insert the card in HackberryPi CM5 and boot.
 5. Log in with **pi / pi** and configure your own network, Agent accounts and subscriptions.
 
-This is a complete standalone disk image. It is supplied through the helper, rather than as an Imager online JSON entry. The published `os_list_imager.json` catalog currently contains RPiOS only. The helper writes the completed image file to the computer; Imager performs the SD-card write.
+This is a complete standalone disk image. It is supplied through the helper, rather than as an Imager online JSON entry. The published `os_list_imager.json` catalog contains RPiOS and FydeOS. The helper writes the completed image file to the computer; Imager performs the SD-card write.
 
 The compressed image is **4,935,054,616 bytes** and expands to **11,005,853,696 bytes**. The 10 parts consist of nine 500 MiB parts and a final 216,462,616-byte part. They reconstruct the exact sanitized standalone artifact that the owner successfully boot-tested; this download format does not change its system contents.
 
@@ -32,3 +32,4 @@ The compressed image is **4,935,054,616 bytes** and expands to **11,005,853,696 
 The [PINN package](../Omarchy/README.md) remains available separately, with its existing Btrfs requirements and pending physical PINN/multiboot tests.
 
 Helper preview: small offline POSIX tests passed. The Windows and macOS launchers received static review but have not been run on those operating systems. A full public-network download/resume test remains to be completed.
+
