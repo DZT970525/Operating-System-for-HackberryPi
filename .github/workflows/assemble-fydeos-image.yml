@@ -1,0 +1,221 @@
+# Generated locally from a frozen manifest; no upload or dispatch occurs here.
+# Canonical manifest SHA256: e0a7283caf85d30d6e5ecef63664ce051b8c1644a80de62fa8b8291a6b0ff793
+# Both release IDs and every filename, length and SHA256 are fixed below.
+name: Assemble verified FydeOS image once
+
+"on":
+  workflow_dispatch: {}
+
+permissions: {}
+
+concurrency:
+  group: assemble-fydeos-image-439405903
+  cancel-in-progress: false
+
+jobs:
+  assemble:
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.repository == 'DZT970525/Operating-System-for-HackberryPi' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_HOST: github.com
+      GH_PROMPT_DISABLED: '1'
+      GH_NO_UPDATE_NOTIFIER: '1'
+      GH_DEBUG: ''
+    steps:
+      - name: Verify private chunks, assemble and upload the exact image
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import re
+          import subprocess
+          import tempfile
+          import time
+          import urllib.parse
+
+          REPOSITORY = 'DZT970525/Operating-System-for-HackberryPi'
+          SOURCE_RELEASE_ID = 439407575
+          TARGET_RELEASE_ID = 439405903
+          IMAGE_NAME = 'FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz'
+          IMAGE_BYTES = 2080986044
+          IMAGE_SHA256 = '201e6ffa4a5d9507537d7dfebfd662433ad385784535fe0046ba91e8a79f9028'
+          PARTS = [
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part01', 134217728, '00ee6e013f9f275f1d7247422f7cb3e03bbc650ea70f7f88e6c3ed66c0edb6ac'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part02', 134217728, '92d9ece78cb7a78fb1512fd96b11b1fbbbb481c9832af076e67f1d2006b554b2'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part03', 134217728, '9757e4ae8ef2a0177339512652f764320cac9fd86ccee78361d88a42018236d2'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part04', 134217728, '287e394363020d7e765d2da3c55220c5194ac39c1afe2519b249308df02b9f6d'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part05', 134217728, '1809edc048b78f24baae9ac45266ac68c92cd380b98c7111170272778ec3e648'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part06', 134217728, '43deb2d8dc865bcf48c627661002a3043026b2d431a88ccb4930de97c8065a86'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part07', 134217728, 'fbb6b6bf58e7c514aff28589718090000e8d76a271a8e5f1ee72902a1e560090'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part08', 134217728, 'a5f9c8dc7b117202ee642fceb738ba5d15e496cb1a2844f8bbd80076a70334d7'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part09', 134217728, 'd12fc81aa4cf5bed533c6d82ba9edcb90a502aa08b2c61eb323ea72bf43dc6b0'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part10', 134217728, 'a3192b240b7bd46b9b99ccdaa069fcc586fdc7c10224191ea1c295d6ce4ac981'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part11', 134217728, 'ea70fd5c3c28421980e2b9a5b8dd59f973665eb6eb16cd45a71f9d0bbcfe2f42'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part12', 134217728, 'ab590d8603d8dba84ddac75d1d34fa9ee31ce502b0edabc1828e2b679b67dee0'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part13', 134217728, '4ab752677c33bbac61da28c7ffea26cb8f2e8cfd61a72370e15654861175afed'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part14', 134217728, 'ea57a98e79431e32ce997b5cd4ea7832ffff8751fe27720527b3f14c9fd2081f'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part15', 134217728, '315c488a62cae539e9585e2a3df30f707afa90690f2c5ce22e331f89b0d42c00'),
+              ('FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz.part16', 67720124, '386a0954282ce2b6438151afc6fc032958d05911da1e68c1730fc7a12db2f854'),
+          ]
+          API = f'repos/{REPOSITORY}'
+
+          def require(condition, message):
+              if not condition:
+                  raise RuntimeError(message)
+
+          def gh_json(endpoint, paginate=False):
+              args = ['gh', 'api', '--method', 'GET', endpoint,
+                      '-H', 'Accept: application/vnd.github+json',
+                      '-H', 'X-GitHub-Api-Version: 2022-11-28']
+              if paginate:
+                  args += ['--paginate', '--slurp']
+              result = subprocess.run(args, capture_output=True)
+              require(result.returncode == 0, 'Authenticated GitHub metadata read failed')
+              value = json.loads(result.stdout)
+              return [asset for page in value for asset in page] if paginate else value
+
+          def draft(release_id):
+              value = gh_json(f'{API}/releases/{release_id}')
+              require(value.get('id') == release_id and value.get('draft') is True,
+                      'Both source and target releases must remain unpublished drafts')
+              return value
+
+          def assets(release_id):
+              return gh_json(f'{API}/releases/{release_id}/assets?per_page=100', paginate=True)
+
+          def matching_target_asset():
+              matching = [a for a in assets(TARGET_RELEASE_ID) if a.get('name') == IMAGE_NAME]
+              require(len(matching) <= 1, 'Duplicate target image names; refusing to modify them')
+              return matching[0] if matching else None
+
+          def correct_image(asset):
+              return (asset.get('name') == IMAGE_NAME and asset.get('size') == IMAGE_BYTES
+                      and asset.get('state') == 'uploaded'
+                      and asset.get('digest') == 'sha256:' + IMAGE_SHA256)
+
+          def verify_existing(asset):
+              if asset is None:
+                  return False
+              require(correct_image(asset),
+                      'An existing target image differs or is incomplete; it has been left untouched')
+              return True
+
+          def sha256_file(path):
+              with path.open('rb') as stream:
+                  return hashlib.file_digest(stream, 'sha256').hexdigest()
+
+          def summary(message):
+              print(message, flush=True)
+              if os.environ.get('GITHUB_STEP_SUMMARY'):
+                  with open(os.environ['GITHUB_STEP_SUMMARY'], 'a') as output:
+                      output.write(message + '\n\n')
+                      output.write(f'Image: `{IMAGE_NAME}` ({IMAGE_BYTES} bytes)\n\n')
+                      output.write(f'SHA256: `{IMAGE_SHA256}`\n\n')
+                      output.write('The releases remain drafts. No assets were deleted or replaced.\n')
+
+          require(os.environ.get('GITHUB_REPOSITORY') == REPOSITORY,
+                  'This workflow is restricted to the original repository')
+          require(os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch'
+                  and os.environ.get('GITHUB_REF') == 'refs/heads/main',
+                  'Only manual execution from main is permitted')
+          require(SOURCE_RELEASE_ID != TARGET_RELEASE_ID,
+                  'The private transfer draft must differ from the target draft')
+          require(sum(size for _, size, _ in PARTS) == IMAGE_BYTES,
+                  'The fixed chunk sizes do not match the image size')
+          require(all(re.fullmatch(r'[0-9a-f]{64}', checksum) for _, _, checksum in PARTS),
+                  'Fixed chunk checksums are invalid')
+          draft(SOURCE_RELEASE_ID)
+          draft(TARGET_RELEASE_ID)
+          source_assets = assets(SOURCE_RELEASE_ID)
+          expected_names = {name for name, _, _ in PARTS}
+          require(len(source_assets) == len(PARTS)
+                  and {a.get('name') for a in source_assets} == expected_names,
+                  'The private transfer draft must contain exactly the frozen chunks')
+          source_by_name = {a['name']: a for a in source_assets}
+          for name, size, checksum in PARTS:
+              asset = source_by_name[name]
+              require(asset.get('state') == 'uploaded' and asset.get('size') == size
+                      and asset.get('digest') == 'sha256:' + checksum,
+                      f'Transfer chunk metadata verification failed: {name}')
+          if verify_existing(matching_target_asset()):
+              summary('The exact verified whole image is already attached; no upload was needed.')
+              raise SystemExit(0)
+
+          with tempfile.TemporaryDirectory(prefix='fydeos-image-assembly-') as directory:
+              temporary = Path(directory)
+              chunk_paths = []
+              for name, size, checksum in PARTS:
+                  path = temporary / name
+                  asset_id = source_by_name[name]['id']
+                  require(isinstance(asset_id, int) and asset_id > 0, 'Invalid source asset ID')
+                  print('Downloading and verifying ' + name, flush=True)
+                  for attempt in range(3):
+                      with path.open('wb') as stream:
+                          download = subprocess.run([
+                              'gh', 'api', '--method', 'GET',
+                              f'{API}/releases/assets/{asset_id}',
+                              '-H', 'Accept: application/octet-stream',
+                              '-H', 'X-GitHub-Api-Version: 2022-11-28',
+                          ], stdout=stream, stderr=subprocess.PIPE)
+                      if (download.returncode == 0 and path.stat().st_size == size
+                              and sha256_file(path) == checksum):
+                          break
+                      path.unlink(missing_ok=True)
+                      require(attempt < 2, f'Download/checksum verification failed: {name}')
+                      time.sleep(3)
+                  chunk_paths.append(path)
+
+              whole = temporary / IMAGE_NAME
+              checksum = hashlib.sha256()
+              with whole.open('wb') as output:
+                  for path in chunk_paths:
+                      with path.open('rb') as stream:
+                          while chunk := stream.read(1024 * 1024):
+                              output.write(chunk)
+                              checksum.update(chunk)
+                  output.flush()
+                  os.fsync(output.fileno())
+              require(whole.stat().st_size == IMAGE_BYTES and checksum.hexdigest() == IMAGE_SHA256,
+                      'Assembled image verification failed; nothing will be uploaded')
+              draft(SOURCE_RELEASE_ID)
+              draft(TARGET_RELEASE_ID)
+              if not verify_existing(matching_target_asset()):
+                  print('Uploading the verified whole image to the fixed FydeOS draft', flush=True)
+                  upload_url = (
+                      f'https://uploads.github.com/{API}/releases/{TARGET_RELEASE_ID}/assets?name='
+                      + urllib.parse.quote(IMAGE_NAME, safe=''))
+                  upload = subprocess.run([
+                      'gh', 'api', '--method', 'POST', upload_url,
+                      '-H', 'Accept: application/vnd.github+json',
+                      '-H', 'Content-Type: application/octet-stream',
+                      '-H', 'X-GitHub-Api-Version: 2022-11-28',
+                      '--input', str(whole),
+                  ], capture_output=True)
+                  if upload.returncode != 0:
+                      # An interrupted response may still have completed the upload.
+                      require(verify_existing(matching_target_asset()),
+                              'Upload failed; every existing asset has been left untouched')
+
+              for attempt in range(12):
+                  draft(SOURCE_RELEASE_ID)
+                  draft(TARGET_RELEASE_ID)
+                  final_asset = matching_target_asset()
+                  if final_asset is not None and correct_image(final_asset):
+                      break
+                  if final_asset is not None and final_asset.get('digest'):
+                      raise RuntimeError('Uploaded asset digest differs; asset left untouched')
+                  require(attempt < 11, 'Target image was not verified; assets left untouched')
+                  time.sleep(5)
+              summary('Verified whole FydeOS image attached successfully to draft release 439405903.')
+          PY
