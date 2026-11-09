@@ -1,0 +1,37 @@
+{
+  "imager": {
+    "devices": [
+      {
+        "name": "HackberryPi CM5",
+        "description": "HackberryPi handheld with Raspberry Pi Compute Module 5",
+        "tags": [
+          "hackberrypi-cm5"
+        ],
+        "default": true,
+        "matching_type": "exclusive",
+        "architecture": "armv8",
+        "capabilities": []
+      }
+    ]
+  },
+  "os_list": [
+    {
+      "name": "RPiOS — Raspberry Pi OS for HackberryPi",
+      "description": "Bookworm ARM64 preview with 900 × 900 workspace and manual Display Scale. Default login: pi / pi.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/RPiOS_HackberryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz",
+      "extract_size": 9130999808,
+      "extract_sha256": "47965c95cefb49bc588b7e0c9626af120e2e2b14cf42d0fcd5250f3ede85edad",
+      "image_download_size": 1389986648,
+      "image_download_sha256": "9e24938732479319a1329936c6538a166af54b0c64968af95cbd8f1a832a01b0",
+      "release_date": "2026-11-09",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/RPiOS"
+    }
+  ]
+}
