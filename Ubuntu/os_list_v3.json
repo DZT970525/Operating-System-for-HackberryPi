@@ -108,6 +108,28 @@
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/hbo_boot.tar.gz",
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/hbo_root.tar.gz"
       ]
+    },
+    {
+      "os_name": "Manjaro ARM Xfce for HackberryPi",
+      "description": "Manjaro ARM Xfce/X11 for HackberryPi CM5 - 900 workspace, English Display Scale, touchscreen and MAX17048 battery",
+      "release_date": "2026-11-10",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 8704,
+      "group": "General",
+      "download_size": 1373194324,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/Manjaro_HackberryPi.png",
+      "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/marketing.tar",
+      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/os.json",
+      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/partitions.json",
+      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/hbm_boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/hbm_root.tar.xz"
+      ]
     }
   ]
 }
