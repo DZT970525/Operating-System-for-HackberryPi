@@ -1,0 +1,494 @@
+# Generated locally; no remote action is performed by the generator.
+# Frozen manifest SHA256: f85f5cb9bf5aab3418652cac44de4ef6b77718b46c88d719e07a37f7d10f5711
+name: Assemble verified Manjaro image and PINN archives once
+
+"on":
+  workflow_dispatch: {}
+
+permissions: {}
+
+concurrency:
+  group: manjaro-fixed-assembly-e948124801a49f8333ec
+  cancel-in-progress: false
+
+jobs:
+  assemble:
+    if: >-
+      github.event_name == 'workflow_dispatch' &&
+      github.repository == 'DZT970525/Operating-System-for-HackberryPi' &&
+      github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ github.token }}
+      GH_HOST: github.com
+      GH_PROMPT_DISABLED: '1'
+      GH_NO_UPDATE_NOTIFIER: '1'
+      GH_DEBUG: ''
+    steps:
+      - name: Verify image, read-only archive and attach to the fixed draft
+        shell: bash
+        run: |
+          set -euo pipefail
+          sudo --non-interactive --preserve-env=GH_TOKEN,GH_HOST,GH_PROMPT_DISABLED,GH_NO_UPDATE_NOTIFIER,GH_DEBUG,GITHUB_REPOSITORY,GITHUB_EVENT_NAME,GITHUB_REF,GITHUB_STEP_SUMMARY,RUNNER_TEMP unshare --mount --propagation private -- python3 - <<'PY'
+          #!/usr/bin/env python3
+          """Fixed-scope CI assembly. Importing this module never accesses GitHub/devices."""
+          from __future__ import annotations
+          import contextlib
+          import email.utils
+          import hashlib
+          import json
+          import lzma
+          import os
+          from pathlib import Path
+          import re
+          import shutil
+          import stat
+          import subprocess
+          import tempfile
+          import time
+          import urllib.parse
+          
+          FROZEN = {'schema_version': 1, 'repository': 'DZT970525/Operating-System-for-HackberryPi', 'source': {'tag': 'transfer-manjaro-hackberrypi-2026-11-10', 'name': 'Manjaro image transfer — internal draft (do not publish)', 'nonce': '7dc2baf90ce50a0e943625f91e7710c1', 'prerelease': False}, 'target': {'tag': 'manjaro-displayscale-hackberrypi-2026-11-10', 'name': 'Manjaro ARM Xfce for HackberryPi CM5 — Display Scale — preview', 'nonce': '4cde2263021c3a78aa934ad9439f4090', 'prerelease': True}, 'image': {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz', 'size': 1399527532, 'sha256': '1d662e74bdd356b55a23c3aefdf595ba348c37cec1339cab152384ca22d1a2fe', 'raw_size': 9127854080, 'raw_sha256': '20c9136ebc1396a6de9cb8574f193982b60cfe1bc6cf161ed70ac64fdc2699e0'}, 'layout': {'disk_id': '75b6366f', 'boot_start': 2048, 'boot_sectors': 1048576, 'root_start': 1050624, 'root_sectors': 16777216}, 'parts': [{'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part01', 'size': 134217728, 'sha256': '73e1302852dde4c717cfbff8f534c540f50632b1541d6cb63f1edac1c577a149'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part02', 'size': 134217728, 'sha256': '396a31309ce5e46c7b7037ce019fedf5c20cdd953965a59b4c8d8d113cc1bea9'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part03', 'size': 134217728, 'sha256': 'ad42b2166234d8f5c8a2977c0747a5b1a1f2c8225ba65385d838004dd598ec8b'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part04', 'size': 134217728, 'sha256': '8bd670d09568a5720f8c71d85f0f58f8ba750c38f7bf7657412f4c1233da74a4'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part05', 'size': 134217728, 'sha256': '5556f90d1a0c8e617c0286e052bd6f73e3528c8ce8b8b3fed5bf369a82e9649e'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part06', 'size': 134217728, 'sha256': 'b069ead526aced983a17afd39e2414889e1de54e94f115cdf2262404a4fcbdc9'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part07', 'size': 134217728, 'sha256': 'd6e4225758b1fe67a9ed991f8f7e63d3a59740dadafe8f463312c46295bdaa37'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part08', 'size': 134217728, 'sha256': 'f95f478530f00a859fd6c4b885b350190319f8ee5b9d64b3799423f75692e2e2'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part09', 'size': 134217728, 'sha256': 'c548d142882eac9d8f628acbda814e57c7a922d9657c3457c31969b63d6172f4'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part10', 'size': 134217728, 'sha256': 'eee2807878ddfd9803d97e0f0f1687d197eec1e644915d1498165d20b0dcf017'}, {'name': 'Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz.part11', 'size': 57350252, 'sha256': '40c98ee1a5b68cb42cc689c60775e96acc97a77d5043e050c06980232f31f0b9'}]}
+          REPOSITORY = 'DZT970525/Operating-System-for-HackberryPi'
+          MAX_ASSET = 2 * 1024**3 - 1
+          PART_BYTES = 128 * 1024**2
+          RAW_BYTES = 9127854080
+          BOOT_NAME = 'hbm_boot.tar.xz'
+          ROOT_NAME = 'hbm_root.tar.xz'
+          MANIFEST_NAME = 'manjaro-assembly-manifest.json'
+          
+          
+          def require(condition, message):
+              if not condition:
+                  raise RuntimeError(message)
+          
+          
+          def exact_keys(value, keys, label):
+              require(isinstance(value, dict) and set(value) == set(keys), 'Unexpected fields: ' + label)
+          
+          
+          def digest(value):
+              require(isinstance(value, str) and re.fullmatch('[0-9a-f]{64}', value) and len(set(value)) > 1,
+                      'Invalid or placeholder SHA256')
+          
+          
+          def positive(value, limit=2**63-1):
+              require(type(value) is int and 0 < value <= limit, 'Invalid byte count')
+          
+          
+          def validate_manifest(value):
+              exact_keys(value, ['schema_version','repository','source','target','image','layout','parts'], 'manifest')
+              require(type(value['schema_version']) is int and value['schema_version'] == 1, 'Unsupported schema')
+              require(value['repository'] == REPOSITORY, 'Repository is outside fixed scope')
+              for role, prerelease in [('source',False),('target',True)]:
+                  item = value[role]
+                  exact_keys(item, ['tag','name','nonce','prerelease'], role)
+                  prefix='transfer-manjaro-' if role=='source' else 'manjaro-'
+                  require(isinstance(item['tag'],str) and re.fullmatch(prefix+r'[A-Za-z0-9][A-Za-z0-9._-]{1,119}',item['tag']), 'Unsafe tag')
+                  require(isinstance(item['name'],str) and 2 <= len(item['name']) <= 180 and
+                          not any(c in item['name'] for c in '\r\n\0') and '${{' not in item['name'], 'Unsafe release title')
+                  require(isinstance(item['nonce'],str) and re.fullmatch('[A-Za-z0-9_-]{16,96}',item['nonce']), 'Invalid nonce')
+                  require(item['prerelease'] is prerelease, 'Unexpected draft prerelease flag')
+              require(value['source']['tag'] != value['target']['tag'] and
+                      value['source']['nonce'] != value['target']['nonce'], 'Draft identities must differ')
+              image = value['image']
+              exact_keys(image, ['name','size','sha256','raw_size','raw_sha256'], 'image')
+              require(isinstance(image['name'],str) and re.fullmatch(r'Manjaro-[A-Za-z0-9][A-Za-z0-9._-]{1,160}\.img\.xz',image['name']), 'Unsafe image filename')
+              positive(image['size'],MAX_ASSET); digest(image['sha256']); digest(image['raw_sha256'])
+              require(type(image['raw_size']) is int and image['raw_size'] == RAW_BYTES, 'Wrong fixed raw image size')
+              layout = value['layout']
+              exact_keys(layout,['disk_id','boot_start','boot_sectors','root_start','root_sectors'],'layout')
+              require(isinstance(layout['disk_id'],str) and re.fullmatch('[0-9a-f]{8}',layout['disk_id']) and
+                      layout['disk_id'] != '00000000','Invalid MBR disk ID')
+              for key, expected in dict(boot_start=2048,boot_sectors=1048576,root_start=1050624,root_sectors=16777216).items():
+                  require(type(layout[key]) is int and layout[key] == expected,'Unexpected image geometry')
+              require((layout['root_start']+layout['root_sectors'])*512 == RAW_BYTES,'Image geometry differs from raw size')
+              parts = value['parts']
+              require(isinstance(parts,list) and 1 <= len(parts) <= 32,'Invalid transfer-part count')
+              for index, part in enumerate(parts,1):
+                  exact_keys(part,['name','size','sha256'],'part')
+                  require(part['name'] == image['name'] + f'.part{index:02d}','Parts must be consecutive frozen filenames')
+                  positive(part['size'],PART_BYTES); digest(part['sha256'])
+                  require(index == len(parts) or part['size'] == PART_BYTES,'Only the last part may be short')
+              require(sum(part['size'] for part in parts) == image['size'],'Parts do not sum to image bytes')
+              return value
+          
+          
+          def canonical_sha(value):
+              return hashlib.sha256(json.dumps(value,sort_keys=True,separators=(',',':')).encode()).hexdigest()
+          
+          
+          def sha_file(path):
+              with path.open('rb') as stream:
+                  return hashlib.file_digest(stream,'sha256').hexdigest()
+          
+          
+          def command(arguments, timeout=60):
+              return subprocess.run(arguments,check=True,capture_output=True,text=True,timeout=timeout,
+                                    env={**os.environ,'LC_ALL':'C','TZ':'UTC'}).stdout.strip()
+          
+          
+          class GitHub:
+              """Only authenticated GETs and one narrowly scoped asset-upload POST exist."""
+              def get(self, endpoint, *, pages=False):
+                  args = ['gh','api','--method','GET',endpoint,'-H','Accept: application/vnd.github+json',
+                          '-H','X-GitHub-Api-Version: 2022-11-28']
+                  if pages: args += ['--paginate','--slurp']
+                  response = subprocess.run(args,capture_output=True,timeout=120)
+                  require(response.returncode == 0,'Authenticated GitHub metadata read failed')
+                  value = json.loads(response.stdout)
+                  if pages:
+                      require(isinstance(value,list) and all(isinstance(page,list) for page in value),'Invalid paginated response')
+                      return [item for page in value for item in page]
+                  return value
+          
+              def download(self, asset_id, path):
+                  require(type(asset_id) is int and asset_id > 0,'Invalid download asset ID')
+                  with path.open('xb') as output:
+                      result = subprocess.run(['gh','api','--method','GET',f'repos/{REPOSITORY}/releases/assets/{asset_id}',
+                          '-H','Accept: application/octet-stream','-H','X-GitHub-Api-Version: 2022-11-28'],
+                          stdout=output,stderr=subprocess.PIPE,timeout=300)
+                  require(result.returncode == 0,'Authenticated asset download failed')
+          
+              def upload(self, url, path):
+                  response=subprocess.run(['gh','api','--include','--method','POST',url,
+                      '-H','Accept: application/vnd.github+json','-H','Content-Type: application/octet-stream',
+                      '-H','Content-Length: '+str(path.stat().st_size),'-H','X-GitHub-Api-Version: 2022-11-28',
+                      '--input',str(path)],capture_output=True,timeout=900)
+                  return upload_outcome(response.stdout,response.returncode)
+          
+          
+          def upload_outcome(output, returncode):
+              header=re.split(rb'\r?\n\r?\n',output,maxsplit=1)[0].decode('latin-1')
+              first=header.splitlines()[0] if header else ''
+              match=re.match(r'HTTP/\S+\s+(\d+)',first)
+              status=int(match[1]) if match else None
+              fields={line.split(':',1)[0].lower():line.split(':',1)[1].strip()
+                      for line in header.splitlines()[1:] if ':' in line}
+              wait=0; retry=fields.get('retry-after','')
+              if retry.isdigit(): wait=int(retry)
+              elif retry:
+                  try: wait=max(0,int(email.utils.parsedate_to_datetime(retry).timestamp()-time.time()+1))
+                  except (TypeError,ValueError,OverflowError): pass
+              if fields.get('x-ratelimit-remaining')=='0' and fields.get('x-ratelimit-reset','').isdigit():
+                  wait=max(wait,max(0,int(fields['x-ratelimit-reset'])-int(time.time())+1))
+              return dict(ok=returncode==0,status=status,retry_after=wait)
+          
+          
+          def release_matches(release, spec):
+              marker = '<!-- hackberrypi-assembly-nonce:' + spec['nonce'] + ' -->'
+              return (type(release.get('id')) is int and release['id'] > 0 and
+                      release.get('tag_name') == spec['tag'] and release.get('draft') is True and
+                      release.get('prerelease') is spec['prerelease'] and release.get('name') == spec['name'] and
+                      isinstance(release.get('body'),str) and marker in release['body'].splitlines() and
+                      release.get('target_commitish') == 'main')
+          
+          
+          def resolve_release(api, spec):
+              releases = api.get(f'repos/{REPOSITORY}/releases?per_page=100',pages=True)
+              matching = [release for release in releases if release.get('tag_name') == spec['tag']]
+              require(len(matching) == 1,'Release tag must match exactly one release, including drafts')
+              release = matching[0]
+              require(release_matches(release,spec),'Draft tag/title/nonce/prerelease/main identity failed')
+              fetched = api.get(f'repos/{REPOSITORY}/releases/{release["id"]}')
+              require(fetched.get('id') == release['id'] and release_matches(fetched,spec),'Draft changed while resolving identity')
+              return fetched
+          
+          
+          def resolve_pair(api, frozen, expected=None):
+              source = resolve_release(api,frozen['source']); target = resolve_release(api,frozen['target'])
+              require(source['id'] != target['id'],'Source and target must be different drafts')
+              pair = source,target
+              if expected is not None:
+                  require(tuple(item['id'] for item in pair) == tuple(item['id'] for item in expected),'Draft numeric identity changed')
+              return pair
+          
+          
+          def assets(api, release_id):
+              return api.get(f'repos/{REPOSITORY}/releases/{release_id}/assets?per_page=100',pages=True)
+          
+          
+          def source_assets(api, source, parts):
+              listed = assets(api,source['id'])
+              require(len(listed) == len(parts) and {a.get('name') for a in listed} == {p['name'] for p in parts},
+                      'Source draft must contain exactly the frozen transfer parts')
+              by_name = {item['name']:item for item in listed}
+              for part in parts:
+                  check_asset_metadata(by_name[part['name']],part['name'],part['size'],part['sha256'])
+              return by_name
+          
+          
+          def check_asset_metadata(asset, name, size, checksum):
+              require(type(asset.get('id')) is int and asset['id'] > 0 and asset.get('name') == name and
+                      asset.get('state') == 'uploaded' and asset.get('size') == size,'Asset name/state/size is incomplete or differs')
+              if asset.get('digest') is not None:
+                  require(asset['digest'] == 'sha256:' + checksum,'Asset server digest differs')
+          
+          
+          def target_asset(api, target, name, part_names):
+              listed = assets(api,target['id'])
+              require(not any(item.get('name') in part_names or re.search(r'\.part[0-9]+$',item.get('name','')) for item in listed),
+                      'Target draft contains transfer parts; they have been left untouched')
+              matching = [item for item in listed if item.get('name') == name]
+              require(len(matching) <= 1,'Duplicate target asset names; nothing will be replaced')
+              return matching[0] if matching else None
+          
+          
+          def verify_remote_asset(api, asset, name, size, checksum, directory):
+              check_asset_metadata(asset,name,size,checksum)
+              if asset.get('digest') == 'sha256:' + checksum:
+                  return
+              # GitHub permits a null digest. Verify actual bytes before idempotent reuse.
+              temporary = directory / ('remote-verification-' + str(asset['id']))
+              require(not temporary.exists(),'Unexpected verification temporary file')
+              try:
+                  api.download(asset['id'],temporary)
+                  require(temporary.stat().st_size == size and sha_file(temporary) == checksum,'Existing asset bytes differ')
+              finally:
+                  temporary.unlink(missing_ok=True)
+          
+          
+          def assemble_parts(api, parts, listed, destination, directory, sleep=time.sleep):
+              require(not destination.exists(),'Assembly destination already exists')
+              combined = hashlib.sha256(); count = 0
+              with destination.open('xb') as output:
+                  for part in parts:
+                      path = directory / part['name']
+                      for attempt in range(3):
+                          try:
+                              require(not path.exists(),'Transfer temporary already exists')
+                              api.download(listed[part['name']]['id'],path)
+                              require(path.stat().st_size == part['size'] and sha_file(path) == part['sha256'],'Part bytes differ')
+                              break
+                          except Exception:
+                              path.unlink(missing_ok=True)
+                              if attempt == 2: raise
+                              sleep(3*(attempt+1))
+                      with path.open('rb') as source:
+                          while block := source.read(1024**2):
+                              output.write(block); combined.update(block); count += len(block)
+                      path.unlink()  # Only this verified local temporary; remote draft remains intact.
+                  output.flush(); os.fsync(output.fileno())
+              return count,combined.hexdigest()
+          
+          
+          def decompress_verified(compressed, destination, size, checksum):
+              require(not destination.exists(),'Raw image already exists')
+              result = hashlib.sha256(); count = 0
+              with lzma.open(compressed,'rb') as source, destination.open('xb') as output:
+                  while block := source.read(1024**2):
+                      count += len(block); require(count <= size,'Raw stream exceeds frozen byte count')
+                      output.write(block); result.update(block)
+                  output.flush(); os.fsync(output.fileno())
+              require(count == size and result.hexdigest() == checksum,'Raw image bytes/SHA256 differ')
+              destination.chmod(0o444)
+          
+          
+          def inspect_mbr(raw, layout):
+              with raw.open('rb') as stream: header = stream.read(512)
+              require(len(header)==512 and header[510:]==b'\x55\xaa','Invalid image MBR')
+              require(f'{int.from_bytes(header[440:444],"little"):08x}' == layout['disk_id'],'Image disk ID differs')
+              for index,prefix,kind in [(0,'boot',0x0c),(1,'root',0x83)]:
+                  entry = header[446+16*index:462+16*index]
+                  require(entry[0] in ((0,0x80) if index==0 else (0,)) and entry[4] == kind and
+                          int.from_bytes(entry[8:12],'little') == layout[prefix+'_start'] and
+                          int.from_bytes(entry[12:16],'little') == layout[prefix+'_sectors'],'Image partition layout differs')
+              require(header[478:510] == bytes(32),'PINN or unexpected third/fourth partition refused')
+          
+          
+          def loop_identity(loop, raw):
+              require(re.fullmatch(r'/dev/loop[0-9]+',loop),'Invalid loop device returned')
+              listing = json.loads(command(['sudo','-n','losetup','--json','--list','--output','NAME,BACK-FILE,RO',loop]))['loopdevices']
+              require(len(listing)==1 and listing[0]['name']==loop and Path(listing[0]['back-file']).resolve()==raw.resolve() and
+                      listing[0]['ro'] in (True,1),'Read-only loop identity failed')
+          
+          
+          def checked_mount(source, path, fstype):
+              data = json.loads(command(['findmnt','--json','--mountpoint',str(path)]))['filesystems']
+              require(len(data)==1 and data[0]['source']==source and data[0]['fstype']==fstype,'Unexpected mounted filesystem')
+              options = set(data[0]['options'].split(','))
+              require({'ro','nodev','nosuid','noexec'} <= options,'Mount is not strictly read-only/noexec')
+              if fstype == 'ext4': require(bool({'noload','norecovery'} & options),'Ext4 journal replay is not disabled')
+          
+          
+          @contextlib.contextmanager
+          def read_only_image(raw, directory):
+              loop = command(['sudo','-n','losetup','--find','--show','--read-only','--partscan',str(raw)])
+              mounted=[]; paths=(directory/'boot-ro',directory/'root-ro')
+              try:
+                  loop_identity(loop,raw)
+                  command(['sudo','-n','udevadm','settle','--timeout=10'],timeout=15)
+                  for index,kind,label in [(1,'vfat','BOOT_MNJRO'),(2,'ext4','ROOT_MNJRO')]:
+                      source=loop+'p'+str(index)
+                      require(command(['sudo','-n','blockdev','--getro',source]) == '1','Partition is not read-only')
+                      require(command(['sudo','-n','blkid','-p','-s','TYPE','-o','value',source])==kind and
+                              command(['sudo','-n','blkid','-p','-s','LABEL','-o','value',source])==label,'Unexpected filesystem label/type')
+                  command(['sudo','-n','fsck.vfat','-n',loop+'p1'],timeout=120)
+                  command(['sudo','-n','e2fsck','-f','-n',loop+'p2'],timeout=300)
+                  for index,kind,path in [(1,'vfat',paths[0]),(2,'ext4',paths[1])]:
+                      path.mkdir(); options='ro,noexec,nodev,nosuid'+(',noload' if kind=='ext4' else '')
+                      command(['sudo','-n','mount','-t',kind,'-o',options,loop+'p'+str(index),str(path)])
+                      mounted.append(path); checked_mount(loop+'p'+str(index),path,kind)
+                  yield paths
+              finally:
+                  errors=[]
+                  for path in reversed(mounted):
+                      try: command(['sudo','-n','umount',str(path)])
+                      except Exception as error: errors.append(error)
+                  if not errors:
+                      loop_identity(loop,raw)
+                      command(['sudo','-n','losetup','--detach',loop])
+                  require(not errors,'Image mount could not be released; exact loop left untouched for inspection')
+          
+          
+          class ArchiveTooLarge(RuntimeError):
+              pass
+          
+          
+          def archive_tree(source, destination, level):
+              """Stream native GNU tar into xz; no raw tar file or target program execution."""
+              require(not destination.exists(),'Archive destination already exists')
+              raw_hash=hashlib.sha256(); raw_size=0; processes=[]
+              env={**os.environ,'LC_ALL':'C','TZ':'UTC'}
+              try:
+                  with tempfile.TemporaryFile() as tar_errors, tempfile.TemporaryFile() as xz_errors, destination.open('xb') as output:
+                      tar=subprocess.Popen(['tar','--numeric-owner','--acls','--xattrs','--xattrs-include=*','--sort=name',
+                          '--one-file-system','--sparse','--format=posix','--blocking-factor=20',
+                          '--pax-option=exthdr.name=%d/PaxHeaders/%f,delete=atime,delete=ctime',
+                          '-c','-f','-','-C',str(source),'.'],stdout=subprocess.PIPE,stderr=tar_errors,env=env)
+                      processes.append(tar)
+                      xz=subprocess.Popen(['xz','--threads=2','--block-size=16MiB','--check=crc64','-'+str(level),'-c'],
+                          stdin=subprocess.PIPE,stdout=output,stderr=xz_errors,env=env)
+                      processes.append(xz)
+                      while block:=tar.stdout.read(1024**2):
+                          xz.stdin.write(block); raw_hash.update(block); raw_size+=len(block)
+                          if os.fstat(output.fileno()).st_size > MAX_ASSET: raise ArchiveTooLarge()
+                      tar.stdout.close(); xz.stdin.close()
+                      require(tar.wait(timeout=60)==0 and xz.wait(timeout=120)==0,'Native tar/xz failed')
+                      output.flush(); os.fsync(output.fileno())
+                  if destination.stat().st_size > MAX_ASSET: raise ArchiveTooLarge()
+                  count=0; checked=hashlib.sha256()
+                  with lzma.open(destination,'rb') as decoded:
+                      while block:=decoded.read(1024**2): count+=len(block); checked.update(block)
+                  require(count==raw_size and checked.digest()==raw_hash.digest(),'Archive decompression verification failed')
+                  return dict(name=destination.name,size=destination.stat().st_size,sha256=sha_file(destination),
+                              tar_size=raw_size,tar_sha256=raw_hash.hexdigest(),xz_level=level)
+              except Exception:
+                  for process in processes:
+                      if process.poll() is None: process.terminate()
+                  for process in processes:
+                      try: process.wait(timeout=10)
+                      except subprocess.TimeoutExpired: process.kill(); process.wait()
+                  destination.unlink(missing_ok=True)
+                  raise
+          
+          
+          def root_archive(source, destination):
+              try: return archive_tree(source,destination,3)
+              except ArchiveTooLarge: return archive_tree(source,destination,6)
+          
+          
+          def upload_url(target, name):
+              base=target.get('upload_url','').split('{',1)[0]
+              parsed=urllib.parse.urlsplit(base)
+              require(parsed.scheme=='https' and parsed.netloc=='uploads.github.com' and
+                      parsed.path==f'/repos/{REPOSITORY}/releases/{target["id"]}/assets' and
+                      not parsed.query and not parsed.fragment,'Unexpected target upload endpoint')
+              return base+'?name='+urllib.parse.quote(name,safe='')
+          
+          
+          def upload_verified(api,frozen,pair,path,directory,sleep=time.sleep):
+              allowed={frozen['image']['name'],BOOT_NAME,ROOT_NAME,MANIFEST_NAME}
+              require(path.name in allowed and path.is_file() and not path.is_symlink() and
+                      path.parent.resolve()==directory.resolve(),'Output is outside filename/path whitelist')
+              size=path.stat().st_size; checksum=sha_file(path); positive(size,MAX_ASSET)
+              parts={part['name'] for part in frozen['parts']}
+              current=resolve_pair(api,frozen,pair); existing=target_asset(api,current[1],path.name,parts)
+              if existing is not None:
+                  verify_remote_asset(api,existing,path.name,size,checksum,directory); return
+              # No POST retry unless a fresh read proves the name is still absent.
+              for attempt in range(3):
+                  current=resolve_pair(api,frozen,pair)
+                  existing=target_asset(api,current[1],path.name,parts)
+                  if existing is not None:
+                      verify_remote_asset(api,existing,path.name,size,checksum,directory); return
+                  try: outcome=api.upload(upload_url(current[1],path.name),path)
+                  except (OSError,subprocess.SubprocessError): outcome=dict(status=None,retry_after=0)
+                  retry_after=outcome.get('retry_after',0)
+                  require(type(retry_after) is int and 0 <= retry_after <= 600,
+                          'API retry window exceeds this manual job; drafts/assets left untouched')
+                  if retry_after: sleep(retry_after)
+                  # A lost HTTP response may hide a completed upload: never clobber.
+                  for poll in range(6):
+                      current=resolve_pair(api,frozen,pair)
+                      observed=target_asset(api,current[1],path.name,parts)
+                      if observed is not None:
+                          verify_remote_asset(api,observed,path.name,size,checksum,directory); return
+                      if poll<5: sleep(2)
+                  require(attempt<2,'Asset upload failed; all drafts/assets left unchanged except completed uploads')
+                  require(outcome.get('status') not in (400,401,403,404,409,422) or
+                          (outcome.get('status')==403 and retry_after>0),
+                          'Upload was rejected; no automatic deletion/replacement/retry of a rejected asset')
+                  sleep(3*(attempt+1))
+          
+          
+          def run_assembly(frozen, api=None):
+              validate_manifest(frozen)
+              require(os.environ.get('GITHUB_REPOSITORY')==REPOSITORY and
+                      os.environ.get('GITHUB_EVENT_NAME')=='workflow_dispatch' and
+                      os.environ.get('GITHUB_REF')=='refs/heads/main','Only manual execution in the intended main repository is allowed')
+              require(os.geteuid()==0,'Run inside the workflow private mount namespace')
+              api=api or GitHub(); pair=resolve_pair(api,frozen)
+              listed=source_assets(api,pair[0],frozen['parts'])
+              directory=Path(tempfile.mkdtemp(prefix='manjaro-verified-assembly-',dir=os.environ.get('RUNNER_TEMP')))
+              directory.chmod(0o700)
+              image=frozen['image']; compressed=directory/image['name']; raw=directory/image['name'][:-3]
+              # No duplicate chunk set is retained. Reserve for raw, compressed, root <=2GiB,
+              # boot <=512MiB uncompressed, and an extra512MiB margin.
+              required=image['raw_size']+image['size']+MAX_ASSET+512*1024**2+512*1024**2
+              require(shutil.disk_usage(directory).free>=required,'Runner lacks safe free space for verified image and archives')
+              size,checksum=assemble_parts(api,frozen['parts'],listed,compressed,directory)
+              require(size==image['size'] and checksum==image['sha256'],'Assembled compressed image differs')
+              decompress_verified(compressed,raw,image['raw_size'],image['raw_sha256'])
+              inspect_mbr(raw,frozen['layout'])
+              with read_only_image(raw,directory) as (boot,root):
+                  boot_record=archive_tree(boot,directory/BOOT_NAME,3)
+                  root_record=root_archive(root,directory/ROOT_NAME)
+              require(raw.stat().st_size==image['raw_size'] and sha_file(raw)==image['raw_sha256'],
+                      'Read-only archive preparation changed raw image bytes; nothing uploaded')
+              require(compressed.stat().st_size==image['size'] and sha_file(compressed)==image['sha256'],
+                      'Compressed image changed before publication')
+              # The detached, hash-verified raw copy is no longer needed. Releasing it
+              # leaves ample space for an existing nullable-digest asset verification copy.
+              raw.unlink()
+              manifest=dict(schema_version=1,repository=REPOSITORY,source_tag=frozen['source']['tag'],target_tag=frozen['target']['tag'],
+                  frozen_manifest_sha256=canonical_sha(frozen),image=image,layout=frozen['layout'],
+                  archives=[boot_record,root_record],raw_image_unchanged_after_read_only_packaging=True,
+                  target_arm_code_executed=False,release_drafts_published_or_deleted=False,
+                  tar_options=['--numeric-owner','--acls','--xattrs','--xattrs-include=*','--sort=name',
+                               '--one-file-system','--sparse','--format=posix'])
+              small=directory/MANIFEST_NAME
+              small.write_text(json.dumps(manifest,sort_keys=True,indent=2)+'\n')
+              require(small.stat().st_size<128*1024,'Output metadata is unexpectedly large')
+              for path in [compressed,directory/BOOT_NAME,directory/ROOT_NAME,small]:
+                  upload_verified(api,frozen,pair,path,directory)
+              resolve_pair(api,frozen,pair)
+              print('MANJARO_ASSEMBLY_MANIFEST_BEGIN',flush=True)
+              print(json.dumps(manifest,sort_keys=True,separators=(',',':')),flush=True)
+              print('MANJARO_ASSEMBLY_MANIFEST_END',flush=True)
+              if os.environ.get('GITHUB_STEP_SUMMARY'):
+                  with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as output:
+                      output.write('Verified Manjaro image and PINN archives attached. Both releases remain drafts.\n\n```json\n')
+                      output.write(json.dumps(manifest,indent=2)); output.write('\n```\n')
+              # All mounts have been released; only this generated temporary tree is removed.
+              shutil.rmtree(directory)
+              return manifest
+          
+          
+          if __name__ == '__main__':
+              require(FROZEN is not None,'Generate this runner from a measured frozen manifest first')
+              run_assembly(FROZEN)
+          PY
