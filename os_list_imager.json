@@ -50,6 +50,24 @@
       "init_format": "none",
       "capabilities": [],
       "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/FydeOS.md"
+    },
+    {
+      "name": "Manjaro ARM Xfce for HackberryPi",
+      "description": "Preview factory image from owner-tested Xfce/X11 configuration: 900 workspace, English Display Scale (480–1080), touch and battery. Login: pi / pi.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/Manjaro_HackberryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz",
+      "extract_size": 9127854080,
+      "extract_sha256": "20c9136ebc1396a6de9cb8574f193982b60cfe1bc6cf161ed70ac64fdc2699e0",
+      "image_download_size": 1399527532,
+      "image_download_sha256": "1d662e74bdd356b55a23c3aefdf595ba348c37cec1339cab152384ca22d1a2fe",
+      "release_date": "2026-11-10",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/Manjaro.md"
     }
   ]
 }
