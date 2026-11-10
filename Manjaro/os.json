@@ -1,0 +1,20 @@
+{
+  "name": "Manjaro ARM Xfce for HackberryPi",
+  "description": "Manjaro ARM Xfce/X11 for HackberryPi CM5 - 900 workspace, English Display Scale, touchscreen and MAX17048 battery",
+  "release_date": "2026-11-10",
+  "version": "20261012-hackberrypi-displayscale-pinn-preview",
+  "kernel": "6.12.41-1-MANJARO-RPI5",
+  "supported_models": [
+    "Compute Module 5"
+  ],
+  "username": "pi",
+  "password": "pi",
+  "supports_backup": true,
+  "nominal_size": 8704,
+  "group": "General",
+  "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/Manjaro",
+  "sha256sum": "190fa4134cf388c2ef0b060301f4a69e71c50b549bc9e63a523cfa890a959e58",
+  "supports_usb_boot": false,
+  "supports_usb_root": false,
+  "download_size": 1373194324
+}

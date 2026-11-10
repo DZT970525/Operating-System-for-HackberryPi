@@ -1,0 +1,14 @@
+[
+  {
+    "name": "hbm_boot.tar.xz",
+    "bytes": 60814400,
+    "uncompressed_tar_bytes": 77905920,
+    "sha256": "3cbb4f0a9688208939e05dcbe9dbcceec1da867e92e6bf9ab03756452592fb33"
+  },
+  {
+    "name": "hbm_root.tar.xz",
+    "bytes": 1312379924,
+    "uncompressed_tar_bytes": 5379676160,
+    "sha256": "757d55655fa5cec88cb10f01f5b972162d184a7211f5dd28022482eab9758376"
+  }
+]

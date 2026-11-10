@@ -1,0 +1,87 @@
+{
+  "system": "Manjaro ARM Xfce for HackberryPi CM5",
+  "template_status": "passed: fresh filesystems, excluded private state and offline audit",
+  "base_system": {
+    "source_build_date": "20261012",
+    "architecture": "aarch64",
+    "desktop": "Xfce/X11",
+    "kernel": "6.12.41-1-MANJARO-RPI5"
+  },
+  "default_login": {
+    "username": "pi",
+    "password": "pi",
+    "root_password_login": "locked",
+    "login_authentication_required": true,
+    "manual_screen_lock_enabled": true
+  },
+  "standalone_image": {
+    "archive_name": "Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz",
+    "bytes": 9127854080,
+    "compressed_bytes": 1399527532,
+    "compressed_sha256": "1d662e74bdd356b55a23c3aefdf595ba348c37cec1339cab152384ca22d1a2fe",
+    "extract_size": 9127854080,
+    "extract_sha256": "20c9136ebc1396a6de9cb8574f193982b60cfe1bc6cf161ed70ac64fdc2699e0",
+    "filesystem_checks": "passed: FAT/ext4 checks and complete compressed-to-raw SHA-256 round-trip; hardware boot test tracked separately",
+    "factory_rebuilt_image_physical_boot": "not performed; fresh factory-image physical boot remains a preview",
+    "standalone_growth": "first boot extends only the standalone MMC root partition and filesystem; exact-helper online loop growth and deferred-refresh resume passed; physical first boot remains a preview"
+  },
+  "preserved_features": {
+    "native_panel": [
+      720,
+      720
+    ],
+    "default_workspace": [
+      900,
+      900
+    ],
+    "manual_scale_range": [
+      480,
+      1080
+    ],
+    "english_display_scale_app": true,
+    "touchscreen_desktop_pinch_zoom": false,
+    "native_display_touch_battery_support": true,
+    "network_authentication_compatibility_defaults": "retained",
+    "public_dns_defaults": "retained"
+  },
+  "idle_display_defaults": {
+    "automatic_screensaver": false,
+    "automatic_lock_on_screensaver": false,
+    "automatic_screen_blanking": false,
+    "dpms_enabled": false,
+    "idle_dimming_ac": false,
+    "idle_dimming_battery": false,
+    "idle_suspend_ac": false,
+    "idle_suspend_battery": false,
+    "manual_screen_lock_available": true,
+    "login_authentication_required": true,
+    "critical_battery_and_explicit_power_actions": "preserved",
+    "physical_idle_ac_and_battery_validation": "not performed; configuration and disposable loop installer verified, physical AC/battery idle test remains a preview"
+  },
+  "factory_cleanup": {
+    "status": "passed: fresh filesystems, excluded private state and offline audit",
+    "source_local_pacman_secret_keys_excluded": 1,
+    "private_local_pacman_master_key_material_published": false,
+    "distribution_public_signing_keyrings": "retained",
+    "personal_network_credentials_and_application_sessions": "excluded and verified absent from factory image",
+    "machine_identity_and_ssh_host_keys": "generated separately by each installed device"
+  },
+  "firstboot_package_trust": {
+    "method": "native pacman-key --init followed by --populate",
+    "activation": "independent systemd background timer",
+    "on_boot_seconds": 20,
+    "blocks_lightdm_login": false,
+    "uses_packaged_public_keyrings": true,
+    "local_private_trust_key": "generated separately by each installed device",
+    "oem_account_setup_reenabled": false,
+    "oem_resize_reenabled": false,
+    "runtime_validation": "native offline temporary-filesystem initialization passed; first boot on the fresh physical image not performed"
+  },
+  "physical_validation_note": "The owner accepted the working system and repaired networking before the new release idle-display policy and per-device package-trust changes. Their physical first-boot validation is tracked separately.",
+  "pinn_installation": {
+    "adapter_and_archive_validation": "complete filesystem archives fully decoded and verified; dynamic-partition adapter fixture passed; physical PINN installation not performed",
+    "physical_installation_and_multiboot": "pending",
+    "standalone_growth_disabled_for_pinn": "adapter removes standalone expansion service, helper, marker and layout; fixture passed",
+    "backup_restore_identity_preservation": "adapter fixture passed; installed backup identity is preserved; physical backup/restore not performed"
+  }
+}
