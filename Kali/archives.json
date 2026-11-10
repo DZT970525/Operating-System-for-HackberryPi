@@ -58,5 +58,11 @@
     "bytes": 1733392470,
     "uncompressed_tar_bytes": 4353976320,
     "sha256": "9e0b3504df3c716c17324304309cb06fb1bd1f4c645b627c051353b090654fcc"
+  },
+  {
+    "name": "hbk_display_scale.tar.gz",
+    "bytes": 30266,
+    "sha256": "c58ad911b8503e664b68c480b5afc54a1c88d4623aa11a177acbb186689667d8",
+    "uncompressed_tar_bytes": 204800
   }
 ]
