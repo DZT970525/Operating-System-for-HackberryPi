@@ -43,18 +43,20 @@ cleanup() { umount "$root_dir" 2>/dev/null || true; rmdir "$root_dir" 2>/dev/nul
 trap cleanup EXIT HUP INT TERM
 mount "$part2" "$root_dir"
 
+# Original base payloads remain on their immutable release. The final
+# display overlay is installed last, from this release, with its own checksum.
 # A PINN backup contains the complete installed root. Do not redownload payloads
 # or erase customer identity when restoring such a backup.
 if [ "${restore:-false}" != true ] || [ ! -f "$root_dir/usr/local/share/hackberrypi-pinn/payloads-installed" ]; then
     mkdir -p "$root_dir/var/tmp"
-    while read -r expected filename; do
+    while read -r expected filename payload_base; do
         [ -n "$filename" ] || continue
         echo "HackberryPi: installing $filename"
         temporary="$root_dir/var/tmp/.pinn-$filename"
         if [ -f "$package_dir/$filename" ]; then
             cp "$package_dir/$filename" "$temporary"
         else
-            wget --retry-connrefused --read-timeout=120 --tries=5 -O "$temporary" "$release_base/$filename"
+            wget --retry-connrefused --read-timeout=120 --tries=5 -O "$temporary" "${payload_base:-$release_base}/$filename"
         fi
         printf '%s  %s\n' "$expected" "$temporary" | sha256sum -c -
         bsdtar -xpf "$temporary" -C "$root_dir"
@@ -68,6 +70,7 @@ bbf17d8a65b10b9bd7c3fe3f5dee2d1bf0df8ae313962e97b8ee1e1cab955112 hbk_bin.tar.gz
 ded0c6cb9a3938acb1698c1b4f2aca9711867504bc2f525493bf07d2ebeb6c59 hbk_network_support.tar.gz
 d56c3175fa8e020eda559dc7c2aad30073872235be4a57252a7167f2983b1065 hbk_python.tar.gz
 9e0b3504df3c716c17324304309cb06fb1bd1f4c645b627c051353b090654fcc hbk_share.tar.gz
+c58ad911b8503e664b68c480b5afc54a1c88d4623aa11a177acbb186689667d8 hbk_display_scale.tar.gz https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-displayscale-hackberrypi-2026-11-10
 PAYLOADS
 fi
 
