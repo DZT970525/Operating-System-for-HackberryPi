@@ -89,7 +89,7 @@ jobs:
                   prefix='transfer-manjaro-' if role=='source' else 'manjaro-'
                   require(isinstance(item['tag'],str) and re.fullmatch(prefix+r'[A-Za-z0-9][A-Za-z0-9._-]{1,119}',item['tag']), 'Unsafe tag')
                   require(isinstance(item['name'],str) and 2 <= len(item['name']) <= 180 and
-                          not any(c in item['name'] for c in '\r\n\0') and '${{' not in item['name'], 'Unsafe release title')
+                          not any(c in item['name'] for c in '\r\n\0') and ('$' + '{{') not in item['name'], 'Unsafe release title')
                   require(isinstance(item['nonce'],str) and re.fullmatch('[A-Za-z0-9_-]{16,96}',item['nonce']), 'Invalid nonce')
                   require(item['prerelease'] is prerelease, 'Unexpected draft prerelease flag')
               require(value['source']['tag'] != value['target']['tag'] and
