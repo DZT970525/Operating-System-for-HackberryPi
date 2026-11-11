@@ -68,6 +68,24 @@
       "init_format": "none",
       "capabilities": [],
       "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/Manjaro.md"
+    },
+    {
+      "name": "Fedora Remix 45 Xfce for HackberryPi",
+      "description": "Factory preview from owner-tested Fedora Xfce/X11 configuration: 900 workspace, English Display Scale (480–1080), touch and battery. Login: pi / pi.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Fedora/Fedora_HackberryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fedora-displayscale-hackberrypi-2026-11-11/Fedora-45-Xfce-HackberryPi-CM5-DisplayScale-20261111.img.xz",
+      "extract_size": 8649703424,
+      "extract_sha256": "a16cd3a18ee3db082c8a4e7e8e0fa7de259acfcb78a7deaf3fe4c337d7a4e8e9",
+      "image_download_size": 1303816784,
+      "image_download_sha256": "30d93e91c32ef2ea84c5fc31018ee75707eaae9b33bb47143b9537bbd15e817f",
+      "release_date": "2026-11-11",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/Fedora.md"
     }
   ]
 }
