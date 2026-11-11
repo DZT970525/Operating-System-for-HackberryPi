@@ -1,0 +1,37 @@
+Fedora®, the Fedora word design, and the Infinity design logo, Fedora Remix, and the Fedora Remix word design, either separately or in combination, are hereinafter 
+referred to as "Fedora Trademarks" and are trademarks of Red Hat, Inc., registered in the United States and other countries.
+
+"Fedora Remix," whether in words or design (hereinafter "Secondary Mark") is one of the Fedora Trademarks, but with a special significance. The Secondary Mark 
+provides downstream distributors a means to indicate their work includes or is derived from Fedora content, and thereby drive more interest in the Fedora Project 
+itself. The Secondary Mark must be expressed as "Fedora Remix". 
+
+Guidelines for use of Fedora Trademarks (hereinafer "Fedora Trademark Guidelines") are located here: https://fedoraproject.org/wiki/Legal:Trademark_guidelines
+Guidelines for presentation of the Secondary Mark are located here: https://fedoraproject.org/wiki/Legal/Secondary_trademark_usage_guidelines
+
+Use of the word "Fedora" in connection with the Secondary Mark must clearly indicate that the work contains modified Fedora content or non-Fedora content. The notice 
+may not contain phrases such as:
+
+    * "built from Fedora"
+    * "powered by Fedora"
+    * "contains Fedora" 
+
+The modified Fedora content should be referred to only as "Fedora Remix." Other uses that do not properly indicate the work contains modified Fedora content or 
+non-Fedora content are also not permitted. 
+
+Using the Secondary Mark also requires a statement in print or in another prominent location stating that end users are receiving modified Fedora software, and 
+informing them where they can get unmodified Fedora software. 
+
+The fedora-remix-logos package ("Package") contains images that are or include the Secondary Mark. You are granted the right to use the Package as described in the Fedora 
+Trademark Guidelines. You are also granted a license to copy and redistribute an unmodified Package.
+
+All uses of this Package, its content and the Trademarks must comply with the Fedora Trademark Guidelines. In the case of conflict between the license granted herein and 
+the Fedora Trademark Guidelines, the Fedora Trademark Guidelines will control.
+
+All such rights are granted to you provided that the above trademark legend and this license are included with each copy you make, and they remain intact and are not 
+altered, deleted, or modified in any way.
+
+NO WARRANTY.  THIS PACKAGE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS 
+FOR A PARTICULAR PURPOSE, AND INTELLECTUAL PROPERTY NONINFRINGEMENT ARE DISCLAIMED.  IN NO EVENT SHALL RED HAT, INC. BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, 
+SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS 
+INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT 
+OF THE USE OF THIS PACKAGE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE. 
