@@ -12,8 +12,9 @@ Customized ARM64 systems for **HackberryPi CM5**, with separate download sources
 | Manjaro ARM Xfce for HackberryPi | [Manjaro](Manjaro/README.md) · [Imager](Imager/Manjaro.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 | Fedora Remix 45 Xfce for HackberryPi | [Fedora](Fedora/README.md) · [Imager](Imager/Fedora.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 | Arch Linux ARM Xfce for HackberryPi | [Arch](Arch/README.md) · [Imager](Imager/Arch.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
+| DietPi Xfce for HackberryPi | [DietPi](DietPi/README.md) · [Imager](Imager/DietPi.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 
-Change the RPiOS, Kali, Omarchy, Manjaro, Fedora Remix or Arch Linux ARM default password after first login. Saved application logins, network credentials and personal histories are excluded from the published copies.
+Change the RPiOS, Kali, Omarchy, Manjaro, Fedora Remix, Arch Linux ARM or DietPi default password after first login. Saved application logins, network credentials and personal histories are excluded from the published copies.
 
 ## PINN download source
 
@@ -23,7 +24,7 @@ Use a PINN build with CM5 and HackberryPi display support. Add this to the exist
 alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_v3.json
 ```
 
-The six existing PINN systems appear in **General**. Fedora Remix and Arch Linux ARM are provided separately as standalone Raspberry Pi Imager images; they are not in the PINN feed. The older `Ubuntu/os_list_v3.json` endpoint is also maintained as a combined feed for cards already using it. `repo_list.json` points to the combined catalog.
+The six existing PINN systems appear in **General**. Fedora Remix, Arch Linux ARM and DietPi are provided separately as standalone Raspberry Pi Imager images; they are not in the PINN feed. The older `Ubuntu/os_list_v3.json` endpoint is also maintained as a combined feed for cards already using it. `repo_list.json` points to the combined catalog.
 
 Packages and checksums are under [Releases](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases). Read each system's installation notes before downloading. PINN packages contain filesystem archives and supplemental application archives. Read each release's notes for standalone image availability; PINN filesystem archives cannot be flashed as a whole disk image. Keep the network connected throughout online installation.
 
@@ -42,10 +43,11 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
 | Manjaro ARM Xfce for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz) | [Manjaro](Imager/Manjaro.md) |
 | Fedora Remix 45 Xfce for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fedora-displayscale-hackberrypi-2026-11-11/Fedora-45-Xfce-HackberryPi-CM5-DisplayScale-20261111.img.xz) | [Fedora](Imager/Fedora.md) |
 | Arch Linux ARM Xfce for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/archlinux-displayscale-hackberrypi-2026-11-12/ArchLinux-ARM-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261112.img.xz) | [Arch](Imager/Arch.md) |
+| DietPi Xfce for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/dietpi-displayscale-hackberrypi-2026-11-13/DietPi-Trixie-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz) | [DietPi](Imager/DietPi.md) |
 
-**The online catalog contains RPiOS, FydeOS, Manjaro, Fedora Remix and Arch Linux ARM.** Kali and Omarchy use their download-and-merge helpers followed by **Use custom**; they are not online JSON entries.
+**The online catalog contains RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM and DietPi.** Kali and Omarchy use their download-and-merge helpers followed by **Use custom**; they are not online JSON entries.
 
-### RPiOS, FydeOS, Manjaro, Fedora Remix and Arch Linux ARM: online download in Imager
+### RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM and DietPi: online download in Imager
 
 1. Open Raspberry Pi Imager and choose **App Options → Content Repository → Edit**.
 2. Select **Use custom URL** and paste:
@@ -55,7 +57,7 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
    ```
 
 3. Choose **Apply & Restart**.
-4. Select **HackberryPi CM5**, choose **RPiOS**, **FydeOS**, **Manjaro ARM Xfce**, **Fedora Remix 45 Xfce for HackberryPi** or **Arch Linux ARM Xfce for HackberryPi**, and select your SD card. Continue writing and verification; Imager downloads the complete image automatically.
+4. Select **HackberryPi CM5**, choose **RPiOS**, **FydeOS**, **Manjaro ARM Xfce**, **Fedora Remix 45 Xfce for HackberryPi**, **Arch Linux ARM Xfce for HackberryPi** or **DietPi Xfce for HackberryPi**, and select your SD card. Continue writing and verification; Imager downloads the complete image automatically.
 
 Alternatively, download a complete compressed image from the table and select it with **Use custom** in Imager. Read the [FydeOS installation notes](Imager/FydeOS.md) for its first-run setup and Display Scale controls.
 
@@ -76,6 +78,12 @@ Log in with **pi / pi**. The default workspace is **900 × 900** with an English
 Choose **Arch Linux ARM Xfce for HackberryPi** in the Imager catalog, or [download the complete image](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/archlinux-displayscale-hackberrypi-2026-11-12/ArchLinux-ARM-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261112.img.xz) and select it with **Use custom**. Use a **16 GB or larger SD card** and wait for writing and verification; no manual merge or decompression is needed.
 
 Log in with **pi / pi**. The default workspace is **900 × 900** with the English **Display Scale** desktop app for **480–1080** on the native **720 × 720** panel. Screen/touch, MAX17048 battery support, Wi-Fi/Bluetooth controls and original **Neofetch 7.1.0** are included. Automatic idle display transitions are disabled; manual locking remains available. This is the Arch Linux ARM community distribution with native CM5 integration. The configured source was accepted for publication; its physical boot was not independently confirmed during preparation. Read the [installation guide](Imager/Arch.md), including first-start preparation and the final-image validation status. Arch is standalone only in this release; the final sanitized image awaits separate physical first-boot testing.
+
+### DietPi: online download or complete image
+
+Choose **DietPi Xfce for HackberryPi** in the Imager catalog, or [download the complete image](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/dietpi-displayscale-hackberrypi-2026-11-13/DietPi-Trixie-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz) and select it with **Use custom**. Use a **16 GB or larger SD card** and wait for writing and verification; manual decompression and merging are not needed.
+
+Log in with **pi / pi**. DietPi v10.8.2 / Debian 13 Trixie comes with **Xfce/X11 preinstalled**, default **900 × 900** workspace, English **Display Scale (480–1080)**, native **720 × 720** display/touch, USB 2.0 Host, MAX17048 battery and genuine Neofetch 7.1.0. The top-right panel provides Wi-Fi, Bluetooth and volume controls. Automatic idle display transitions are disabled; manual locking remains available. Read the [installation guide](Imager/DietPi.md), including privacy and final-image validation status. This DietPi release is standalone only; the existing PINN feed is unchanged.
 
 ### Kali: automatic download and merge
 

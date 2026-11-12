@@ -104,6 +104,24 @@
       "init_format": "none",
       "capabilities": [],
       "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/Arch.md"
+    },
+    {
+      "name": "DietPi Xfce for HackberryPi",
+      "description": "DietPi v10.8.2 / Debian13 Trixie Xfce desktop: 900 workspace, English Display Scale (480–1080), touch, battery, USB Host, Wi-Fi/Bluetooth/volume and Neofetch. Login: pi / pi.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/DietPi/DietPi_HackberryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/dietpi-displayscale-hackberrypi-2026-11-13/DietPi-Trixie-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz",
+      "extract_size": 4204789760,
+      "extract_sha256": "f732fb5b2dad3ec2a19d37d85a69e9f102acbdb2355e000d45a1ef1640c1e0a9",
+      "image_download_size": 618265540,
+      "image_download_sha256": "83a3db22c72a385b99a11c1bbf1b949e810691423811fb743b60f8484f8e9211",
+      "release_date": "2026-11-13",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/DietPi.md"
     }
   ]
 }
