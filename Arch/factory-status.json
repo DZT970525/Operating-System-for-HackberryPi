@@ -1,0 +1,74 @@
+{
+  "os": "Arch Linux ARM Xfce for HackberryPi",
+  "release_tag": "archlinux-displayscale-hackberrypi-2026-11-12",
+  "source_installation_owner_accepted": true,
+  "source_installation_owner_test_passed": null,
+  "physical_source_boot_test_confirmed": false,
+  "source_physical_boot_validation": "not independently confirmed during this preparation",
+  "source_card_modified_by_publication": false,
+  "fresh_filesystems": true,
+  "personal_state_excluded_before_copy": true,
+  "factory_privacy_audit": "passed",
+  "username": "pi",
+  "default_password": "pi",
+  "root_password_login": "locked",
+  "native_panel": [
+    720,
+    720
+  ],
+  "default_workspace": [
+    900,
+    900
+  ],
+  "manual_scale_range": [
+    480,
+    1080
+  ],
+  "automatic_idle_blanking_and_dpms": "disabled",
+  "manual_lock_and_login_authentication": "retained",
+  "neofetch": {
+    "version": "7.1.0-1",
+    "upstream_commit": "60d07dee6b76769d8c487a40639fb7b5a1a7bc85",
+    "genuine_upstream_source": true
+  },
+  "native_kernel_release": "6.18.60-1-rpi-16k",
+  "standalone_root_growth": "exact-helper online loop test passed",
+  "per_installation_pacman_trust_initialization": "enabled",
+  "physical_boot_of_final_factory_image_tested": false,
+  "separate_physical_idle_manual_lock_tested": false,
+  "pinn_supported_in_this_release": false,
+  "image": {
+    "name": "ArchLinux-ARM-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261112.img.xz",
+    "bytes": 1156947144,
+    "sha256": "89f459f4b0f68db1f0530a20bf660888435252a1ad5fa27cf51247760ed0ea21",
+    "extract_size": 5421137920,
+    "extract_sha256": "ede076ba6997c538ea23b6a118dc51588d9d6e90e2eeacd54c55ea99db120506"
+  },
+  "verification_method": "local complete-image and pinned-source verification",
+  "upload_method": "direct_browser_single_file",
+  "github_actions_executed": false,
+  "evidence_sha256": {
+    "privacy": "3e98e32fa0423a83f983287ca5d2abc90214b3fc26e1125f0bbce845cd54b8f5",
+    "growth_loop": "500363b6ce1cf042afe59636eb5ff8e918a5cf936d6933d916c74fd0b39963e5",
+    "offline_image": "1517cc5ba1ff4e0cb2e20a0946cb849dcedba6240ff190456e00bddd0011afa8",
+    "kernel_source_local": "b2366e68ee7af643693154c262e1e105126f5620e46e81bd81edd9445991f748",
+    "local_release_verification": "3ef59e7f84adc2442fb781ec04a2d64c22a5cbff37b4453a7d41dfc84bedf765"
+  },
+  "source_assets": [
+    {
+      "name": "ArchLinux-HackberryPi-Integration-Source-20261112.tar.gz",
+      "size": 149008,
+      "sha256": "81feaa9bad9a95fbceefe85472349c760adb920f3d76044870a26ef0313640f9"
+    },
+    {
+      "name": "ArchLinux-HackberryPi-Source-Notices-20261112.tar.gz",
+      "size": 67282,
+      "sha256": "ed3b3d653be2e15139cf702fb6a5c377ca9a5f44e33e1d1de1919b88b2356edc"
+    },
+    {
+      "name": "Linux-RPi-6.18.60-ArchLinuxARM-Source-20261112.tar.gz",
+      "size": 257650045,
+      "sha256": "42dc59c7e4d22288d1fcfc833f1b8227cee6dbec8ebed3ad5dd78ed150ee9145"
+    }
+  ]
+}
