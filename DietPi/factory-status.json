@@ -1,0 +1,83 @@
+{
+  "os": "DietPi Xfce for HackberryPi",
+  "release_tag": "dietpi-displayscale-hackberrypi-2026-11-13",
+  "base_system": "DietPi v10.8.2 / Debian13 Trixie ARM64",
+  "source_installation_owner_accepted": true,
+  "source_card_modified_by_publication": false,
+  "fresh_filesystems": true,
+  "factory_privacy_audit": "passed",
+  "username": "pi",
+  "default_password": "pi",
+  "native_kernel_release": "6.18.60+rpt-rpi-2712",
+  "native_kernel_source": "linux 1:6.18.60-1+rpt1",
+  "native_panel": [
+    720,
+    720
+  ],
+  "default_workspace": [
+    900,
+    900
+  ],
+  "manual_scale_range": [
+    480,
+    1080
+  ],
+  "top_right_controls": [
+    "Wi-Fi",
+    "Bluetooth",
+    "Volume",
+    "Battery",
+    "Clock"
+  ],
+  "usb2_host_enabled": true,
+  "neofetch_version": "7.1.0",
+  "automatic_idle_blanking_and_dpms": "disabled",
+  "manual_lock_and_login_authentication": "retained",
+  "per_installation_machine_and_ssh_identity": "enabled",
+  "standalone_root_growth": "exact-helper isolated loop test passed",
+  "pinn_supported_in_this_release": false,
+  "physical_boot_of_final_factory_image_tested": false,
+  "physical_wifi_bluetooth_audio_tested": false,
+  "separate_physical_idle_manual_lock_tested": false,
+  "image": {
+    "name": "DietPi-Trixie-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz",
+    "bytes": 618265540,
+    "sha256": "83a3db22c72a385b99a11c1bbf1b949e810691423811fb743b60f8484f8e9211",
+    "extract_size": 4204789760,
+    "extract_sha256": "f732fb5b2dad3ec2a19d37d85a69e9f102acbdb2355e000d45a1ef1640c1e0a9"
+  },
+  "source_assets": [
+    {
+      "name": "DietPi-HackberryPi-Integration-Source-20261113.tar.gz",
+      "size": 149060,
+      "sha256": "0c711caf159d5b442bf2481ee0eef46563f5f721a02ae4e1ed42dc0e135d1330"
+    },
+    {
+      "name": "DietPi-HackberryPi-Source-Notices-20261113.tar.gz",
+      "size": 297566,
+      "sha256": "608d05f6203839c04a155c8f2d212d5dbcee420c9867d98d339872908876df3d"
+    },
+    {
+      "name": "linux_6.18.60.orig.tar.xz",
+      "size": 154827264,
+      "sha256": "3c2f44ef6acc021a7ad444d9a2e6ec1ef488ff09368793d0004a6080f69d621e"
+    },
+    {
+      "name": "linux_6.18.60-1+rpt1.debian.tar.xz",
+      "size": 2551556,
+      "sha256": "7569887fe0d0345d15318440768dde9abf5ce3252fb732c3a3f8ad6ece5688e5"
+    },
+    {
+      "name": "linux_6.18.60-1+rpt1.dsc",
+      "size": 20281,
+      "sha256": "537c43f213e6070c921f21fe266730d1ef1cafa343d6dbe344861d002249850b"
+    }
+  ],
+  "evidence_sha256": {
+    "privacy": "fa0f6ba2a46869f952f7bee56fcef9a17b98227ed1c4fe707b2e1f1cdf236f64",
+    "growth_loop": "b70b40b097c249f9e4b2d2fa742a7eacc4d5a89c2348644eecb704a004b28e0d",
+    "offline_image": "5fa726b8e1ab8f01546fcbe867a667e5753c753b3c9f2c059dcda578955228d0",
+    "integration_sources": "955a51270e6a7ac921fff8b5f8dea2f65f2055c2ba5c351f6a73aedf86b920c8",
+    "kernel_source_local": "ac655885b708a3ccfd948d2e7c0d0789ba683b89840b2c7bd62ff286eabc9bb4"
+  }
+}
