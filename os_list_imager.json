@@ -86,6 +86,24 @@
       "init_format": "none",
       "capabilities": [],
       "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/Fedora.md"
+    },
+    {
+      "name": "Arch Linux ARM Xfce for HackberryPi",
+      "description": "Arch Linux ARM Xfce/X11 factory preview: 900 workspace, English Display Scale (480–1080), touch, battery and Neofetch7.1.0. Login: pi / pi. Physical boot unconfirmed.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Arch/Arch_HackberryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/archlinux-displayscale-hackberrypi-2026-11-12/ArchLinux-ARM-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261112.img.xz",
+      "extract_size": 5421137920,
+      "extract_sha256": "ede076ba6997c538ea23b6a118dc51588d9d6e90e2eeacd54c55ea99db120506",
+      "image_download_size": 1156947144,
+      "image_download_sha256": "89f459f4b0f68db1f0530a20bf660888435252a1ad5fa27cf51247760ed0ea21",
+      "release_date": "2026-11-12",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/Arch.md"
     }
   ]
 }
