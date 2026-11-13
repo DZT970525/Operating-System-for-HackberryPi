@@ -1,0 +1,1 @@
+Original text badge created for this repository. Project names identify the included software. No official Armbian, Debian or Raspberry Pi logo or endorsement is claimed. The PNG is a static rendering using DejaVu Sans; no font files are embedded or redistributed. The badge artwork is provided under CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/ .

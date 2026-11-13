@@ -1,0 +1,80 @@
+{
+  "os": "Armbian Xfce for HackberryPi",
+  "release_date": "2026-11-13",
+  "release_tag": "armbian-displayscale-hackberrypi-2026-11-13",
+  "architecture": "arm64",
+  "base": "Armbian26.8.1 / Debian13 Trixie",
+  "desktop": "Xfce/X11 with LightDM",
+  "native_kernel": "6.18.44-current-bcm2711",
+  "native_kernel_package_version": "26.8.3",
+  "default_username": "pi",
+  "default_password": "pi",
+  "login_hint": "Default Password: pi",
+  "native_panel": [
+    720,
+    720
+  ],
+  "default_workspace": [
+    900,
+    900
+  ],
+  "display_scale_range": [
+    480,
+    1080
+  ],
+  "display_scale_language": "English",
+  "global_desktop_pinch_zoom": false,
+  "automatic_idle_screen_transitions": false,
+  "manual_locking_available": true,
+  "neofetch_version": "7.1.0",
+  "standalone_imager_image": true,
+  "pinn_package": false,
+  "source_card_owner_accepted_for_publication": true,
+  "rebuilt_release_image_separately_physically_boot_tested": false,
+  "privacy_audit": "passed",
+  "offline_integration_audit": "passed",
+  "complete_compressed_stream_verification": "passed",
+  "standalone_growth_loop_test": "passed",
+  "assets": [
+    {
+      "name": "Armbian-26.8.1-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz",
+      "bytes": 641406348,
+      "sha256": "6620fd62e16a4e9b97f59cf786f324b6360f1f637602b9bb35cbae60724a595d"
+    },
+    {
+      "name": "Armbian-HackberryPi-Integration-Source-20261113.tar.gz",
+      "bytes": 141333,
+      "sha256": "83964b2ea103ce7107f545b081daf46033f182d4ce55f538e4b5c10cb47e70c9"
+    },
+    {
+      "name": "Armbian-HackberryPi-Source-Notices-20261113.tar.gz",
+      "bytes": 2033525,
+      "sha256": "f78bec29385a8e33f4dcec27f4ecfb4b830d911d8fb5563fbc87cbfd1539a440"
+    },
+    {
+      "name": "RaspberryPi-Linux-6.18.44-59abfb50f1dfdc3c51bce3f2020ce3ae0dc8eaa0.tar.gz",
+      "bytes": 257191710,
+      "sha256": "d988b98be878e7bac904e3f5db47030162475865edecb0a7e1f9da98291417d0"
+    },
+    {
+      "name": "Armbian-Build-fd4ebfd1e107d5b89f7a672c7d609789565753b2.tar.gz",
+      "bytes": 69098684,
+      "sha256": "2159f01d54e26d0517fb1a7f15b1024b6c320e95c0423045aec661fc0fbf27b9"
+    },
+    {
+      "name": "Armbian-6.18.44-current-bcm2711.config",
+      "bytes": 254399,
+      "sha256": "34c94413da16ed50e7485f5edfcd64cfd4e7357d4f203ea423a67de785c29fdb"
+    },
+    {
+      "name": "Armbian-6.18.44-Source-Reconstruction.md",
+      "bytes": 3553,
+      "sha256": "ea12b820ccf422e29acb626cbacdc60192ba76d625a54a2037f9eb90f17b88ec"
+    },
+    {
+      "name": "Armbian-6.18.44-Source-Provenance.json",
+      "bytes": 2324,
+      "sha256": "652930b2b55b3e43395a63c4b1082da894af391fab71c66b75447f6f1ac39126"
+    }
+  ]
+}
