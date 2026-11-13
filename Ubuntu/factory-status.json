@@ -1,29 +1,121 @@
 {
-  "mode": "Ubuntu native GNOME Initial Setup",
-  "first_boot": [
-    "language",
-    "keyboard",
-    "network",
-    "timezone",
-    "hostname",
-    "account",
-    "password"
+  "os": "Ubuntu 24.04.5 LTS GNOME for HackberryPi",
+  "release_tag": "ubuntu-displayscale-hackberrypi-2026-11-13",
+  "base_system": "Ubuntu24.04.5 LTS Noble ARM64 GNOME46 Wayland",
+  "source_installation_owner_accepted": true,
+  "source_card_modified_by_publication": false,
+  "fresh_filesystems": true,
+  "factory_privacy_audit": "passed",
+  "username": "pi",
+  "default_password": "pi",
+  "native_kernel_release": "6.8.0-1064-raspi",
+  "native_kernel_source": "linux-raspi6.8.0-1064.68",
+  "gnome_shell_package": "46.0-0ubuntu6~24.04.14",
+  "mutter_package": "46.2-1ubuntu0.24.04.16",
+  "native_panel": [
+    720,
+    720
   ],
-  "preloaded_languages": [
-    "English",
-    "German",
-    "French",
-    "Spanish"
+  "default_workspace": [
+    900,
+    900
   ],
-  "applications": [
-    "ChatGPT",
-    "Google Chrome",
-    "Touch Dock",
-    "Matrix screensaver"
+  "manual_scale_range": [
+    480,
+    1080
   ],
-  "seller_accounts_removed": true,
-  "seller_logins_removed": true,
-  "cloud_init_disabled": true,
-  "keyboard_and_region_preserved": true,
-  "actual_first_boot_validation": "pending"
+  "persistent_native_settings_actions": [
+    "Wi-Fi Settings",
+    "Bluetooth Settings"
+  ],
+  "native_radio_controls_preserved": true,
+  "usb2_host_enabled": true,
+  "neofetch_version": "7.1.0",
+  "automatic_idle_screen_transitions": "disabled",
+  "manual_lock_and_authentication": "retained",
+  "per_installation_machine_and_ssh_identity": "enabled",
+  "standalone_root_growth": "exact-helper isolated loop test passed",
+  "pinn_supported_in_this_release": false,
+  "old_ubuntu_pinn_preview_withdrawn": true,
+  "physical_boot_of_final_factory_image_tested": false,
+  "physical_wifi_bluetooth_audio_tested": false,
+  "separate_physical_idle_manual_lock_tested": false,
+  "image": {
+    "name": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz",
+    "bytes": 3017984912,
+    "sha256": "afdd7664a3fc3c6ea389d429fcf5a4f45a1e335b30d13f8d3d485043b5cf9a7b",
+    "extract_size": 9318694912,
+    "extract_sha256": "56dadec8025ee6026f6feec66da7d40245e5ceb03e4d0ec7bc5a8f579d78b1d9"
+  },
+  "source_assets": [
+    {
+      "name": "Ubuntu-HackberryPi-Integration-Source-20261113.tar.gz",
+      "bytes": 319526,
+      "sha256": "95d7ccda9c5adfc3e22e4392399b9f7c0799575d53d10c4970df5d12bf592d97"
+    },
+    {
+      "name": "Ubuntu-HackberryPi-Source-Notices-20261113.tar.gz",
+      "bytes": 5155750,
+      "sha256": "99f837316cd76da01369a9803037a3d66d108142fe77fcc09bdb9910cc670055"
+    },
+    {
+      "name": "linux-raspi_6.8.0.orig.tar.gz",
+      "bytes": 230060117,
+      "sha256": "26512115972bdf017a4ac826cc7d3e9b0ba397d4f85cd330e4e4ff54c78061c8"
+    },
+    {
+      "name": "linux-raspi_6.8.0-1064.68.diff.gz",
+      "bytes": 13183502,
+      "sha256": "e2348a899108ccec1a139145c418e9026228c0475aa6837133e42de28fa9ddc0"
+    },
+    {
+      "name": "linux-raspi_6.8.0-1064.68.dsc",
+      "bytes": 4511,
+      "sha256": "72fcd4e1949df46ba4d72b35a5fd4c045b98083e672128a64c4eb67d3ee57176"
+    }
+  ],
+  "download_method": "automatic-download-merge-then-Imager-Use-custom",
+  "imager_online_json_entry": false,
+  "download_helper": {
+    "zip_name": "Ubuntu-Imager-Download-Tools-20261113.zip",
+    "zip_bytes": 15818,
+    "zip_sha256": "c4295fec2067f6d552bfbd71ba855c9a69166c1c20136e1a4e0a4485e19d7a1c",
+    "part_count": 6,
+    "first_download_working_space_bytes": 6304405280,
+    "first_download_recommended_free_gb": 7,
+    "windows_runtime_tested": false,
+    "macos_runtime_tested": false
+  },
+  "download_parts": [
+    {
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part01",
+      "size": 524288000,
+      "sha256": "b11af98a9559e3611189a68eed7a5628ff9ff0c1146cd73449093fb49df68ffa"
+    },
+    {
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part02",
+      "size": 524288000,
+      "sha256": "0b9054f0d5d94b92b87805f6751432984bd233b7558b81c4457e81952bc92bc7"
+    },
+    {
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part03",
+      "size": 524288000,
+      "sha256": "d7c2ca3244f29bc2e3523f4a9a2ad78e987056d0d36ae634b905a5d68e5e06dc"
+    },
+    {
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part04",
+      "size": 524288000,
+      "sha256": "4be96d4ed537354ee46d5458e06519dcfb3ed1bf666b704071aa61714efdbd9d"
+    },
+    {
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part05",
+      "size": 524288000,
+      "sha256": "b3b566e26c8f3be5c158a4a2cc76a59a42a308e5f7c4661d62055ea89edb16d9"
+    },
+    {
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part06",
+      "size": 396544912,
+      "sha256": "64a4e986fcab0b46734713573caaa77c3825c9088ef0f1cdc243dbf2f9ef751c"
+    }
+  ]
 }
