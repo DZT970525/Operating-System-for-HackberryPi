@@ -5,7 +5,7 @@ Customized ARM64 systems for **HackberryPi CM5**, with separate download sources
 | System | Documentation | Default login |
 | --- | --- | --- |
 | RPiOS — Raspberry Pi OS for HackberryPi | [RPiOS](RPiOS/README.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
-| Ubuntu 24.04.5 for HackberryPi | [Ubuntu](Ubuntu/README.md) | Create an account using native first-boot setup |
+| Ubuntu 24.04.5 LTS GNOME for HackberryPi | [Ubuntu](Ubuntu/README.md) · [Imager](Imager/Ubuntu.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 | Kali Linux 2026.3 for HackberryPi | [PINN](Kali/README.md) · [Imager](Imager/Kali.md) | Username `kali`, password `kali` — both lowercase; use `sudo` for administrator commands |
 | Fyde OS for HackBerry Pi (FydeOS 23.0) | [PINN](FydeOS/README.md) · [Imager](Imager/FydeOS.md) | Native first-run setup with your own account and any required vendor license |
 | Omarchy 4.5.0 for HackberryPi | [Omarchy](Omarchy/README.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
@@ -14,7 +14,7 @@ Customized ARM64 systems for **HackberryPi CM5**, with separate download sources
 | Arch Linux ARM Xfce for HackberryPi | [Arch](Arch/README.md) · [Imager](Imager/Arch.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 | DietPi Xfce for HackberryPi | [DietPi](DietPi/README.md) · [Imager](Imager/DietPi.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 
-Change the RPiOS, Kali, Omarchy, Manjaro, Fedora Remix, Arch Linux ARM or DietPi default password after first login. Saved application logins, network credentials and personal histories are excluded from the published copies.
+Change the RPiOS, Ubuntu, Kali, Omarchy, Manjaro, Fedora Remix, Arch Linux ARM or DietPi default password after first login. Saved application logins, network credentials and personal histories are excluded from the published copies.
 
 ## PINN download source
 
@@ -24,11 +24,11 @@ Use a PINN build with CM5 and HackberryPi display support. Add this to the exist
 alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_v3.json
 ```
 
-The six existing PINN systems appear in **General**. Fedora Remix, Arch Linux ARM and DietPi are provided separately as standalone Raspberry Pi Imager images; they are not in the PINN feed. The older `Ubuntu/os_list_v3.json` endpoint is also maintained as a combined feed for cards already using it. `repo_list.json` points to the combined catalog.
+The five existing PINN systems appear in **General**. Ubuntu, Fedora Remix, Arch Linux ARM and DietPi are provided separately as standalone Raspberry Pi Imager images; they are not in the PINN feed. The old Ubuntu PINN preview has been withdrawn; `Ubuntu/os_list_v3.json` remains a valid empty catalog. Use the root combined feed above for the other PINN systems. `repo_list.json` points to the combined catalog.
 
 Packages and checksums are under [Releases](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases). Read each system's installation notes before downloading. PINN packages contain filesystem archives and supplemental application archives. Read each release's notes for standalone image availability; PINN filesystem archives cannot be flashed as a whole disk image. Keep the network connected throughout online installation.
 
-The customized Kali and sanitized Omarchy standalone systems have been boot-tested by the owner. The installed Manjaro configuration and repaired networking have also been tested and accepted by the owner; its factory-image validation status is recorded in the Manjaro release notes. All six PINN packages remain previews until installation and multiboot have been tested through PINN on the device. Ubuntu needs at least 16.5 GiB, Kali at least 20.5 GiB and Omarchy at least **16.25 GiB**, plus PINN and other systems. Fyde OS needs at least 12.2 GiB and supports SD installation only. Its four-partition PINN edition disables native whole-disk OTA and Powerwash; reset or upgrade by reinstalling through PINN. Read the RPiOS notes for its minimum storage allocation of **8.5 GiB** and the Omarchy notes for its Btrfs setup requirements. Manjaro needs at least **8704 MiB**; see its [PINN notes](Manjaro/README.md).
+The customized Kali and sanitized Omarchy standalone systems have been boot-tested by the owner. The installed Manjaro configuration and repaired networking have also been tested and accepted by the owner; its factory-image validation status is recorded in the Manjaro release notes. All five PINN packages remain previews until installation and multiboot have been tested through PINN on the device. Kali needs at least 20.5 GiB and Omarchy at least **16.25 GiB**, plus PINN and other systems. Fyde OS needs at least 12.2 GiB and supports SD installation only. Its four-partition PINN edition disables native whole-disk OTA and Powerwash; reset or upgrade by reinstalling through PINN. Read the RPiOS notes for its minimum storage allocation of **8.5 GiB** and the Omarchy notes for its Btrfs setup requirements. Manjaro needs at least **8704 MiB**; see its [PINN notes](Manjaro/README.md).
 
 ## Raspberry Pi Imager download source
 
@@ -37,6 +37,7 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
 | System | Download method | Installation notes |
 | --- | --- | --- |
 | RPiOS — Raspberry Pi OS for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz) | [RPiOS](RPiOS/README.md) |
+| Ubuntu 24.04.5 LTS GNOME for HackberryPi | Automatic download-and-merge tool: [Download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/Ubuntu-Imager-Download-Tools-20261113.zip) | [Ubuntu](Imager/Ubuntu.md) |
 | Kali Linux 2026.3 for HackberryPi | Automatic download-and-merge tool: [Download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-displayscale-hackberrypi-2026-11-10/Kali-Imager-Download-Tools-20261110.zip) | [Kali](Imager/Kali.md) |
 | FydeOS 23.0 for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete image](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-imager-hackberrypi-2026-11-10/FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz) | [FydeOS](Imager/FydeOS.md) |
 | Omarchy 4.5.0 for HackberryPi | Automatic download-and-merge tool ZIP: [Download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-imager-hackberrypi-2026-11-09/Omarchy-Imager-Download-Tools-20261109.zip) | [Omarchy](Imager/Omarchy.md) |
@@ -45,7 +46,7 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
 | Arch Linux ARM Xfce for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/archlinux-displayscale-hackberrypi-2026-11-12/ArchLinux-ARM-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261112.img.xz) | [Arch](Imager/Arch.md) |
 | DietPi Xfce for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/dietpi-displayscale-hackberrypi-2026-11-13/DietPi-Trixie-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz) | [DietPi](Imager/DietPi.md) |
 
-**The online catalog contains RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM and DietPi.** Kali and Omarchy use their download-and-merge helpers followed by **Use custom**; they are not online JSON entries.
+**The online catalog contains RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM and DietPi.** Ubuntu, Kali and Omarchy use their download-and-merge helpers followed by **Use custom**; they are not online JSON entries.
 
 ### RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM and DietPi: online download in Imager
 
@@ -60,6 +61,12 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
 4. Select **HackberryPi CM5**, choose **RPiOS**, **FydeOS**, **Manjaro ARM Xfce**, **Fedora Remix 45 Xfce for HackberryPi**, **Arch Linux ARM Xfce for HackberryPi** or **DietPi Xfce for HackberryPi**, and select your SD card. Continue writing and verification; Imager downloads the complete image automatically.
 
 Alternatively, download a complete compressed image from the table and select it with **Use custom** in Imager. Read the [FydeOS installation notes](Imager/FydeOS.md) for its first-run setup and Display Scale controls.
+
+### Ubuntu: automatic download and merge
+
+Use the [download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/Ubuntu-Imager-Download-Tools-20261113.zip) to fetch and automatically merge **6 parts**, then choose the completed **`Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz`** through **Use custom** in Raspberry Pi Imager. Windows, macOS and Linux launchers are included; interrupted downloads can resume. Use a computer folder with **at least 7 GB free** and a **16 GB or larger SD card**. Read the [step-by-step guide](Imager/Ubuntu.md).
+
+Log in with **pi / pi**. Native GNOME 46 Wayland, default **900 × 900** workspace, English **Display Scale (480–1080)**, the native **720 × 720** panel/touch, MAX17048 battery, USB 2.0 Host and Neofetch 7.1.0 are retained. The existing top-right menu includes **Wi-Fi Settings** and **Bluetooth Settings**. Automatic idle screen transitions are disabled; manual locking remains available. This standalone release replaces the old Ubuntu PINN preview; Ubuntu is not added to the online JSON catalog.
 
 ### Manjaro: online download or complete image
 
