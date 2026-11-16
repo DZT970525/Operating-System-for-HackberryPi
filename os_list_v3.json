@@ -1,7 +1,7 @@
 {
   "os_list": [
     {
-      "os_name": "RPiOS — Raspberry Pi OS for HackberryPi",
+      "os_name": "RPiOS \u2014 Raspberry Pi OS for HackberryPi",
       "description": "Raspberry Pi OS Desktop ARM64 Bookworm for HackberryPi CM5 - 900 workspace, Display Scale, native touchscreen scrolling and battery",
       "release_date": "2026-11-09",
       "supported_models": [
@@ -14,12 +14,36 @@
       "supports_usb_root": false,
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/RPiOS_HackberryPi.png",
       "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/marketing.tar",
-      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/os.json",
-      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/partitions.json",
-      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/partition_setup.sh",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/rpios-legacy-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/rpios-legacy-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/rpios-legacy-partition_setup.sh",
       "tarballs": [
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_boot.tar.gz",
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_root.tar.gz"
+      ],
+      "online_install_only": true
+    },
+    {
+      "os_name": "Ubuntu for HackberryPi",
+      "description": "Ubuntu 24.04.5 GNOME for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "release_date": "2026-11-16",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 9398,
+      "group": "General",
+      "download_size": 3174142435,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "online_install_only": true,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Ubuntu/Ubuntu_HackberryPi.png",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/ubuntu-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/ubuntu-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/ubuntu-partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/ubuntu-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/ubuntu-slot2-stub.img.gz"
       ]
     },
     {
@@ -34,37 +58,40 @@
       "download_size": 6208768909,
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/Kali_HackberryPi.png",
       "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-hackberrypi-2026-10-25/marketing.tar",
-      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/os.json",
-      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/partitions.json",
-      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Kali/partition_setup.sh",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/kali-legacy-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/kali-legacy-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/kali-legacy-partition_setup.sh",
       "tarballs": [
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-hackberrypi-2026-10-25/hbk_boot.tar.gz",
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-hackberrypi-2026-10-25/hbk_root.tar.gz"
-      ]
+      ],
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "online_install_only": true
     },
     {
-      "os_name": "Fyde OS for HackBerry Pi",
-      "description": "FydeOS 23.0 ARM64 factory PINN preview for HackBerry Pi CM5 - display, touch, battery and ChatGPT",
-      "release_date": "2026-10-26",
+      "os_name": "FydeOS for HackberryPi",
+      "description": "FydeOS 23.0 for HackberryPi CM5 \u2014 Display Scale 1.2 \u2014 preview. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery. Online Install downloads the partition data. Upgrade through PINN; native whole-disk recovery/OTA is disabled.",
+      "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
       ],
-      "nominal_size": 12432,
-      "download_size": 1808058893,
+      "nominal_size": 6964,
       "group": "General",
+      "download_size": 2060842857,
       "supports_usb_boot": false,
       "supports_usb_root": false,
       "use_partuuid": false,
+      "online_install_only": true,
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/FydeOS_HackBerryPi.png",
-      "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/marketing.tar",
-      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/os.json",
-      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/partitions.json",
-      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/partition_setup.sh",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fydeos-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fydeos-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fydeos-partition_setup.sh",
       "tarballs": [
-        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_boot.tar.gz",
-        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_root.tar.gz",
-        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_state.tar.gz",
-        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-factory-pinn-2026-10-26/hbf_oem.tar.gz"
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fydeos-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fydeos-slot2-stub.img.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fydeos-slot3-stub.img.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fydeos-slot4-stub.img.gz"
       ]
     },
     {
@@ -81,13 +108,14 @@
       "supports_usb_root": false,
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/Omarchy_HackberryPi.png",
       "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/marketing.tar",
-      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/os.json",
-      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/partitions.json",
-      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Omarchy/partition_setup.sh",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/omarchy-legacy-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/omarchy-legacy-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/omarchy-legacy-partition_setup.sh",
       "tarballs": [
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/hbo_boot.tar.gz",
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/omarchy-hackberrypi-2026-11-09/hbo_root.tar.gz"
-      ]
+      ],
+      "online_install_only": true
     },
     {
       "os_name": "Manjaro ARM Xfce for HackberryPi",
@@ -103,12 +131,155 @@
       "supports_usb_root": false,
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/Manjaro_HackberryPi.png",
       "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/marketing.tar",
-      "os_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/os.json",
-      "partitions_info": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/partitions.json",
-      "partition_setup": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/partition_setup.sh",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/manjaro-legacy-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/manjaro-legacy-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/manjaro-legacy-partition_setup.sh",
       "tarballs": [
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/hbm_boot.tar.xz",
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/hbm_root.tar.xz"
+      ],
+      "online_install_only": false
+    },
+    {
+      "os_name": "Fedora Remix for HackberryPi",
+      "description": "Fedora 45 Xfce Remix for HackberryPi CM5 \u2014 Display Scale. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "release_date": "2026-11-16",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 8760,
+      "group": "General",
+      "download_size": 1303157298,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "online_install_only": true,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Fedora/Fedora_HackberryPi.png",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fedora-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fedora-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fedora-partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fedora-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fedora-slot2-stub.img.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/fedora-slot3-stub.img.gz"
+      ]
+    },
+    {
+      "os_name": "Arch Linux ARM for HackberryPi",
+      "description": "Arch Linux ARM Xfce for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "release_date": "2026-11-16",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 5681,
+      "group": "General",
+      "download_size": 1127886619,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "online_install_only": true,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Arch/Arch_HackberryPi.png",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/arch-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/arch-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/arch-partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/arch-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/arch-slot2-stub.img.gz"
+      ]
+    },
+    {
+      "os_name": "DietPi for HackberryPi",
+      "description": "DietPi Xfce for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "release_date": "2026-11-16",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 4521,
+      "group": "General",
+      "download_size": 632413551,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "online_install_only": true,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/DietPi/DietPi_HackberryPi.png",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-slot2-stub.img.gz"
+      ]
+    },
+    {
+      "os_name": "Buildroot for HackberryPi",
+      "description": "Buildroot Openbox for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "release_date": "2026-11-16",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 2816,
+      "group": "General",
+      "download_size": 144606923,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "online_install_only": true,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Buildroot/Buildroot_HackberryPi.png",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/buildroot-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/buildroot-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/buildroot-partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/buildroot-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/buildroot-slot2-stub.img.gz"
+      ]
+    },
+    {
+      "os_name": "LineageOS for HackberryPi",
+      "description": "LineageOS 24.0 / Android 17 for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data. Upgrade through PINN; native whole-disk recovery/OTA is disabled.",
+      "release_date": "2026-11-16",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 6672,
+      "group": "General",
+      "download_size": 1095630616,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "online_install_only": true,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/LineageOS/LineageOS_HackberryPi.png",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-slot2-stub.img.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-slot3-stub.img.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-slot4-stub.img.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/lineageos-slot5-stub.img.gz"
+      ]
+    },
+    {
+      "os_name": "Twister OS for HackberryPi",
+      "description": "Twister OS 3.1.0 for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "release_date": "2026-11-16",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "nominal_size": 11240,
+      "group": "General",
+      "download_size": 2321554427,
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "use_partuuid": false,
+      "online_install_only": true,
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/TwisterOS/TwisterOS_HackberryPi.png",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/twisteros-os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/twisteros-partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/twisteros-partition_setup.sh",
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/twisteros-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/twisteros-slot2-stub.img.gz"
       ]
     }
   ]
