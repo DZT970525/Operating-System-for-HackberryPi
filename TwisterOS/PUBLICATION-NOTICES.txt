@@ -1,0 +1,36 @@
+Twister OS 3.1.0 / HackberryPi CM5 publication notices — 2026-11-16
+
+This is an independent HackberryPi adaptation of Twister OS by Pi Labs. It is
+not an official Twister OS, Debian, Raspberry Pi or Microsoft release.
+
+The complete image contains separately licensed components. It is not newly
+licensed as a whole under MIT, GPL, or any other single license. Original
+copyrights, package notices and firmware licenses remain in the image; package
+source/version and copyright inventories accompany the source-notices archive.
+
+The MAX17048 driver retains CNflysky's original author notice and GPL declaration.
+Its complete corresponding C source, Makefile and DKMS configuration are in the
+integration archive. The native kernel is unchanged Raspberry Pi/Debian linux
+1:6.12.25-1+rpt1, v8 flavour, 4 KiB pages. Its exact original, Debian patch and
+source-descriptor artifacts accompany this release separately.
+
+Neofetch is the native Debian package version 7.1.0-4 (upstream 7.1.0). Upstream
+Neofetch's MIT notice is retained. The archive's neofetch-reference directory is
+the upstream reference source; the package source inventory identifies the
+installed Debian revision.
+
+ThemeTwister retains the original author/version header (grayduck, 3.1.0-rpi).
+The corresponding original recovered shell source, exact modified source and
+patch are included. Changes add DPI-1 workspace 0..3 wallpaper settings and
+normal, flushed logout in place of force-killing every process of the user.
+Theme assets, names and marks remain with their original owners. These notices
+do not relicense third-party theme graphics, fonts or upstream trademarks.
+
+The remaining project helpers/configuration are included as source with their
+existing notices. The automatic download helper is adapted from this repository's
+previously published Omarchy/Ubuntu download tools; it only downloads, verifies
+and merges local data. Raspberry Pi Imager performs the card write separately.
+
+Publication removes private connections, account sessions and histories from the
+image copy, retaining the tested display/hardware/theme integration. The configured
+source was accepted by the owner; final-image physical first boot is separate.

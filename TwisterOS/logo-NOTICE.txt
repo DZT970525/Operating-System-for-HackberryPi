@@ -1,0 +1,1 @@
+This repository-generated text badge identifies the unofficial HackberryPi adaptation. It is not an official Pi Labs/Twister OS logo. Twister OS and HackberryPi names remain with their respective owners. The included SVG is the editable badge source.
