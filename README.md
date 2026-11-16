@@ -4,6 +4,7 @@ Customized ARM64 systems for **HackberryPi CM5**, with separate download sources
 
 | System | Documentation | Default login |
 | --- | --- | --- |
+| LineageOS 24.0 / Android 17 for HackberryPi | [LineageOS](LineageOS/README.md) · [Imager](Imager/LineageOS.md) | Android first-run setup; choose your own optional screen lock |
 | RPiOS — Raspberry Pi OS for HackberryPi | [RPiOS](RPiOS/README.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 | Ubuntu 24.04.5 LTS GNOME for HackberryPi | [Ubuntu](Ubuntu/README.md) · [Imager](Imager/Ubuntu.md) | Username `pi`, password `pi` — both lowercase; use `sudo` for administrator commands |
 | Kali Linux 2026.3 for HackberryPi | [PINN](Kali/README.md) · [Imager](Imager/Kali.md) | Username `kali`, password `kali` — both lowercase; use `sudo` for administrator commands |
@@ -25,7 +26,7 @@ Use a PINN build with CM5 and HackberryPi display support. Add this to the exist
 alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_v3.json
 ```
 
-The five existing PINN systems appear in **General**. Ubuntu, Fedora Remix, Arch Linux ARM, DietPi and Buildroot are provided separately as standalone Raspberry Pi Imager images; they are not in the PINN feed. The old Ubuntu PINN preview has been withdrawn; `Ubuntu/os_list_v3.json` remains a valid empty catalog. Use the root combined feed above for the other PINN systems. `repo_list.json` points to the combined catalog.
+The five existing PINN systems appear in **General**. LineageOS, Ubuntu, Fedora Remix, Arch Linux ARM, DietPi and Buildroot are provided separately as standalone Raspberry Pi Imager images; they are not in the PINN feed. The old Ubuntu PINN preview has been withdrawn; `Ubuntu/os_list_v3.json` remains a valid empty catalog. Use the root combined feed above for the other PINN systems. `repo_list.json` points to the combined catalog.
 
 Packages and checksums are under [Releases](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases). Read each system's installation notes before downloading. PINN packages contain filesystem archives and supplemental application archives. Read each release's notes for standalone image availability; PINN filesystem archives cannot be flashed as a whole disk image. Keep the network connected throughout online installation.
 
@@ -37,6 +38,7 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
 
 | System | Download method | Installation notes |
 | --- | --- | --- |
+| LineageOS 24.0 / Android 17 for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/lineageos-displayscale-hackberrypi-2026-11-16/LineageOS-24.0-Android17-HackberryPi-CM5-DisplayScale-Neofetch-20261116.img.xz) | [LineageOS](Imager/LineageOS.md) |
 | RPiOS — Raspberry Pi OS for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz) | [RPiOS](RPiOS/README.md) |
 | Ubuntu 24.04.5 LTS GNOME for HackberryPi | Automatic download-and-merge tool: [Download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/Ubuntu-Imager-Download-Tools-20261113.zip) | [Ubuntu](Imager/Ubuntu.md) |
 | Kali Linux 2026.3 for HackberryPi | Automatic download-and-merge tool: [Download helper ZIP](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/kali-displayscale-hackberrypi-2026-11-10/Kali-Imager-Download-Tools-20261110.zip) | [Kali](Imager/Kali.md) |
@@ -48,9 +50,15 @@ Install one system directly on an SD card with [Raspberry Pi Imager](https://www
 | DietPi Xfce for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/dietpi-displayscale-hackberrypi-2026-11-13/DietPi-Trixie-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz) | [DietPi](Imager/DietPi.md) |
 | Buildroot Openbox for HackberryPi | [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json) or [complete `.img.xz`](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/buildroot-displayscale-hackberrypi-2026-11-15/Buildroot-2026.08.1-Openbox-HackberryPi-CM5-DisplayScale-Neofetch-20261115.img.xz) | [Buildroot](Imager/Buildroot.md) |
 
-**The online catalog contains RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM, DietPi and Buildroot.** Ubuntu, Kali and Omarchy use their download-and-merge helpers followed by **Use custom**; they are not online JSON entries.
+**The online catalog contains LineageOS, RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM, DietPi and Buildroot.** Ubuntu, Kali and Omarchy use their download-and-merge helpers followed by **Use custom**; they are not online JSON entries.
 
-### RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM, DietPi and Buildroot: online download in Imager
+### LineageOS: online download or complete image
+
+Choose **LineageOS 24.0 / Android 17 for HackberryPi** in the Imager catalog, or [download the complete image](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/lineageos-displayscale-hackberrypi-2026-11-16/LineageOS-24.0-Android17-HackberryPi-CM5-DisplayScale-Neofetch-20261116.img.xz) and select it with **Use custom**. Use an **8 GB or larger SD card** and wait for writing and verification; no manual decompression or merge is needed.
+
+Complete Android’s own setup wizard; no Linux `pi / pi` login is configured. The default logical workspace is **900 × 900**, with the English **Display Scale (480–1080)** app on the native **720 × 720** panel. Screen/touch, USB 2.0 Host, MAX17048 battery capacity, top Quick Settings Wi-Fi/Bluetooth/Volume, official Firefox and genuine Neofetch in Termux are included. The configured source was owner-tested; the sanitized factory image awaits a separate physical first-run test. This is an **unofficial noncommercial** adaptation of [KonstaKANG’s LineageOS build](https://konstakang.com/devices/rpi5/LineageOS24/), with component-specific licenses and matching sources retained. Read the [installation guide](Imager/LineageOS.md) for first-start preparation, compact storage, browser updates and validation. This release is standalone only.
+
+### LineageOS, RPiOS, FydeOS, Manjaro, Fedora Remix, Arch Linux ARM, DietPi and Buildroot: online download in Imager
 
 1. Open Raspberry Pi Imager and choose **App Options → Content Repository → Edit**.
 2. Select **Use custom URL** and paste:
@@ -137,3 +145,4 @@ Log in with **kali / kali**. The default workspace is **900 × 900**; open **Dis
 The helper prepares a local image file; SD-card selection and writing take place in Imager. The `hbr_*.tar.gz` and `hbo_*.tar.gz` PINN filesystem archives belong to the PINN method and are not whole-disk images for **Use custom**.
 
 The FydeOS source card with Display Scale was tested and accepted by the owner; the sanitized standalone release image awaits a separate physical flash and first-run test. The rebuilt RPiOS image still awaits a physical boot test. The Omarchy helper reconstructs the same sanitized standalone image that the owner boot-tested. Read each release's current validation status before installing; the PINN installation and multiboot preview limits above remain separate.
+

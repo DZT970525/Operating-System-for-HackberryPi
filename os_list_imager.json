@@ -16,6 +16,24 @@
   },
   "os_list": [
     {
+      "name": "LineageOS 24.0 / Android 17 for HackberryPi",
+      "description": "Unofficial noncommercial Android17 adaptation:900workspace, Display Scale480–1080, native720panel, battery, USB Host and Neofetch in Termux. Android first-run setup.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/LineageOS/LineageOS_HackberryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/lineageos-displayscale-hackberrypi-2026-11-16/LineageOS-24.0-Android17-HackberryPi-CM5-DisplayScale-Neofetch-20261116.img.xz",
+      "extract_size": 7001341952,
+      "extract_sha256": "281bd4cbcf683a3b65b394990516a6352e1edc5a59cbd3c3fd370dcd7f624a14",
+      "image_download_size": 1089547944,
+      "image_download_sha256": "a6c16d9bb6bb7c25d9e6265fe1611690cad36088f50b7e0353a084432229667d",
+      "release_date": "2026-11-16",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/LineageOS.md"
+    },
+    {
       "name": "RPiOS — Raspberry Pi OS for HackberryPi",
       "description": "Bookworm ARM64 preview with 900 × 900 workspace and manual Display Scale. Default login: pi / pi.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/RPiOS_HackberryPi.png",
