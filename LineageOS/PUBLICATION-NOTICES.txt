@@ -1,0 +1,46 @@
+HackberryPi CM5 LineageOS 24.0 / Android 17 adaptation, 2026-11-16
+
+Unofficial noncommercial community adaptation. No endorsement by KonstaKANG,
+LineageOS, Mozilla or Raspberry Pi is claimed. Original device build by
+KonstaKANG, dated2026-10-16: https://konstakang.com/devices/rpi5/LineageOS24/
+Base ZIP SHA256 fa45e58cb78fcccc9be3eae696793094c127291d3c240117c43c0a4aa9bdc980
+
+KonstaKANG-specific scripts and covered derived configuration retain
+CC BY-NC-SA4.0 and their original copyright notices. Covered adaptations are
+shared on those same noncommercial terms, with changes identified below.
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en
+This does not replace the licenses or freedoms of independent GPL/MIT/MPL,
+Apache, firmware or other components. Retain their original notices.
+
+Changes: CM5 HackberryPi DPI720x720/touch and USB2 host configuration; logical
+900x900/density160 workspace; English Display Scale480-1080 app and numeric
+request broker; MAX17048 capacity bridge; native Quick Settings volume tile;
+bounded Baidu/Bilibili HTTP link bridge; official Firefox APK/native-library
+preinstallation; Termux/Neofetch offline provisioning; factory privacy reset;
+ordered first-start defaults and desktop shortcuts without owner app data.
+New independent HackberryPi Java/C/shell/DTS helper sources are MIT.
+
+Kernel6.18.33: raspberry-vanilla/android_kernel_brcm_rpi commit
+1bc0869a3e521e36b5802396b193e9012a8a0015, GPL-2.0 with syscall note.
+Termux0.118.3: GPLv3-only plus source-tree exceptions. Bootstrap packages retain
+individual licenses. Neofetch7.1.0: MIT, Copyright2015-2020 Dylan Araps;
+only the Android/Termux shebang was adapted. Helper executables statically
+include Ubuntu glibc2.39-0ubuntu8.9; corresponding source, independent linkable
+objects and verified relink instructions accompany the release.
+
+Firefox160.0 is the unaltered official Mozilla-signed ARM64 APK and matching
+native libraries. MPL sources: https://archive.mozilla.org/pub/firefox/releases/160.0/source/
+Google Play is not included. For manual Firefox Android updates use Mozilla's
+official stable ARM64 APKs: https://archive.mozilla.org/pub/fenix/releases/
+Install as Update in Android; keep the official signing identity and app data.
+Firefox trademarks remain Mozilla's. Stock firmware/licenses remain unchanged.
+
+Download image, exact matching kernel source, source-compliance material,
+project integration source and full notices from:
+https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/tag/lineageos-displayscale-hackberrypi-2026-11-16
+Installation, changes, license/source links and Firefox-update instructions:
+https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/LineageOS.md
+
+No personal userdata/metadata, network credentials, accounts, browser profiles,
+Termux history or private signing keys are included. The configured source was
+owner-tested; the newly sanitized factory image awaits separate first-run test.

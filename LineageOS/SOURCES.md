@@ -1,0 +1,38 @@
+# Sources for the HackberryPi LineageOS 24 adaptation
+
+[Release and all source assets](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/tag/lineageos-displayscale-hackberrypi-2026-11-16)
+
+Directory paths below refer to the extracted **[source-compliance archive](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/lineageos-displayscale-hackberrypi-2026-11-16/lineageos24-hackberrypi-source-compliance-20261116.tar.xz)**. The **[independent HackberryPi integration sources](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/lineageos-displayscale-hackberrypi-2026-11-16/LineageOS-HackberryPi-Integration-Source-20261116.tar.xz)** and **[complete exact kernel source](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/lineageos-displayscale-hackberrypi-2026-11-16/android_kernel_brcm_rpi-1bc0869a3e521e36b5802396b193e9012a8a0015.tar.gz)** are separate downloads.
+
+These files provide the matching source and relinking materials for the components described below. They supplement the source and notices retained in the system image and the separate HackberryPi integration-source asset. Licenses remain component-specific; this collection does not relicense the entire image under any one license. These source downloads require no image download, purchase or registration.
+
+## Downloadable source assets
+
+- **Linux kernel:** the separate `android_kernel_brcm_rpi-1bc0869a3e521e36b5802396b193e9012a8a0015.tar.gz` asset contains the full exact kernel source. See `kernel/` in this bundle for the actual embedded config, source/binary correspondence, build target and compiler details.
+- **Termux app 0.118.3:** `archives/termux-app-5b657c6adf4304e5198951ce815fe0205dcac29c.tar.gz` is the immutable source snapshot for the supplied official APK. It retains GPLv3-only and the source tree’s documented exceptions.
+- **Termux bootstrap packages:** `archives/termux-packages-5a6d1c1eb868795dce83a6c269387b9f82d21805.tar.gz` contains the exact build system, package recipes, local patches and local-source packages for upstream bootstrap `2025.03.28-r1+apt-android-7`. `termux-bootstrap-binary-binding.json` proves the APK’s embedded ZIP matches upstream’s expected SHA-256. `termux-bootstrap-packages.json` lists all 75 installed package versions and their corresponding immutable recipes; every version matched. It gives upstream original-source URLs and hashes, while the complete recipe also handles secondary sources/patches. The recipe archive is not falsely described as containing every third-party upstream tarball: use those direct source URLs plus the bundled recipes/patches, or the pinned Termux build system, to obtain complete package source. No additional charge applies. Historical `dpkg`, `nano`, `psmisc` and `debianutils` originals are additionally bundled, so removed/latest upstream links do not prevent obtaining their matching source. Verified canonical GNU mirror alternatives are in the JSON inventory where a regional mirror failed.
+- **Static C library in the three helpers:** matching Ubuntu `glibc_2.39-0ubuntu8.9.dsc`, upstream `glibc_2.39.orig.tar.xz` and Ubuntu `glibc_2.39-0ubuntu8.9.debian.tar.xz` are bundled in `archives/`. The three helper C sources, independent linkable object files and verified relink instructions are under `helpers/`. The verified relinks reproduced all three shipped binaries byte-for-byte.
+
+## Obtaining and building Termux package source
+
+Extract the pinned `termux-packages` archive on a suitable build machine and follow its included `README.md` / `CONTRIBUTING.md`. Use its standard `./build-package.sh -a aarch64 PACKAGE` workflow; it obtains original source from the URLs/checksums in each exact recipe and applies the included local patches. The JSON inventory identifies the source recipe even when an installed package is a subpackage (for example `libbz2` and `gpgv`). A recipe’s primary URL by itself is not a substitute for its complete sources, local patches and any additional upstream patches. Runtime and build dependencies retain their own license terms.
+
+For the Termux app, use its included Gradle build documentation; source commit `5b657c6adf4304e5198951ce815fe0205dcac29c` pins bootstrap `2025.03.28-r1+apt-android-7`. No private release signing key is required to modify the sources or build your own APK. The separate integration asset contains our NeoFetch bootstrap repacker and changes.
+
+## License notices
+
+`LICENSES/` includes common applicable license texts for reference; each source archive’s own COPYING/LICENSE files and per-file notices control. KonstaKANG-specific original scripts are identified as CC BY-NC-SA 4.0 in the image and adaptation notices. Independent GPL/MIT/MPL components retain their original licenses and freedoms. NeoFetch’s MIT notice is retained. Source URLs and hashes are recorded in `source-manifest.json` and `SHA256SUMS` in this bundle. External upstream sources are independently maintained; the release’s bundled archives remain directly downloadable source assets.
+
+## Base, browser and firmware
+
+Original KonstaKANG build: [LineageOS 24.0 for Raspberry Pi5/CM5](https://konstakang.com/devices/rpi5/LineageOS24/), dated 2026-10-16. Retain the original author and per-file notices. Covered scripts and derived boot/vendor configurations use [CC BY-NC-SA4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.en); identified covered adaptations are shared on the same terms, for noncommercial use. New independent project helpers use MIT. This does not restrict independently GPL/MIT/MPL/Apache-licensed material beyond its own terms.
+
+The original Android system/vendor license notices remain in the image and are accessible through Android’s legal information. Raspberry Pi/Broadcom firmware and other vendor files retain their original notices and redistribution terms. No whole-image MIT or CC relicensing is claimed.
+
+Firefox 160.0 is the official unmodified Mozilla-signed Android ARM64 APK, with its byte-identical native libraries in the standard system-app cluster. [Mozilla’s 160.0 source archive](https://archive.mozilla.org/pub/firefox/releases/160.0/source/) and the [MPL2.0](https://www.mozilla.org/en-US/MPL/2.0/) provide its source/license route. Mozilla trademarks are separate from source licenses. Firefox manual-update instructions are in the [installation guide](../Imager/LineageOS.md#firefox-updates); Google Play is not included. Firefox preferences, search codes and branding were not modified.
+
+The catalog icon is derived by format conversion from the [official LineageOS website logo](https://raw.githubusercontent.com/LineageOS/www/ca73ca067d4277d1b2cf36f4af387bb7d795b70c/images/logo.webp). The website repository’s [MIT notice](logo-LICENSE.txt) is retained for reference; it does not grant trademark rights. LineageOS names and marks remain their owners’ property. This unofficial adaptation is not affiliated with or endorsed by LineageOS, KonstaKANG, Mozilla or Raspberry Pi.
+
+## Changes on 2026-11-16
+
+The release adds HackberryPi CM5 DPI/touch/USB2 Host configuration, default900 workspace, an English Display Scale app and bounded broker, MAX17048 capacity bridge, native Quick Settings volume, a separate bounded Baidu/Bilibili web-link handler, official Firefox system preinstallation, and genuine Neofetch in an offline Termux environment. Publication replaces all owner userdata/metadata with factory baselines and uses ordered first-start provisioning with fresh desktop shortcuts. Original kernel and base component notices remain intact; the configured card was preserved unchanged.
