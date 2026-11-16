@@ -13,7 +13,7 @@ env:
   PINN_RELEASE_TAG: pinn-multiboot-hackberrypi-2026-11-16
   PINN_TOOL_ROOT: tools/pinn-refresh
   SOURCE_BUNDLE: tools/pinn-refresh-source-20261116.tar.gz
-  SOURCE_BUNDLE_SHA256: ba4f9b5791de6da28e77c794853e7d21e47903b08a2a1f94416bd12ff2adca34
+  SOURCE_BUNDLE_SHA256: dc1841ca202955f13b0037da2b0190c05d9d20ea3545e1b206b939519e76b71a
 
 jobs:
   unit-gate:
