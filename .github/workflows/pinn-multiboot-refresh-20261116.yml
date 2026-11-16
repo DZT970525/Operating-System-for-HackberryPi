@@ -1,0 +1,240 @@
+# Local review copy only. Not committed, enabled or executed by this file's author.
+# Intended destination after approval: .github/workflows/pinn-multiboot-refresh-20261116.yml
+name: Prepare HackberryPi PINN multiboot draft
+
+on:
+  workflow_dispatch:
+
+permissions: {}
+concurrency:
+  group: hackberrypi-pinn-multiboot-20261116
+  cancel-in-progress: false
+env:
+  PINN_REPOSITORY: DZT970525/Operating-System-for-HackberryPi
+  PINN_RELEASE_TAG: pinn-multiboot-hackberrypi-2026-11-16
+  PINN_TOOL_ROOT: tools/pinn-refresh
+  SOURCE_BUNDLE: tools/pinn-refresh-source-20261116.tar.gz
+  SOURCE_BUNDLE_SHA256: d5601b58b3ddd943b7518cb771314b599dffce14eb4f9087852f802b2de63fd4
+
+jobs:
+  unit-gate:
+    name: Validate source-only fixtures
+    if: >-
+      ${{ github.repository == 'DZT970525/Operating-System-for-HackberryPi'
+          && github.event_name == 'workflow_dispatch'
+          && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - name: Check out exact reviewed commit
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify and unpack the reviewed source bundle
+        run: |
+          [[ "$SOURCE_BUNDLE_SHA256" =~ ^[0-9a-f]{64}$ ]]
+          printf '%s  %s\n' "$SOURCE_BUNDLE_SHA256" "$SOURCE_BUNDLE" | sha256sum --check --strict
+          test ! -e "$PINN_TOOL_ROOT"
+          mkdir -p "$PINN_TOOL_ROOT"
+          tar --no-same-owner -xzf "$SOURCE_BUNDLE" -C "$PINN_TOOL_ROOT"
+      - name: Install official Ubuntu test tools
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            python3 xz-utils gzip cpio bash tar coreutils findutils \
+            util-linux fdisk e2fsprogs device-tree-compiler
+      - name: Run all source-only fixture gates
+        run: |
+          python3 -B "$PINN_TOOL_ROOT/ci/pipeline.py" fixture
+          python3 -B "$PINN_TOOL_ROOT/linux-adapters/test_adapters.py"
+          python3 -B "$PINN_TOOL_ROOT/android-fydeos-research/test-hooks.py"
+          python3 -B "$PINN_TOOL_ROOT/android-fydeos-research/test-preflight.py"
+          python3 -B "$PINN_TOOL_ROOT/ci/test_publish_ci.py"
+      - name: Validate the eight plans without disk images
+        run: |
+          python3 -B - <<'PY'
+          import importlib.util, os, sys
+          from pathlib import Path
+          root = Path(os.environ["PINN_TOOL_ROOT"]).resolve()
+          sys.path.insert(0, str(root / "ci"))
+          spec = importlib.util.spec_from_file_location("builder", root / "ci/build_package.py")
+          builder = importlib.util.module_from_spec(spec)
+          spec.loader.exec_module(builder)
+          for name in sorted(builder.OS_IDS):
+              builder.load_plan(name)
+              print("Reviewed ready plan:", name)
+          PY
+
+  prepare:
+    name: Prepare fixed private release draft
+    needs: unit-gate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify and unpack the reviewed source bundle
+        run: |
+          [[ "$SOURCE_BUNDLE_SHA256" =~ ^[0-9a-f]{64}$ ]]
+          printf '%s  %s\n' "$SOURCE_BUNDLE_SHA256" "$SOURCE_BUNDLE" | sha256sum --check --strict
+          test ! -e "$PINN_TOOL_ROOT"
+          mkdir -p "$PINN_TOOL_ROOT"
+          tar --no-same-owner -xzf "$SOURCE_BUNDLE" -C "$PINN_TOOL_ROOT"
+      - name: Install official Ubuntu GitHub CLI
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y gh python3
+          gh --version
+      - name: Create or resume only this fixed draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 -B "$PINN_TOOL_ROOT/ci/publish_ci.py" prepare
+
+  convert:
+    name: Convert and upload ${{ matrix.os_id }}
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    permissions:
+      contents: write
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        os_id: [ubuntu, fedora, arch, dietpi, buildroot, twisteros, lineageos, fydeos]
+    env:
+      OS_ID: ${{ matrix.os_id }}
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify and unpack the reviewed source bundle
+        run: |
+          [[ "$SOURCE_BUNDLE_SHA256" =~ ^[0-9a-f]{64}$ ]]
+          printf '%s  %s\n' "$SOURCE_BUNDLE_SHA256" "$SOURCE_BUNDLE" | sha256sum --check --strict
+          test ! -e "$PINN_TOOL_ROOT"
+          mkdir -p "$PINN_TOOL_ROOT"
+          tar --no-same-owner -xzf "$SOURCE_BUNDLE" -C "$PINN_TOOL_ROOT"
+      - name: Install official Ubuntu image tools
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y \
+            python3 xz-utils gzip cpio bash tar coreutils findutils \
+            util-linux fdisk e2fsprogs dosfstools gdisk btrfs-progs device-tree-compiler gh
+          command -v gh
+      - name: Reserve disposable hosted-runner storage
+        run: |
+          test "$GITHUB_ACTIONS" = true
+          test "$GITHUB_REPOSITORY" = "$PINN_REPOSITORY"
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          available=$(df --output=avail -B1 /mnt | tail -n 1 | tr -d ' ')
+          if [ "$available" -lt 23622320128 ]; then
+            # Only fixed unused SDK caches on this disposable hosted VM.
+            sudo rm -rf -- /usr/share/dotnet /usr/local/lib/android \
+              /opt/ghc /opt/hostedtoolcache/CodeQL
+          fi
+          df -h /mnt
+      - name: Convert pinned source in private root mount namespace
+        run: |
+          test "$GITHUB_REPOSITORY" = "$PINN_REPOSITORY"
+          case "$OS_ID" in
+            ubuntu|fedora|arch|dietpi|buildroot|twisteros|lineageos|fydeos) ;;
+            *) exit 2 ;;
+          esac
+          # GH_TOKEN is absent: only publisher steps receive the release token.
+          sudo --preserve-env=GITHUB_ACTIONS,GITHUB_REPOSITORY,RUNNER_ENVIRONMENT,GITHUB_EVENT_NAME,GITHUB_SHA,GITHUB_RUN_ID \
+            unshare --mount --propagation private -- \
+            python3 -B "$GITHUB_WORKSPACE/$PINN_TOOL_ROOT/ci/build_package.py" "$OS_ID"
+      - name: Upload verified OS attachments to fixed draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          python3 -B "$PINN_TOOL_ROOT/ci/publish_ci.py" upload \
+            --os-id "$OS_ID" --output-dir "/mnt/hackberrypi-pinn-ci/$OS_ID/out"
+      - name: Remove only this job's temporary images
+        if: ${{ always() }}
+        run: |
+          test "$GITHUB_ACTIONS" = true
+          test "$GITHUB_REPOSITORY" = "$PINN_REPOSITORY"
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          case "$OS_ID" in
+            ubuntu|fedora|arch|dietpi|buildroot|twisteros|lineageos|fydeos)
+              sudo rm -rf -- "/mnt/hackberrypi-pinn-ci/$OS_ID"
+              ;;
+            *) exit 2 ;;
+          esac
+
+  finalize:
+    name: Verify private twelve-system catalog
+    needs: convert
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify and unpack the reviewed source bundle
+        run: |
+          [[ "$SOURCE_BUNDLE_SHA256" =~ ^[0-9a-f]{64}$ ]]
+          printf '%s  %s\n' "$SOURCE_BUNDLE_SHA256" "$SOURCE_BUNDLE" | sha256sum --check --strict
+          test ! -e "$PINN_TOOL_ROOT"
+          mkdir -p "$PINN_TOOL_ROOT"
+          tar --no-same-owner -xzf "$SOURCE_BUNDLE" -C "$PINN_TOOL_ROOT"
+      - name: Install official Ubuntu GitHub CLI
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y gh python3
+          gh --version
+      - name: Validate all eight new and four retained native packages
+        id: finalize
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python3 -B "$PINN_TOOL_ROOT/ci/publish_ci.py" finalize
+      - name: Record private-draft result for owner review
+        env:
+          FINALIZE_DIRECTORY: ${{ steps.finalize.outputs.finalize_directory }}
+        run: |
+          python3 -B - <<'PY'
+          import json, os
+          from pathlib import Path
+          directory = Path(os.environ["FINALIZE_DIRECTORY"]).resolve()
+          temporary = Path(os.environ["RUNNER_TEMP"]).resolve()
+          if not directory.is_relative_to(temporary) or not directory.name.startswith("hackberrypi-pinn-finalize-"):
+              raise SystemExit("Unexpected final receipt directory")
+          receipt = json.loads((directory / "candidate-finalize-receipt.json").read_text())
+          if receipt["passed"] is not True or receipt["draft_only"] is not True or receipt["published"] is not False:
+              raise SystemExit("Result is not the reviewed private draft")
+          text = (
+              "## HackberryPi PINN candidate prepared\n\n"
+              "Eight converted packages and four retained native packages were verified in the fixed private draft.\n\n"
+              "**The release remains unpublished; this workflow did not change the main catalog.**\n\n"
+              "New raw packages require online installation. Native Download alone is not a complete offline bundle.\n\n"
+              "Physical PINN installation and multiboot testing remain separate from these conversion checks.\n\n"
+              "[Open repository releases for owner review](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases)\n"
+          )
+          with open(os.environ["GITHUB_STEP_SUMMARY"], "a") as output:
+              output.write(text)
+          PY
