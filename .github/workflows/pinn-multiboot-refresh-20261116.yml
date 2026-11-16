@@ -1,5 +1,4 @@
-# Local review copy only. Not committed, enabled or executed by this file's author.
-# Intended destination after approval: .github/workflows/pinn-multiboot-refresh-20261116.yml
+# Manual fixed-release PINN conversion; publication remains a separate reviewed step.
 name: Prepare HackberryPi PINN multiboot draft
 
 on:
@@ -14,7 +13,7 @@ env:
   PINN_RELEASE_TAG: pinn-multiboot-hackberrypi-2026-11-16
   PINN_TOOL_ROOT: tools/pinn-refresh
   SOURCE_BUNDLE: tools/pinn-refresh-source-20261116.tar.gz
-  SOURCE_BUNDLE_SHA256: d5601b58b3ddd943b7518cb771314b599dffce14eb4f9087852f802b2de63fd4
+  SOURCE_BUNDLE_SHA256: ba4f9b5791de6da28e77c794853e7d21e47903b08a2a1f94416bd12ff2adca34
 
 jobs:
   unit-gate:
