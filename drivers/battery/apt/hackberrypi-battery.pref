@@ -1,0 +1,7 @@
+Package: hackberrypi-battery-dkms
+Pin: release o=HackberryPiBattery
+Pin-Priority: 600
+
+Package: *
+Pin: release o=HackberryPiBattery
+Pin-Priority: -1

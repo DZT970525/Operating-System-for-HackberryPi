@@ -1,0 +1,17 @@
+Package: hackberrypi-battery-dkms
+Version: 1.2+hbpi2
+Architecture: all
+Maintainer: HackberryPi local integration <root@localhost>
+Depends: dkms, gcc, make, linux-headers-rpi-2712, linux-headers-rpi-v8
+Filename: ./hackberrypi-battery-dkms_1.2+hbpi2_all.deb
+Size: 5582
+MD5sum: df0f97edecb1051b44671bd28939afbe
+SHA1: 468fbc6d0d4449cd68975d579e1ce6dffbdd86e2
+SHA256: ea115ef1452503ec8ccc9238e99e189dcb646e4ae2ea640fa41f8a0595fa4942
+Section: kernel
+Priority: optional
+Description: HackberryPi CM5 MAX17048 battery driver with kernel update support
+ Installs the existing HackberryPi MAX17048 driver source into DKMS so that
+ normal Raspberry Pi OS kernel and matching header package upgrades can
+ rebuild the battery module automatically. Intended for HackberryPi CM5.
+

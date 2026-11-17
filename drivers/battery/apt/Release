@@ -1,0 +1,16 @@
+Origin: HackberryPiBattery
+Label: HackberryPiBattery
+Suite: stable
+Codename: hackberrypi-battery
+Architectures: arm64
+Description: MAX17048 battery DKMS driver for HackberryPi CM5 Raspberry Pi OS
+Date: Tue, 17 Nov 2026 06:25:06 +0000
+MD5Sum:
+ d6029d14405266aecb451dfef027b585              765 Packages
+ fbc135e960307b76617b2fca68092702              496 Packages.gz
+SHA256:
+ b583b69a57c6a5f58d512d5d53a972801f33d5b8ac18ae7e08b94b356416fe81              765 Packages
+ 98cce61139ff7a316834130e1a2e6a097d2db90aaf06875fa6b05700d3ec1b54              496 Packages.gz
+SHA512:
+ b628435b3cd52ee0149cfcd7af355439a9a5451a78d8eb16535f6e023be80d98ae32ebf7aa053a19bfd113f195fd1a923589f102b085e8e83dc5595c0b519d29              765 Packages
+ e5cf8525ca75c3a0cce4a0bf667da0010fb082d479d9981ae7a0c6efa0038921da11ad10878f67ed0e4b9f119a129a49d7ad8ffb960d0375972ad5ae9cf14163              496 Packages.gz

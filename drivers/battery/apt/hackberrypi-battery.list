@@ -1,0 +1,1 @@
+deb [arch=arm64 signed-by=/etc/apt/keyrings/hackberrypi-battery.gpg] https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/drivers/battery/apt/ ./
