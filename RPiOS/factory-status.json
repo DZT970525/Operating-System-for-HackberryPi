@@ -1,70 +1,50 @@
 {
-  "system": "RPiOS — Raspberry Pi OS for HackberryPi CM5",
+  "system": "RPiOS — Raspberry Pi OS for HackberryPi",
+  "release_tag": "rpios-battery-dkms-hackberrypi-2026-11-17",
+  "release_date": "2026-11-17",
   "base_system": {
     "reference_date": "2024-11-19",
     "debian_version": "12.8",
     "codename": "bookworm",
     "architecture": "arm64",
-    "kernel": "6.6.51+rpt-rpi-2712"
+    "desktop": "labwc",
+    "kernel": "6.6.51+rpt-rpi-2712",
+    "source_image_sha256": "9e24938732479319a1329936c6538a166af54b0c64968af95cbd8f1a832a01b0"
   },
   "default_login": {
     "username": "pi",
     "password": "pi",
     "root_password_login": "locked"
   },
+  "battery": {
+    "package": "hackberrypi-battery-dkms",
+    "version": "1.2+hbpi2",
+    "automatic_kernel_rebuild": true,
+    "signed_source_configured": true,
+    "future_kernel_api_changes_may_need_driver_update": true
+  },
   "standalone_image": {
-    "bytes": 9130999808,
-    "boot_partition_mib": 512,
-    "root_partition_mib": 8192,
-    "fresh_filesystems": true,
-    "discarded_free_blocks_from_source": true,
-    "filesystem_checks": "passed",
-    "full_tree_checksum_and_metadata_comparison": "passed",
-    "online_root_growth": "passed",
-    "target_tool_compatibility": "Bookworm util-linux 2.38.1; sysfs partition index",
-    "physical_rebuilt_image_boot": "pending",
-    "archive_name": "RPiOS-HackberryPi-CM5-20261109.img.xz",
-    "compressed_bytes": 1389986648,
-    "compressed_sha256": "9e24938732479319a1329936c6538a166af54b0c64968af95cbd8f1a832a01b0",
+    "name": "RPiOS-HackberryPi-CM5-BatteryDKMS-20261117.img.xz",
+    "bytes": 1473919320,
+    "sha256": "0924a8a31ad2d9ed82962d347c1d4fa9a4fc2a10d7c1084227731de29263f447",
     "extract_size": 9130999808,
-    "extract_sha256": "47965c95cefb49bc588b7e0c9626af120e2e2b14cf42d0fcd5250f3ede85edad",
-    "compressed_stream_full_verification": "passed",
-    "uploadable_as_single_github_asset": true
+    "extract_sha256": "cd683d9d84396a5c24b15c99bf6cde9b753bef53c54c08098da80e4fdce77b8b",
+    "public_verified": true
   },
-  "pinn_installation": {
-    "adapter_unit_checks": "passed",
-    "automated_actual_installation": "passed",
-    "physical_pinn_multiboot": "pending",
-    "partition_growth": "disabled; allocation belongs to PINN",
-    "supports_backup": true,
-    "boot_partition_number": 6,
-    "root_partition_number": 7,
-    "preserved_feature_hashes": 23,
-    "preserved_boot_files": 381,
-    "preserved_hardlink_groups": 562,
-    "growth_activation_removed": true,
-    "uid1000_access": true,
-    "target_python_cli_runs": true,
-    "restore_customer_state_preserved": true,
-    "repair_customer_state_preserved": true,
-    "firstboot_identity_helper_executed": true,
-    "unique_device_keys_generated": true,
-    "identity_helper_idempotent": true,
-    "unrelated_partition_sentinels_unchanged": 4,
-    "mbr_and_ebr_sectors_unchanged": true,
-    "cleanup_complete": true,
-    "network_downloads_used": false,
-    "automated_test_finished_at": "2026-11-09T20:03:37.838370+08:00"
-  },
-  "factory_cleanup": {
-    "status": "passed",
-    "private_application_and_network_state_removed": true,
-    "browser_profiles_and_keyrings_removed": true,
-    "personal_files_histories_and_logs_removed": true,
-    "original_machine_and_ssh_identity_removed": true,
-    "fresh_per_device_identity": true,
-    "source_card_modified": false,
-    "deleted_source_free_blocks_excluded": true
+  "verification": {
+    "source_base_verified": true,
+    "shipping_modules_verified": true,
+    "filesystem_checks_passed": true,
+    "compressed_stream_verified": true,
+    "private_signing_keys_excluded": true,
+    "upgrade_hook_rebuild_verified": true,
+    "upgrade_target_kernel": "6.12.115+rpt-rpi-2712",
+    "pinn_fixture_installation_verified": true,
+    "pinn_actual_full_assembly_verified": true,
+    "pinn_preboot_metadata_variances_explicitly_verified": true,
+    "physical_flash_boot_verified": false,
+    "physical_battery_percentage_after_upgrade_verified": false,
+    "physical_pinn_multiboot_verified": false
   },
   "preserved_features": {
     "native_panel": [
@@ -79,12 +59,14 @@
       480,
       1080
     ],
-    "touchscreen_desktop_pinch_zoom": false,
-    "native_touchscreen_scrolling": true,
-    "english_display_scale_app": true,
-    "factory_hardware_support": true,
-    "preserved_files_verified": 26,
-    "display_source_archive": "display-scale-source.tar.gz"
+    "desktop": "labwc",
+    "touchscreen_desktop_pinch_zoom": false
   },
-  "physical_validation_note": "The source card was in use. The rebuilt sanitized image and PINN edition still require physical boot/install and multiboot testing."
+  "pinn_installation": {
+    "nominal_size_mib": 8704,
+    "original_payloads_reused": 4,
+    "battery_payloads_added": 1,
+    "physical_install_and_multiboot_tested": false
+  },
+  "physical_validation_note": "Build and automatic module-rebuild checks are separate from physical fresh-flash and post-upgrade battery observation."
 }

@@ -14,8 +14,8 @@
       "filesystem_type": "ext4",
       "partition_size_nominal": 8192,
       "want_maximised": true,
-      "uncompressed_tarball_size": 4775,
-      "sha256sum": "fb0f8119747b65069e1719a44b1ac64b9695a4ebf57ea20cd7c99c429f6c3ed9"
+      "uncompressed_tarball_size": 4925,
+      "sha256sum": "8161061f263d4a396798eeded76180eca5acf672f39334b2f7cae47e13347215"
     }
   ]
 }

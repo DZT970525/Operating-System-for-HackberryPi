@@ -1,82 +1,73 @@
 # RPiOS — Raspberry Pi OS for HackberryPi
 
-Raspberry Pi OS Desktop **64-bit, Bookworm**, customized for **HackberryPi CM5**. The source card identifies itself as the Raspberry Pi reference build dated **2024-11-19**, based on **Debian 12.8**, with the native **6.6.51+rpt-rpi-2712** kernel and labwc desktop.
-
-This hardware-specific edition retains the factory HackberryPi display, touchscreen and battery configuration. Other Raspberry Pi models are not supported by this package. **The published PINN edition is a preview until installation, first boot and multiboot have been tested through PINN on HackberryPi CM5.**
+This **2026-11-17 battery update** keeps the existing **64-bit Raspberry Pi OS Bookworm**, **labwc desktop**, native **6.6.51+rpt-rpi-2712** kernel and its `v8` companion. It is rebuilt from the verified sanitized 2026-11-09 image, rather than from a used card. The base Raspberry Pi reference build remains **2024-11-19 / Debian 12.8**; this is a battery-support update, not a full operating-system upgrade.
 
 ## Included
 
-- Default equivalent workspace: **900×900**. The physical panel stays at **720×720**; this changes software scaling, not the screen's physical resolution.
-- **Display Scale**, an English desktop app with a slider and presets covering **480×480 to 1080×1080**. Use the app to change scaling or save a different default.
-- **Touchscreen two-finger desktop zoom is disabled.** Touch gestures do not change the desktop's scale.
-- Native touchscreen scrolling in the preinstalled Chromium browser, with Wayland touch input enabled.
-- The source card's Raspberry Pi OS desktop, HackberryPi hardware overlay and device support.
+- **900×900** default equivalent workspace on the physical **720×720** panel.
+- English **Display Scale** app, with manual **480–1080** scaling; touchscreen desktop pinch zoom stays disabled.
+- Native HackberryPi CM5 display, touchscreen, Wi-Fi, Bluetooth and MAX17048 battery support.
+- **`hackberrypi-battery-dkms` 1.2+hbpi2**, matching Raspberry Pi kernel-header dependencies and the signed battery update source, already installed for a fresh flash.
+- Default login **`pi` / `pi`**, both lowercase. Change your password after first login and configure your own network/accounts.
 
-## Battery support after system and kernel updates
+## Battery support after kernel updates
 
-The original image includes a battery module built for its original kernel only. If a later kernel update makes the battery indicator disappear, install the small [signed MAX17048 battery update package](../drivers/battery/apt/README.md) once. It retains the driver source, DKMS and matching Raspberry Pi kernel headers, so ordinary kernel/header updates rebuild the battery module automatically. New reviewed driver packages published to the same source are included in normal system updates; a full replacement image is not needed for routine updates.
+The original image installed its battery module only for its original kernel. Replacing that kernel could make the battery indicator disappear. This image retains the driver source under `/usr/src` and registers it with DKMS, so ordinary kernel/header updates rebuild and install the battery module automatically. New reviewed driver packages are offered through normal system updates.
 
-This retrofit is available separately and is **not yet embedded in the older image linked below**. It has been built and verified for the card's 6.6.51 and 6.12.115 `2712`/`v8` kernels, including a real header-hook rebuild. Physical boot and battery indication on the repaired card are awaiting the owner's test. Future incompatible kernel API changes may still need a driver package update.
+The shipping kernel stays **6.6.51** so the owner can test one normal kernel update. The disposable upgrade check targets **6.12.115+rpt-rpi-2712**. A successful module build does not substitute for observing the battery percentage after physically booting the updated card; the separate statuses are recorded below.
 
-## Default login and privacy
+The source is already configured in this new image:
 
-| Item | Value |
+```sh
+sudo apt install hackberrypi-battery-dkms
+```
+
+Existing installations can use the [one-command retrofit](../drivers/battery/apt/README.md) without reflashing or clearing their data. Future incompatible kernel interfaces may still need a small driver source/package update.
+
+## Raspberry Pi Imager installation
+
+Choose RPiOS in the existing [Imager online catalog](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_imager.json), or download [RPiOS-HackberryPi-CM5-BatteryDKMS-20261117.img.xz](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/RPiOS-HackberryPi-CM5-BatteryDKMS-20261117.img.xz) (1.37 GiB) and choose **Use custom** in [Raspberry Pi Imager](https://www.raspberrypi.com/software/). The complete image needs a **16 GB or larger SD card**. Select the intended card, write and verify it, then boot HackberryPi CM5. Manual decompression or merging is not needed.
+
+Use the supplied `pi` account; skip Imager's optional OS customization. The standalone edition expands only its own root filesystem and initializes a fresh machine/SSH identity at first boot. Writing an image replaces the selected card.
+
+## PINN multiboot installation
+
+Download the [updated HackberryPi PINN installer](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/HackberryPi-PINN-12OS-CM5-20261117.img.xz) (103.1 MiB), write it with Imager **Use custom**, connect Wi-Fi and select RPiOS. It caches the new battery-ready RPiOS recipe and the other 11 entries. Read the [PINN installation notes](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/PINN-Installation-20261117.txt) and verify `PINN-RUNTIME-SHA256SUMS-20261117`. Keep the network connected throughout **Install**; **Download** alone is not a complete offline installer.
+
+For a fresh card, use the updated prepared **2026-11-17 installer** above. To retain an existing multiboot card, update its catalog selectors instead of writing the installer over it. First back up `repo_list.json` and `catalog/repo_list.json` from PINN's RECOVERY boot partition. Create or replace **both files** with this identical content, keeping the existing `cmdline.txt` and installed-system partitions:
+
+```json
+{
+  "repo_list": [
+    {"name": "HackberryPi cached catalog", "url": "/tmp/hackberrypi-catalog/os_list_v3.json"},
+    {"name": "HackberryPi online updates", "url": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_v3.json"}
+  ]
+}
+```
+
+The boot partition's root `repo_list.json` takes priority over command-line source settings, so changing `alt_image_source` alone does not update an old local-only selector. The [repository's public `repo_list.json`](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/repo_list.json) is an HTTPS-only selector for network access; it does not include the prepared installer's local cache. Connect Wi-Fi to fetch the newer recipe, then select **RPiOS — Raspberry Pi OS for HackberryPi** under **General**. Allocate at least **8.5 GiB**, plus PINN and any other selected systems.
+
+The updated adapter verifies and assembles the original four unchanged root payloads, then applies the new **fifth battery-support payload**. All payloads go into PINN's assigned root partition; no full disk image is extracted into it. Standalone whole-card expansion remains disabled in PINN. Only CM5 SD-card installation is advertised; USB boot/root is not enabled.
+
+For offline preparation, follow the exact URLs and hashes in [archives.json](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/archives.json): the original boot and four payload archives remain in the 2026-11-09 release, while the updated bootstrap and fifth payload are in this release. PINN's ordinary two-tarball export does not include all supplemental payloads. Backup/restore continues to preserve an existing installed user's identity and state.
+
+Native-package assembly compared 146,649 paths and 562 hardlink groups: file contents, ownership, ACLs, xattrs and hardlinks matched. There are 27 explicitly checked preboot metadata differences: 25 directory timestamps, one timestamp on the standalone grow helper removed during PINN finalization, and `/var/log/journal` mode `02755 → 0755` with its ACL unchanged. The existing boot tmpfiles policy restores journal mode `02755`. Physical PINN installation and multiboot remain separate pending checks.
+
+The [current PINN adapter and verification source (v2)](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/RPiOS-BatteryDKMS-PINN-Source-20261117-v2.tar.xz) corresponds to these assembly checks. The earlier source attachment is retained as historical evidence.
+
+## Privacy, source and verification
+
+The clean base excludes saved Wi-Fi credentials, Bluetooth pairings, browser profiles, application logins, histories, personal files and original machine/SSH identities. This update imports only the reviewed driver packages and public update-source files. Private signing keys are excluded; installations create their own device identity. Read [factory-status.json](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/factory-status.json) and `SHA256SUMS` for the exact release facts.
+
+The complete [battery package source](https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/drivers/battery/apt/hackberrypi-battery-package-source.tar.xz) retains the driver/build/packaging files and notices. The existing [display-scale source](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/display-scale-source.tar.gz) remains unchanged. Original package licenses and source-package metadata stay under `/usr/share/doc`; base-system sources are supplied by Debian and Raspberry Pi repositories. The reference base was generated with [pi-gen 891df1e21ed2b6099a2e6a13e26c91dea44b34d4](https://github.com/RPi-Distro/pi-gen/tree/891df1e21ed2b6099a2e6a13e26c91dea44b34d4), stage 4.
+
+| Check | Status |
 | --- | --- |
-| Username | `pi` |
-| Password | `pi` |
-| Administrator commands | `sudo`, using the same password |
+| Shipping-kernel battery module and autoload metadata | passed |
+| Filesystem and compressed-image verification | passed |
+| Disposable kernel update to 6.12.115+rpt-rpi-2712: automatic module rebuild | passed |
+| Physical fresh-flash desktop and battery test | pending |
+| Physical battery percentage after the kernel update | pending |
+| Updated PINN adapter disposable installation | passed |
+| Physical PINN installation and multiboot | pending |
 
-Both values are lowercase. Change the password after first login with `passwd`. Configure your own network and application accounts.
-
-The release is made from a sanitized copy of the removable card. Personal browser profiles and saved logins, application credentials, private subscriptions, network passwords, Bluetooth pairings, shell and application histories, personal files, caches and original device identities are excluded. Hardware support and the display/touch behavior listed above are retained. Each installation initializes its own machine identity and SSH host keys.
-
-## Standalone installation with Raspberry Pi Imager
-
-Download [RPiOS-HackberryPi-CM5-20261109.img.xz](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz) from this release (about **1.29 GiB**). This is the complete disk image for a **16 GB or larger SD card**; it does not require PINN.
-
-1. Install and open [Raspberry Pi Imager](https://www.raspberrypi.com/software/).
-2. In the operating system selection, choose **Use custom** and select the downloaded image.
-3. Select the intended SD card, confirm writing and let verification finish.
-4. Insert the card in HackberryPi CM5 and boot. The standalone edition expands only its own root filesystem and initializes a new device identity on first boot.
-
-Use the supplied `pi` account; skip Imager's optional OS customization and configure your network and accounts in the installed desktop. Writing this image replaces the target card.
-
-## Install through PINN
-
-Use a PINN build supporting **CM5 and the HackberryPi display**. Add this option to the existing single line in `recovery.cmdline`:
-
-```
-alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_v3.json
-```
-
-Select **RPiOS — Raspberry Pi OS for HackberryPi** in **General**. It is the first entry in this repository's catalog, before Ubuntu. Cards using the older `Ubuntu/os_list_v3.json` endpoint receive the same combined catalog.
-
-Allocate at least **8.5 GiB** for RPiOS, plus space for PINN and any other operating systems. Keep the network connected throughout online installation. PINN downloads the boot and base-root archives; `partition_setup.sh` obtains **4 supplemental archives**, verifies their SHA-256 checksums and extracts them into the assigned root partition.
-
-The adapter updates the kernel command line and mount references to the identifiers assigned by PINN. Standalone whole-card expansion is disabled for the PINN edition, so it only uses the partitions allocated by PINN.
-
-## Offline installation and checksums
-
-Download all **6 `hbr_*.tar.gz` archives**, `marketing.tar`, `SHA256SUMS` and the metadata from this release. Put them together in a PINN OS directory such as `os/RPiOS_HackberryPi/` on a supported USB drive. PINN's ordinary two-tarball download/export does not include supplemental archives.
-
-For complete release verification, download every Release asset and run `sha256sum -c SHA256SUMS`. If you downloaded only the PINN files, GNU `sha256sum --ignore-missing -c SHA256SUMS` verifies that subset without requiring the optional source archive or standalone disk image. Check that all PINN filesystem archives listed above are present before installing.
-
-PINN backup/restore preserves the assembled ext4 root filesystem and the installed user's identity. A restored backup does not reinitialize an existing user account.
-
-This initial preview advertises SD installation only; USB boot/root is not enabled.
-
-## Source and build information
-
-The base card identifies the Raspberry Pi reference build **2024-11-19**, generated using [pi-gen commit 891df1e21ed2b6099a2e6a13e26c91dea44b34d4](https://github.com/RPi-Distro/pi-gen/tree/891df1e21ed2b6099a2e6a13e26c91dea44b34d4), stage 4. The customized release date is separate from that base-system date.
-
-The custom display code, launchers, retained C helper source and build notes are supplied in [display-scale-source.tar.gz](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/display-scale-source.tar.gz). The current configuration leaves touchscreen desktop zoom disabled. This source archive contains only the listed display components and does not include personal user files.
-
-Installed packages retain their version/source-package metadata and upstream notices under `/usr/share/doc/<package>/copyright`. Corresponding base-system sources are provided through the Debian and Raspberry Pi source-package repositories; the source archive's README describes the build dependencies and package-source workflow. The factory HackberryPi overlay and hardware helpers are retained from the supplied card. Existing third-party licenses and notices remain with their packages.
-
-## Source and validation
-
-The release is prepared from the removable Raspberry Pi OS card, with cleanup and resizing performed on a separate copy. The compact image uses fresh filesystems, so deleted source-card free blocks are not included. FAT/ext4 checks and a full file-checksum, ownership and permissions comparison with the sanitized tree passed. Online standalone root expansion was tested on a disposable disk layout, preserving its data, boot partition and partition identifiers.
-
-The actual PINN archives and adapter passed installation into a disposable layout with boot partition 6 and root partition 7. Checks verified 23 root feature files, 381 boot files, 562 hardlink groups, normal-user access and the target Python CLI. The identity helper ran in the assembled system, generated new SSH/SSL keys and passed repeat-run checks. Backup restore and repair preserved existing customer state; four unrelated partitions and the MBR/EBR sectors remained unchanged.
-
-Read `factory-status.json` for the detailed status. **Physical boot testing of the rebuilt sanitized image and physical PINN installation/multiboot testing are still pending.**
