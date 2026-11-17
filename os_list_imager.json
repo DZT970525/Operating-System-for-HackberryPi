@@ -35,14 +35,14 @@
     },
     {
       "name": "RPiOS — Raspberry Pi OS for HackberryPi",
-      "description": "Bookworm ARM64 preview with 900 × 900 workspace and manual Display Scale. Default login: pi / pi.",
+      "description": "Bookworm ARM64 with 900 workspace, Display Scale and battery DKMS/update source built in. Original 6.6.51 kernel. Login: pi / pi.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/RPiOS_HackberryPi.png",
-      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/RPiOS-HackberryPi-CM5-20261109.img.xz",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/RPiOS-HackberryPi-CM5-BatteryDKMS-20261117.img.xz",
       "extract_size": 9130999808,
-      "extract_sha256": "47965c95cefb49bc588b7e0c9626af120e2e2b14cf42d0fcd5250f3ede85edad",
-      "image_download_size": 1389986648,
-      "image_download_sha256": "9e24938732479319a1329936c6538a166af54b0c64968af95cbd8f1a832a01b0",
-      "release_date": "2026-11-09",
+      "extract_sha256": "cd683d9d84396a5c24b15c99bf6cde9b753bef53c54c08098da80e4fdce77b8b",
+      "image_download_size": 1473919320,
+      "image_download_sha256": "0924a8a31ad2d9ed82962d347c1d4fa9a4fc2a10d7c1084227731de29263f447",
+      "release_date": "2026-11-17",
       "devices": [
         "hackberrypi-cm5"
       ],
