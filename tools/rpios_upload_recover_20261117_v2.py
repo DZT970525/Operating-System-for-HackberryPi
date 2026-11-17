@@ -30,6 +30,9 @@ STREAM_NAMES={'image':'RPiOS-HackberryPi-CM5-20261117-v2.img.xz',
 # Numeric IDs are bound from a fresh authenticated listing of this exact draft,
 # never taken from arbitrary inputs or recovered from redacted browser state.
 KNOWN_EMPTY_FAILURE_NAMES={'RPiOS-HackberryPi-CM5-20261117-v2.img.xz','hbr_payload_03.tar.gz'}
+# These two self-uploaded transport placeholders visibly failed in GitHub.
+# Their bytes are never selected; a different exact same-part alias is mandatory.
+KNOWN_UNUSED_FAILED_PART_NAMES={'rpios-v2-upload-image.part008','rpios-v2-upload-image.part008.retry1'}
 EXPECTED_FINAL = {'hbr_boot.tar.gz': {'name': 'hbr_boot.tar.gz', 'bytes': 60077270, 'sha256': '9f779154d3882284e5e3da929c7987eb3777647bc6a78dd8b8fc589db399c8c1'}, 'hbr_root.tar.gz': {'name': 'hbr_root.tar.gz', 'bytes': 524, 'sha256': '392be62526c6ee122a6dd7e771624f6890a45b235ba2c06a263b1e2b255ba6ea'}, 'hbr_payload_01.tar.gz': {'name': 'hbr_payload_01.tar.gz', 'bytes': 519345580, 'sha256': '75bbbb5546e24ee1f9c50f45d2e208e1392a6752133b90bdf8fa32c3c54c5633'}, 'hbr_payload_02.tar.gz': {'name': 'hbr_payload_02.tar.gz', 'bytes': 439357609, 'sha256': '4af03cb3ac2df7f36072c540ad59792e857485f8a9695e44856a5d93a2eea9b8'}, 'hbr_payload_03.tar.gz': {'name': 'hbr_payload_03.tar.gz', 'bytes': 553819511, 'sha256': 'f6a4dca3fce67dfa8a87e551f730d52b5e1d1edf80f274133d5ad6eabb8cab19'}, 'hbr_payload_04.tar.gz': {'name': 'hbr_payload_04.tar.gz', 'bytes': 477574173, 'sha256': 'f60806d472fd343290f1429ccd5e8e7599e0967d905dfbd17e7b2a097e9a07e4'}, 'hbr_payload_05.tar.gz': {'name': 'hbr_payload_05.tar.gz', 'bytes': 84389308, 'sha256': 'db2776908468a9c867639da62afe156287b42e535f7e3927e5b2b74efdd3301a'}, 'partition_setup.sh': {'name': 'partition_setup.sh', 'bytes': 12899, 'sha256': 'b293c2034733e5e03ce81c85b54d56e3c01d201bc163fffbf5148e571cd4b411'}, 'partitions.json': {'name': 'partitions.json', 'bytes': 589, 'sha256': 'cf46bc568a58fae9c13e9a86e7970d443350052b04d97d5d95817c9bb6c255e9'}, 'os.json': {'name': 'os.json', 'bytes': 784, 'sha256': '00da93c2a6f397aa3f76f3354999aa9e9b38158a114e610c5debee75fe1f77f4'}, 'archives.json': {'name': 'archives.json', 'bytes': 2413, 'sha256': '16a66e3c914d853535042db85a8dade5e1b54f4209b509ab8e402b64babc3aba'}, 'os_list_v3.json': {'name': 'os_list_v3.json', 'bytes': 1768, 'sha256': 'e964acc03a4fd2d2b9edb283ba441558d76c1429d2308702949b64793ce29755'}, 'RPiOS-HackberryPi-PINN-Source-20261117-v2.tar.xz': {'name': 'RPiOS-HackberryPi-PINN-Source-20261117-v2.tar.xz', 'bytes': 60324, 'sha256': '695f2632230a367998c86db6688c5083526864998f943349e1f2a2d94facf2cc'}, 'PINN-SHA256SUMS': {'name': 'PINN-SHA256SUMS', 'bytes': 1220, 'sha256': 'aea7176069efd0061ea6ec91e7f289bf6bc62341542a1d8943dfa2ee91732f78'}, 'PINN-ASSEMBLY-VERIFICATION.json': {'name': 'PINN-ASSEMBLY-VERIFICATION.json', 'bytes': 677, 'sha256': 'ebc9884992865a8bd447b16dface7b3f6698ce07a7dc5a725a96308eddeac42d'}, 'RPiOS-HackberryPi-CM5-20261117-v2.img.xz': {'name': 'RPiOS-HackberryPi-CM5-20261117-v2.img.xz', 'bytes': 1762440812, 'sha256': '89f8ca2bb1a4c741cb67af8d3a629fd76cf71109e50d59ebffdd6e83399e75fa'}, 'image-verification.json': {'name': 'image-verification.json', 'bytes': 4906, 'sha256': '232d0e78981500c204e493123bfb4992d293bf7578789551750580f74cbb32e8'}, 'kernel-upgrade-verification.json': {'name': 'kernel-upgrade-verification.json', 'bytes': 3170, 'sha256': '2a24d25392e13f6e3657f2e469fb448cdf01a975ec747ae9135fe42b692cce20'}, 'factory-status.json': {'name': 'factory-status.json', 'bytes': 2416, 'sha256': '5e38779bb24bf84ed72b797169d1b204ac1134b886bb60c61ad10aa342a6b840'}, 'image-facts.json': {'name': 'image-facts.json', 'bytes': 702, 'sha256': '0787aa2dea00b57fc386cc1bba950cc3562e037ca243149ac7fc2203b02c5b8f'}, 'SHA256SUMS': {'name': 'SHA256SUMS', 'bytes': 1767, 'sha256': '9228018e31e410a039f358ab2e236b0384b1402a756228361603581ef6cff6fd'}}
 
 class SafeError(RuntimeError):pass
@@ -206,14 +209,45 @@ def inspect(release,assets,parts,require_final=False,approved_failed_ids=None):
     for name,asset in assets.items():
         if name in EXPECTED_FINAL:
             if exact(asset,EXPECTED_FINAL[name],release):continue
-            need(not require_final and name in KNOWN_EMPTY_FAILURE_NAMES and empty_starter(asset)
-              and asset['id']==approved_failed_ids.get(name),'A final asset is wrong or is not an approved empty failure')
+            approved_empty=(not require_final and name in KNOWN_EMPTY_FAILURE_NAMES and empty_starter(asset)
+              and asset['id']==approved_failed_ids.get(name))
+            if not approved_empty:
+                state=asset.get('state')
+                size=asset.get('size')
+                digest=asset.get('digest')
+                log('final_asset_diagnostic',name=name,
+                    actual_state=state if state in ('uploaded','starter','failed',None) else 'unexpected-state',
+                    actual_bytes=size if type(size) is int and size>=0 else 'invalid-size',
+                    actual_digest=digest if digest is None or (isinstance(digest,str) and re.fullmatch('sha256:[0-9a-f]{64}',digest)) else 'missing-or-invalid-digest',
+                    expected_state='uploaded',expected_bytes=EXPECTED_FINAL[name]['bytes'],
+                    expected_digest='sha256:'+EXPECTED_FINAL[name]['sha256'],
+                    approved_empty_failure_name=name in KNOWN_EMPTY_FAILURE_NAMES,
+                    frozen_empty_identity_matches=asset.get('id')==approved_failed_ids.get(name),
+                    require_all_final=require_final)
+                raise SafeError('A final asset is wrong or is not an approved empty failure: '+name)
         elif name==MANIFEST_NAME:
             need(exact(asset,{'name':name,'bytes':MANIFEST_BYTES,'sha256':MANIFEST_SHA256},release),'Transport manifest differs')
         else:
             base=part_base(name,parts);need(base is not None,'An unrelated asset is present; no mutation is allowed')
             expected=dict(parts[base],name=name)
-            need(exact(asset,expected,release) or empty_starter(asset),'A nonzero transport part or retry differs')
+            if not (exact(asset,expected,release) or empty_starter(asset)):
+                unused_failure=(name in KNOWN_UNUSED_FAILED_PART_NAMES and any(
+                    other_name!=name and part_base(other_name,parts)==base
+                    and exact(other_asset,dict(parts[base],name=other_name),release)
+                    for other_name,other_asset in assets.items()))
+                state=asset.get('state')
+                size=asset.get('size')
+                digest=asset.get('digest')
+                log('unused_failed_transport_placeholder' if unused_failure else 'transport_asset_diagnostic',
+                    name=name,base_name=base,
+                    actual_state=state if state is None or (isinstance(state,str) and re.fullmatch('[A-Za-z][A-Za-z0-9_-]{0,31}',state)) else 'unexpected-state',
+                    actual_bytes=size if type(size) is int and size>=0 else 'invalid-size',
+                    actual_digest=digest if digest in (None,'') or (isinstance(digest,str) and re.fullmatch('sha256:[0-9a-f]{64}',digest)) else 'missing-or-invalid-digest',
+                    expected_state='uploaded',expected_bytes=expected['bytes'],
+                    expected_digest='sha256:'+expected['sha256'],
+                    empty_starter_allowed=True,verified_different_same_part=unused_failure,
+                    require_all_final=require_final)
+                if not unused_failure:raise SafeError('A nonzero transport part or retry differs: '+name)
     for name,expected in EXPECTED_FINAL.items():
         if require_final or name not in STREAM_NAMES.values():need(exact(assets.get(name),expected,release),'A required final asset is absent or differs')
 
