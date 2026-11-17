@@ -12,6 +12,12 @@ This hardware-specific edition retains the factory HackberryPi display, touchscr
 - Native touchscreen scrolling in the preinstalled Chromium browser, with Wayland touch input enabled.
 - The source card's Raspberry Pi OS desktop, HackberryPi hardware overlay and device support.
 
+## Battery support after system and kernel updates
+
+The original image includes a battery module built for its original kernel only. If a later kernel update makes the battery indicator disappear, install the small [signed MAX17048 battery update package](../drivers/battery/apt/README.md) once. It retains the driver source, DKMS and matching Raspberry Pi kernel headers, so ordinary kernel/header updates rebuild the battery module automatically. New reviewed driver packages published to the same source are included in normal system updates; a full replacement image is not needed for routine updates.
+
+This retrofit is available separately and is **not yet embedded in the older image linked below**. It has been built and verified for the card's 6.6.51 and 6.12.115 `2712`/`v8` kernels, including a real header-hook rebuild. Physical boot and battery indication on the repaired card are awaiting the owner's test. Future incompatible kernel API changes may still need a driver package update.
+
 ## Default login and privacy
 
 | Item | Value |
