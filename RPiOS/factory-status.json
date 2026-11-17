@@ -1,15 +1,13 @@
 {
   "system": "RPiOS — Raspberry Pi OS for HackberryPi",
-  "release_tag": "rpios-battery-dkms-hackberrypi-2026-11-17",
+  "release_tag": "rpios-clash-power-hackberrypi-2026-11-17",
   "release_date": "2026-11-17",
+  "edition": "v2",
   "base_system": {
-    "reference_date": "2024-11-19",
-    "debian_version": "12.8",
     "codename": "bookworm",
     "architecture": "arm64",
     "desktop": "labwc",
-    "kernel": "6.6.51+rpt-rpi-2712",
-    "source_image_sha256": "9e24938732479319a1329936c6538a166af54b0c64968af95cbd8f1a832a01b0"
+    "kernel": "6.12.115+rpt-rpi-2712"
   },
   "default_login": {
     "username": "pi",
@@ -20,33 +18,9 @@
     "package": "hackberrypi-battery-dkms",
     "version": "1.2+hbpi2",
     "automatic_kernel_rebuild": true,
-    "signed_source_configured": true,
-    "future_kernel_api_changes_may_need_driver_update": true
+    "signed_source_configured": true
   },
-  "standalone_image": {
-    "name": "RPiOS-HackberryPi-CM5-BatteryDKMS-20261117.img.xz",
-    "bytes": 1473919320,
-    "sha256": "0924a8a31ad2d9ed82962d347c1d4fa9a4fc2a10d7c1084227731de29263f447",
-    "extract_size": 9130999808,
-    "extract_sha256": "cd683d9d84396a5c24b15c99bf6cde9b753bef53c54c08098da80e4fdce77b8b",
-    "public_verified": true
-  },
-  "verification": {
-    "source_base_verified": true,
-    "shipping_modules_verified": true,
-    "filesystem_checks_passed": true,
-    "compressed_stream_verified": true,
-    "private_signing_keys_excluded": true,
-    "upgrade_hook_rebuild_verified": true,
-    "upgrade_target_kernel": "6.12.115+rpt-rpi-2712",
-    "pinn_fixture_installation_verified": true,
-    "pinn_actual_full_assembly_verified": true,
-    "pinn_preboot_metadata_variances_explicitly_verified": true,
-    "physical_flash_boot_verified": false,
-    "physical_battery_percentage_after_upgrade_verified": false,
-    "physical_pinn_multiboot_verified": false
-  },
-  "preserved_features": {
+  "display": {
     "native_panel": [
       720,
       720
@@ -59,14 +33,53 @@
       480,
       1080
     ],
-    "desktop": "labwc",
     "touchscreen_desktop_pinch_zoom": false
   },
-  "pinn_installation": {
-    "nominal_size_mib": 8704,
-    "original_payloads_reused": 4,
-    "battery_payloads_added": 1,
-    "physical_install_and_multiboot_tested": false
+  "power_menu": {
+    "short_press_release": true,
+    "native_program": "pishutdown",
+    "single_instance": true,
+    "ctrl_alt_delete": true
   },
-  "physical_validation_note": "Build and automatic module-rebuild checks are separate from physical fresh-flash and post-upgrade battery observation."
+  "clash": {
+    "version": "2.5.8",
+    "installed": true,
+    "application_menu_entry": true,
+    "desktop_shortcut": false,
+    "private_profiles_included": false,
+    "automatic_proxy_or_tun": false
+  },
+  "source_card_owner_reported": {
+    "desktop_tested": true,
+    "kernel_update_battery_percentage_tested": true,
+    "physical_power_menu_tested": true
+  },
+  "new_sanitized_release": {
+    "image_filesystem_and_full_compressed_stream_verified": true,
+    "physical_fresh_flash_tested": false
+  },
+  "pinn": {
+    "nominal_size_mib": 8704,
+    "full_root_payload_count": 5,
+    "all_archives_new": true,
+    "assembly_verified": true,
+    "physical_install_multiboot_tested": false
+  },
+  "standalone_image": {
+    "passed": true,
+    "name": "RPiOS-HackberryPi-CM5-20261117-v2.img.xz",
+    "bytes": 1762440812,
+    "sha256": "89f8ca2bb1a4c741cb67af8d3a629fd76cf71109e50d59ebffdd6e83399e75fa",
+    "extract_size": 9130999808,
+    "extract_sha256": "bedb21787dd6f25ff9100eafef8d0fef2d54b228371efadecf25967ff331ef3b",
+    "kernel": "6.12.115+rpt-rpi-2712",
+    "driver_package": "1.2+hbpi2",
+    "clash_verge_version": "2.5.8",
+    "clash_desktop_icon": false,
+    "complete_stream_verification": true,
+    "single_github_asset": true,
+    "compression": "xz -1 --threads=1 --memlimit-compress=64MiB --check=sha256; periodic output flush/cache release",
+    "source_user_boot_tested": true,
+    "generated_image_physical_boot_tested": false
+  }
 }

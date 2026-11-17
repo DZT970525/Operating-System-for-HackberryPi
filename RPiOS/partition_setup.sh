@@ -3,11 +3,10 @@
 # PINN owns partition allocation; this adapter never changes a partition table.
 set -eu
 umask 022
-OLD_RELEASE='https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09'
-NEW_RELEASE='https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17'
-DELTA_SHA256='cbd50d9dcf58a374a8409f38c9bf0ff82dafd83d58a873ae096b22c2bd006a9d'
-DELETIONS_SHA256='e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
-FRESH_MARKER='HackberryPi RPiOS battery DKMS fresh-install bootstrap v1'
+RELEASE='https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17'
+MANIFEST_SHA256='f2f95fa2477093e728ad26b77c66e995c66287d1590f37c4d0da3ffe11f99557'
+PAYLOAD_COUNT=5
+FRESH_MARKER='HackberryPi RPiOS complete fresh-install bootstrap v2'
 
 fail() { printf 'RPiOS PINN: %s\n' "$*" >&2; exit 1; }
 
@@ -43,65 +42,18 @@ ensure_target_dir() {
 
 require_fresh_target() {
     target=$1
-    marker=$(inside_path "$target" pinn-battery-fresh-install)
+    marker=$(inside_path "$target" pinn-full-fresh-install)
     [ -f "$marker" ] && [ ! -L "$marker" ] || fail 'Fresh bootstrap marker is missing'
     [ "$(cat "$marker")" = "$FRESH_MARKER" ] || fail 'Unexpected fresh bootstrap marker'
     for child in "$target"/* "$target"/.[!.]* "$target"/..?*; do
         [ -e "$child" ] || [ -L "$child" ] || continue
         case "${child##*/}" in
-            pinn-payloads.sha256|pinn-battery-deletions.tsv|pinn-battery-fresh-install)
+            pinn-payloads.sha256|pinn-full-fresh-install)
                 [ -f "$child" ] && [ ! -L "$child" ] || fail 'Invalid bootstrap file' ;;
             lost+found) [ -d "$child" ] && [ ! -L "$child" ] || fail 'Invalid filesystem directory' ;;
             *) fail 'Refusing to apply a fresh image over existing target files' ;;
         esac
     done
-}
-
-apply_fresh_deletions() {
-    target=$1; deletion_file=$2; deletion_hash=$3
-    [ ! -e "$target/usr/local/share/hackberrypi-pinn/rpios-payloads-installed" ] || fail 'Deletion delta is not a repair operation'
-    marker=$(inside_path "$target" pinn-battery-fresh-install)
-    [ -f "$marker" ] && [ ! -L "$marker" ] && [ "$(cat "$marker")" = "$FRESH_MARKER" ] || fail 'No fresh-install authorization'
-    [ -f "$deletion_file" ] && [ ! -L "$deletion_file" ] || fail 'Deletion manifest is missing'
-    printf '%s  %s\n' "$deletion_hash" "$deletion_file" | sha256sum -c - >/dev/null
-    tab=$(printf '\t')
-    while IFS="$tab" read -r kind relative extra || [ -n "$kind$relative$extra" ]; do
-        [ -n "$kind$relative$extra" ] || continue
-        [ -z "$extra" ] || fail 'Unexpected deletion manifest field'
-        path=$(inside_path "$target" "$relative")
-        case "$kind" in
-            file|symlink|fifo|character|block)
-                if [ -e "$path" ] || [ -L "$path" ]; then
-                    [ ! -d "$path" ] || [ -L "$path" ] || fail 'Deletion would remove an unexpected directory'
-                    rm -f -- "$path"
-                fi ;;
-            directory)
-                if [ -e "$path" ] || [ -L "$path" ]; then
-                    [ -d "$path" ] && [ ! -L "$path" ] || fail 'Deletion expected a plain directory'
-                    rmdir -- "$path" || fail 'Deletion directory contains unexpected files'
-                fi ;;
-            *) fail 'Unsupported deletion record' ;;
-        esac
-    done < "$deletion_file"
-}
-
-payload_hash() {
-    case "$1" in
-        hbr_payload_01.tar.gz) printf '%s\n' d31135219ea0634878664581d467fec1fc42cfd66fb741e720c8d37ce1dcb7e1 ;;
-        hbr_payload_02.tar.gz) printf '%s\n' de66ed7b989d7063be91aa3903e0de108a17490a08ef534a80c40115d6994e8a ;;
-        hbr_payload_03.tar.gz) printf '%s\n' f8f24cb1a3b6fbeeba2e9e8bfdb9323e15a760bfec26d8af44489e20e7f9ae1c ;;
-        hbr_payload_04.tar.gz) printf '%s\n' eae43eb2e221349638af940cdcc0481e8351da6fe8049e3955631c7b38c0c0ed ;;
-        hbr_payload_05.tar.gz) printf '%s\n' "$DELTA_SHA256" ;;
-        *) fail 'Unsupported payload name' ;;
-    esac
-}
-
-payload_url() {
-    case "$1" in
-        hbr_payload_0[1-4].tar.gz) printf '%s/%s\n' "$OLD_RELEASE" "$1" ;;
-        hbr_payload_05.tar.gz) printf '%s/%s\n' "$NEW_RELEASE" "$1" ;;
-        *) fail 'Unsupported payload URL' ;;
-    esac
 }
 
 choose_id() {
@@ -123,7 +75,7 @@ validate_payload() {
     case "$expected" in *[!0-9a-f]*) fail 'Invalid payload SHA-256' ;; esac
     [ -z "$extra" ] || fail 'Unexpected payload manifest field'
     case "$filename" in
-        hbr_payload_0[1-5].tar.gz) ;;
+        hbr_payload_[0-9][0-9].tar.gz) ;;
         *) fail 'Unsupported payload filename' ;;
     esac
 }
@@ -214,15 +166,15 @@ install_identity_firstboot() {
 install_payloads() {
     root=$1; package=$2
     manifest="$root/pinn-payloads.sha256"
-    [ -s "$manifest" ] || fail 'PINN bootstrap payload manifest is missing'
+    [ -s "$manifest" ] && [ ! -L "$manifest" ] || fail 'PINN bootstrap payload manifest is missing'
+    printf '%s  %s\n' "$MANIFEST_SHA256" "$manifest" | sha256sum -c - >/dev/null
     count=0
     while read -r expected filename extra || [ -n "$expected$filename$extra" ]; do
         [ -n "$expected" ] || continue
         case "$expected" in \#*) continue ;; esac
         validate_payload "$expected" "$filename" "$extra"
         count=$((count+1))
-        [ "$count" -le 5 ] && [ "$filename" = "$(printf 'hbr_payload_%02d.tar.gz' "$count")" ] || fail 'Payload order/count differs'
-        [ "$expected" = "$(payload_hash "$filename")" ] || fail 'Payload hash differs from the pinned release'
+        [ "$count" -le "$PAYLOAD_COUNT" ] && [ "$filename" = "$(printf 'hbr_payload_%02d.tar.gz' "$count")" ] || fail 'Payload order/count differs'
         temporary="$root/.pinn-download-$filename"
         [ ! -L "$temporary" ] || fail 'Download destination is a symlink'
         printf 'RPiOS PINN: installing %s\n' "$filename"
@@ -230,20 +182,22 @@ install_payloads() {
             cp "$package/$filename" "$temporary"
         else
             wget --retry-connrefused --read-timeout=120 --tries=5 \
-                -O "$temporary" "$(payload_url "$filename")"
+                -O "$temporary" "$RELEASE/$filename"
         fi
         printf '%s  %s\n' "$expected" "$temporary" | sha256sum -c -
-        if [ "$filename" = hbr_payload_05.tar.gz ]; then
-            apply_fresh_deletions "$root" "$root/pinn-battery-deletions.tsv" "$DELETIONS_SHA256"
-        fi
         bsdtar --numeric-owner -xpf "$temporary" -C "$root"
         rm -f "$temporary"
         temporary=''
     done < "$manifest"
-    [ "$count" -eq 5 ] || fail 'Payload manifest did not contain all five archives'
+    [ "$count" -eq "$PAYLOAD_COUNT" ] || fail 'Payload manifest did not contain all pinned archives'
     [ -f "$root/etc/os-release" ] && [ -x "$root/usr/bin/python3" ] \
         && [ -f "$root/usr/local/lib/hackberrypi/display_control.py" ] \
         || fail 'The assembled Raspberry Pi OS payload is incomplete'
+    # libarchive can clear SGID while applying an inherited journal ACL.
+    # The frozen source's root:systemd-journal directory is exactly 02755.
+    journal=$(inside_path "$root" var/log/journal)
+    [ -d "$journal" ] && [ ! -L "$journal" ] || fail 'Journal directory is missing or unsafe'
+    chmod 2755 "$journal"
 }
 
 finalize_installation() {

@@ -1,51 +1,51 @@
 [
   {
     "name": "hbr_boot.tar.gz",
-    "bytes": 67262008,
-    "uncompressed_tar_bytes": 79226880,
-    "sha256": "dfa772f30dba8860400230332ccb6bd2b7bb060e3cd6403ee4a0aac48f23068e",
-    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_boot.tar.gz"
+    "bytes": 60077270,
+    "sha256": "9f779154d3882284e5e3da929c7987eb3777647bc6a78dd8b8fc589db399c8c1",
+    "uncompressed_tar_bytes": 72550400,
+    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_boot.tar.gz"
   },
   {
     "name": "hbr_root.tar.gz",
-    "bytes": 604,
-    "sha256": "8161061f263d4a396798eeded76180eca5acf672f39334b2f7cae47e13347215",
+    "bytes": 524,
+    "sha256": "392be62526c6ee122a6dd7e771624f6890a45b235ba2c06a263b1e2b255ba6ea",
     "uncompressed_tar_bytes": 10240,
-    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/hbr_root.tar.gz"
+    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_root.tar.gz"
   },
   {
     "name": "hbr_payload_01.tar.gz",
-    "bytes": 512703419,
-    "uncompressed_tar_bytes": 1302937600,
-    "sha256": "d31135219ea0634878664581d467fec1fc42cfd66fb741e720c8d37ce1dcb7e1",
-    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_payload_01.tar.gz"
+    "bytes": 519345580,
+    "sha256": "75bbbb5546e24ee1f9c50f45d2e208e1392a6752133b90bdf8fa32c3c54c5633",
+    "uncompressed_tar_bytes": 1304545280,
+    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_payload_01.tar.gz"
   },
   {
     "name": "hbr_payload_02.tar.gz",
-    "bytes": 523361470,
-    "uncompressed_tar_bytes": 1306716160,
-    "sha256": "de66ed7b989d7063be91aa3903e0de108a17490a08ef534a80c40115d6994e8a",
-    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_payload_02.tar.gz"
+    "bytes": 439357609,
+    "sha256": "4af03cb3ac2df7f36072c540ad59792e857485f8a9695e44856a5d93a2eea9b8",
+    "uncompressed_tar_bytes": 1285498880,
+    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_payload_02.tar.gz"
   },
   {
     "name": "hbr_payload_03.tar.gz",
-    "bytes": 444400367,
-    "uncompressed_tar_bytes": 1263503360,
-    "sha256": "f8f24cb1a3b6fbeeba2e9e8bfdb9323e15a760bfec26d8af44489e20e7f9ae1c",
-    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_payload_03.tar.gz"
+    "bytes": 553819511,
+    "sha256": "f6a4dca3fce67dfa8a87e551f730d52b5e1d1edf80f274133d5ad6eabb8cab19",
+    "uncompressed_tar_bytes": 1288089600,
+    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_payload_03.tar.gz"
   },
   {
     "name": "hbr_payload_04.tar.gz",
-    "bytes": 209108475,
-    "uncompressed_tar_bytes": 1133506560,
-    "sha256": "eae43eb2e221349638af940cdcc0481e8351da6fe8049e3955631c7b38c0c0ed",
-    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_payload_04.tar.gz"
+    "bytes": 477574173,
+    "sha256": "f60806d472fd343290f1429ccd5e8e7599e0967d905dfbd17e7b2a097e9a07e4",
+    "uncompressed_tar_bytes": 1251389440,
+    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_payload_04.tar.gz"
   },
   {
     "name": "hbr_payload_05.tar.gz",
-    "bytes": 49887136,
-    "sha256": "cbd50d9dcf58a374a8409f38c9bf0ff82dafd83d58a873ae096b22c2bd006a9d",
-    "uncompressed_tar_bytes": 148613120,
-    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/hbr_payload_05.tar.gz"
+    "bytes": 84389308,
+    "sha256": "db2776908468a9c867639da62afe156287b42e535f7e3927e5b2b74efdd3301a",
+    "uncompressed_tar_bytes": 327536640,
+    "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_payload_05.tar.gz"
   }
 ]

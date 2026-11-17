@@ -1,9 +1,9 @@
 {
   "name": "RPiOS — Raspberry Pi OS for HackberryPi",
-  "description": "Raspberry Pi OS ARM64 Bookworm for HackberryPi CM5 - 900 workspace, Display Scale and battery DKMS automatic rebuilds",
+  "description": "Updated Raspberry Pi OS Bookworm ARM64: 900 workspace, Display Scale, battery DKMS, CM5 power menu and Clash Verge app (no private profiles)",
   "release_date": "2026-11-17",
-  "version": "Bookworm / Battery DKMS 1.2+hbpi2",
-  "kernel": "6.6.51+rpt-rpi-2712",
+  "version": "Bookworm updated / kernel 6.12.115 / Battery DKMS 1.2+hbpi2",
+  "kernel": "6.12.115+rpt-rpi-2712",
   "supported_models": [
     "Compute Module 5"
   ],
@@ -11,9 +11,9 @@
   "nominal_size": 8704,
   "group": "General",
   "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/tree/main/RPiOS",
-  "sha256sum": "b5ae410cdf291d1f723aacceae2d5264ab3384982e7948609bd33b16bbbf1015",
+  "sha256sum": "b293c2034733e5e03ce81c85b54d56e3c01d201bc163fffbf5148e571cd4b411",
   "supports_usb_boot": false,
   "supports_usb_root": false,
-  "download_size": 1806723479,
+  "download_size": 2134563975,
   "online_install_only": true
 }

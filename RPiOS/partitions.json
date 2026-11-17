@@ -5,8 +5,8 @@
       "filesystem_type": "fat",
       "partition_size_nominal": 512,
       "want_maximised": false,
-      "uncompressed_tarball_size": 76,
-      "sha256sum": "dfa772f30dba8860400230332ccb6bd2b7bb060e3cd6403ee4a0aac48f23068e",
+      "uncompressed_tarball_size": 70,
+      "sha256sum": "9f779154d3882284e5e3da929c7987eb3777647bc6a78dd8b8fc589db399c8c1",
       "mkfs_options": "-F 32"
     },
     {
@@ -14,8 +14,8 @@
       "filesystem_type": "ext4",
       "partition_size_nominal": 8192,
       "want_maximised": true,
-      "uncompressed_tarball_size": 4925,
-      "sha256sum": "8161061f263d4a396798eeded76180eca5acf672f39334b2f7cae47e13347215"
+      "uncompressed_tarball_size": 5213,
+      "sha256sum": "392be62526c6ee122a6dd7e771624f6890a45b235ba2c06a263b1e2b255ba6ea"
     }
   ]
 }
