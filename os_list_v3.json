@@ -2,25 +2,25 @@
   "os_list": [
     {
       "os_name": "RPiOS \u2014 Raspberry Pi OS for HackberryPi",
-      "description": "Raspberry Pi OS ARM64 Bookworm for HackberryPi CM5 - 900 workspace, Display Scale and battery DKMS automatic rebuilds",
+      "description": "Updated Raspberry Pi OS Bookworm ARM64: 900 workspace, Display Scale, battery DKMS, CM5 power menu and Clash Verge app (no private profiles)",
       "release_date": "2026-11-17",
       "supported_models": [
         "Compute Module 5"
       ],
       "nominal_size": 8704,
       "group": "General",
-      "download_size": 1806723479,
+      "download_size": 2134563975,
       "supports_usb_boot": false,
       "supports_usb_root": false,
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/RPiOS_HackberryPi.png",
       "marketing_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/marketing.tar",
-      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/tag/rpios-battery-dkms-hackberrypi-2026-11-17",
-      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/os.json",
-      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/partitions.json",
-      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/partition_setup.sh",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/tag/rpios-clash-power-hackberrypi-2026-11-17",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/os.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/partitions.json",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/partition_setup.sh",
       "tarballs": [
-        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-hackberrypi-2026-11-09/hbr_boot.tar.gz",
-        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-battery-dkms-hackberrypi-2026-11-17/hbr_root.tar.gz"
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_boot.tar.gz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/hbr_root.tar.gz"
       ],
       "online_install_only": true
     },
