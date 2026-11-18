@@ -12,8 +12,8 @@ env:
   PINN_REPOSITORY: DZT970525/Operating-System-for-HackberryPi
   PINN_RELEASE_TAG: pinn-multiboot-hackberrypi-2026-11-16
   PINN_TOOL_ROOT: tools/pinn-refresh
-  SOURCE_BUNDLE: tools/pinn-refresh-source-20261116.tar.gz
-  SOURCE_BUNDLE_SHA256: b29a49940c0f1a91de9c455b99c9f3e65cb443f8cd4fce74c39c3877eadffb70
+  SOURCE_BUNDLE: tools/pinn-refresh-source-20261118-dietpi-fix.tar.gz
+  SOURCE_BUNDLE_SHA256: b3563cacc4048b10203542aef04e29d86be6a6bda82d6024b4c219594c8aecbf
 
 jobs:
   unit-gate:
