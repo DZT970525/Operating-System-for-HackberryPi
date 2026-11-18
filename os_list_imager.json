@@ -16,8 +16,26 @@
   },
   "os_list": [
     {
+      "name": "PINN Multiboot Installer for HackberryPi",
+      "description": "Fresh PINN installer, no OS installed. Connect Wi-Fi to install a selection of 12 systems with a compact startup menu. HackberryPi CM5 screen/touch, battery and USB Host included.",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/PINN_HackberryPi.png",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/HackberryPi-PINN-12OS-CM5-20261118.img.xz",
+      "extract_size": 541065216,
+      "extract_sha256": "630cd4679e98cb09d76a915758cd31f7cebc238bba55c38459db1c148f55d75f",
+      "image_download_size": 113197080,
+      "image_download_sha256": "e19c3fc3012749d0002a34bb4a9c2fd62a98247b5dd4ca213f5a21763f21012a",
+      "release_date": "2026-11-18",
+      "devices": [
+        "hackberrypi-cm5"
+      ],
+      "architecture": "armv8",
+      "init_format": "none",
+      "capabilities": [],
+      "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/PINN.md"
+    },
+    {
       "name": "LineageOS 24.0 / Android 17 for HackberryPi",
-      "description": "Unofficial noncommercial Android17 adaptation:900workspace, Display Scale480–1080, native720panel, battery, USB Host and Neofetch in Termux. Android first-run setup.",
+      "description": "Unofficial noncommercial Android17 adaptation:900workspace, Display Scale480\u20131080, native720panel, battery, USB Host and Neofetch in Termux. Android first-run setup.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/LineageOS/LineageOS_HackberryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/lineageos-displayscale-hackberrypi-2026-11-16/LineageOS-24.0-Android17-HackberryPi-CM5-DisplayScale-Neofetch-20261116.img.xz",
       "extract_size": 7001341952,
@@ -34,7 +52,7 @@
       "website": "https://github.com/DZT970525/Operating-System-for-HackberryPi/blob/main/Imager/LineageOS.md"
     },
     {
-      "name": "RPiOS — Raspberry Pi OS for HackberryPi",
+      "name": "RPiOS \u2014 Raspberry Pi OS for HackberryPi",
       "description": "Updated Bookworm ARM64: kernel 6.12.115, 900 workspace, Display Scale, battery DKMS, CM5 power menu and Clash Verge (configure your own profile). Login pi / pi.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/RPiOS/RPiOS_HackberryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/rpios-clash-power-hackberrypi-2026-11-17/RPiOS-HackberryPi-CM5-20261117-v2.img.xz",
@@ -53,7 +71,7 @@
     },
     {
       "name": "FydeOS 23.0 for HackberryPi",
-      "description": "ARM64 standalone image with 900 × 900 workspace and English Display Scale v1.2 (640–1080). Native FydeOS first-run account setup.",
+      "description": "ARM64 standalone image with 900 \u00d7 900 workspace and English Display Scale v1.2 (640\u20131080). Native FydeOS first-run account setup.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/FydeOS/FydeOS_HackBerryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fydeos-imager-hackberrypi-2026-11-10/FydeOS-23.0-HackberryPi-CM5-DisplayScale-20261110.img.xz",
       "extract_size": 10224664576,
@@ -71,7 +89,7 @@
     },
     {
       "name": "Manjaro ARM Xfce for HackberryPi",
-      "description": "Preview factory image from owner-tested Xfce/X11 configuration: 900 workspace, English Display Scale (480–1080), touch and battery. Login: pi / pi.",
+      "description": "Preview factory image from owner-tested Xfce/X11 configuration: 900 workspace, English Display Scale (480\u20131080), touch and battery. Login: pi / pi.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Manjaro/Manjaro_HackberryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/manjaro-displayscale-hackberrypi-2026-11-10/Manjaro-ARM-Xfce-HackberryPi-CM5-DisplayScale-20261110.img.xz",
       "extract_size": 9127854080,
@@ -89,7 +107,7 @@
     },
     {
       "name": "Fedora Remix 45 Xfce for HackberryPi",
-      "description": "Factory preview from owner-tested Fedora Xfce/X11 configuration: 900 workspace, English Display Scale (480–1080), touch and battery. Login: pi / pi.",
+      "description": "Factory preview from owner-tested Fedora Xfce/X11 configuration: 900 workspace, English Display Scale (480\u20131080), touch and battery. Login: pi / pi.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Fedora/Fedora_HackberryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/fedora-displayscale-hackberrypi-2026-11-11/Fedora-45-Xfce-HackberryPi-CM5-DisplayScale-20261111.img.xz",
       "extract_size": 8649703424,
@@ -107,7 +125,7 @@
     },
     {
       "name": "Arch Linux ARM Xfce for HackberryPi",
-      "description": "Arch Linux ARM Xfce/X11 factory preview: 900 workspace, English Display Scale (480–1080), touch, battery and Neofetch7.1.0. Login: pi / pi. Physical boot unconfirmed.",
+      "description": "Arch Linux ARM Xfce/X11 factory preview: 900 workspace, English Display Scale (480\u20131080), touch, battery and Neofetch7.1.0. Login: pi / pi. Physical boot unconfirmed.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Arch/Arch_HackberryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/archlinux-displayscale-hackberrypi-2026-11-12/ArchLinux-ARM-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261112.img.xz",
       "extract_size": 5421137920,
@@ -125,7 +143,7 @@
     },
     {
       "name": "DietPi Xfce for HackberryPi",
-      "description": "DietPi v10.8.2 / Debian13 Trixie Xfce desktop: 900 workspace, English Display Scale (480–1080), touch, battery, USB Host, Wi-Fi/Bluetooth/volume and Neofetch. Login: pi / pi.",
+      "description": "DietPi v10.8.2 / Debian13 Trixie Xfce desktop: 900 workspace, English Display Scale (480\u20131080), touch, battery, USB Host, Wi-Fi/Bluetooth/volume and Neofetch. Login: pi / pi.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/DietPi/DietPi_HackberryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/dietpi-displayscale-hackberrypi-2026-11-13/DietPi-Trixie-Xfce-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz",
       "extract_size": 4204789760,
@@ -143,7 +161,7 @@
     },
     {
       "name": "Buildroot Openbox for HackberryPi",
-      "description": "Buildroot 2026.08.1 Openbox/X11 desktop: 900 workspace, English Display Scale (480–1080), screen/touch, battery, USB Host and Neofetch. Login: pi / pi.",
+      "description": "Buildroot 2026.08.1 Openbox/X11 desktop: 900 workspace, English Display Scale (480\u20131080), screen/touch, battery, USB Host and Neofetch. Login: pi / pi.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Buildroot/Buildroot_HackberryPi.png",
       "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/buildroot-displayscale-hackberrypi-2026-11-15/Buildroot-2026.08.1-Openbox-HackberryPi-CM5-DisplayScale-Neofetch-20261115.img.xz",
       "extract_size": 2420113408,
