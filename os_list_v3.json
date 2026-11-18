@@ -1,7 +1,7 @@
 {
   "os_list": [
     {
-      "os_name": "RPiOS \u2014 Raspberry Pi OS for HackberryPi",
+      "os_name": "RPiOS — Raspberry Pi OS for HackberryPi",
       "description": "Updated Raspberry Pi OS Bookworm ARM64: 900 workspace, Display Scale, battery DKMS, CM5 power menu and Clash Verge app (no private profiles)",
       "release_date": "2026-11-17",
       "supported_models": [
@@ -26,7 +26,7 @@
     },
     {
       "os_name": "Ubuntu for HackberryPi",
-      "description": "Ubuntu 24.04.5 GNOME for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "description": "Ubuntu 24.04.5 GNOME for HackberryPi CM5 — Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
       "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
@@ -72,7 +72,7 @@
     },
     {
       "os_name": "FydeOS for HackberryPi",
-      "description": "FydeOS 23.0 for HackberryPi CM5 \u2014 Display Scale 1.2 \u2014 preview. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery. Online Install downloads the partition data. Upgrade through PINN; native whole-disk recovery/OTA is disabled.",
+      "description": "FydeOS 23.0 for HackberryPi CM5 — Display Scale 1.2 — preview. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery. Online Install downloads the partition data. Upgrade through PINN; native whole-disk recovery/OTA is disabled.",
       "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
@@ -143,7 +143,7 @@
     },
     {
       "os_name": "Fedora Remix for HackberryPi",
-      "description": "Fedora 45 Xfce Remix for HackberryPi CM5 \u2014 Display Scale. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "description": "Fedora 45 Xfce Remix for HackberryPi CM5 — Display Scale. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
       "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
@@ -167,7 +167,7 @@
     },
     {
       "os_name": "Arch Linux ARM for HackberryPi",
-      "description": "Arch Linux ARM Xfce for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "description": "Arch Linux ARM Xfce for HackberryPi CM5 — Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
       "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
@@ -190,30 +190,30 @@
     },
     {
       "os_name": "DietPi for HackberryPi",
-      "description": "DietPi Xfce for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
-      "release_date": "2026-11-16",
+      "description": "DietPi Xfce for HackberryPi CM5 — Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "release_date": "2026-11-18",
       "supported_models": [
         "Compute Module 5"
       ],
       "nominal_size": 4521,
       "group": "General",
-      "download_size": 632413551,
+      "download_size": 628778115,
       "supports_usb_boot": false,
       "supports_usb_root": false,
       "use_partuuid": false,
       "online_install_only": true,
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/DietPi/DietPi_HackberryPi.png",
-      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-os.json",
-      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-partitions.json",
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-os-v2-20261118.json",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-partitions-v2-20261118.json",
       "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-partition_setup.sh",
       "tarballs": [
-        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-boot-v2-20261118.tar.xz",
         "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/dietpi-slot2-stub.img.gz"
       ]
     },
     {
       "os_name": "Buildroot for HackberryPi",
-      "description": "Buildroot Openbox for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "description": "Buildroot Openbox for HackberryPi CM5 — Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
       "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
@@ -236,7 +236,7 @@
     },
     {
       "os_name": "LineageOS for HackberryPi",
-      "description": "LineageOS 24.0 / Android 17 for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data. Upgrade through PINN; native whole-disk recovery/OTA is disabled.",
+      "description": "LineageOS 24.0 / Android 17 for HackberryPi CM5 — Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data. Upgrade through PINN; native whole-disk recovery/OTA is disabled.",
       "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
@@ -262,7 +262,7 @@
     },
     {
       "os_name": "Twister OS for HackberryPi",
-      "description": "Twister OS 3.1.0 for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "description": "Twister OS 3.1.0 for HackberryPi CM5 — Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
       "release_date": "2026-11-16",
       "supported_models": [
         "Compute Module 5"
