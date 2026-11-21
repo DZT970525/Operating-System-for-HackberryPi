@@ -17,14 +17,14 @@
   "os_list": [
     {
       "name": "PINN Multiboot Installer for HackberryPi",
-      "description": "Fresh empty PINN installer with 12 online system choices, native Recovery Mode and Add OS. HackberryPi CM5 screen/touch, battery and USB Host included.",
+      "description": "Empty PINN installer with the fresh-card Install fix, 12 online system choices, native Recovery Mode and Add OS. HackberryPi CM5 screen/touch, battery and USB Host included.",
       "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/PINN_HackberryPi.png",
-      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/HackberryPi-PINN-12OS-CM5-20261120.img.xz",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/pinn-multiboot-hackberrypi-2026-11-16/HackberryPi-PINN-12OS-CM5-20261121.img.xz",
       "extract_size": 541065216,
-      "extract_sha256": "49c704dff736ef48fd913dd0ee26b50e46b5062b01f4b5bee0458fd5cddaa492",
-      "image_download_size": 114219992,
-      "image_download_sha256": "4c54a66b63573656033a1eb9235ed95adfee9e75f462c8c054c7a7b37a88251e",
-      "release_date": "2026-11-20",
+      "extract_sha256": "711d71aaa20d21d27b6ae1f9402b105e6f075ab681ba9951021876ce5246807b",
+      "image_download_size": 114221840,
+      "image_download_sha256": "0eb43cb030d1299c55a5f49a0f674dfe105b06a2379cdb18c925891463959f64",
+      "release_date": "2026-11-21",
       "devices": [
         "hackberrypi-cm5"
       ],
@@ -179,3 +179,4 @@
     }
   ]
 }
+
