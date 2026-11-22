@@ -16,21 +16,21 @@ Default username: **pi**. Default password: **pi**, both lowercase. Use `sudo` f
 
 ## Raspberry Pi Imager: automatic download and merge
 
-1. [Download **Ubuntu-Imager-Download-Tools-20261113.zip**](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/Ubuntu-Imager-Download-Tools-20261113.zip) and extract the entire ZIP into a normal computer folder with **at least 7 GB free**. Keep its launcher and manifest files together.
+1. [Download **Ubuntu-Imager-Download-Tools-20261122.zip**](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/Ubuntu-Imager-Download-Tools-20261122.zip) and extract the entire ZIP into a normal computer folder with **at least 7 GB free**. Keep its launcher and manifest files together.
 2. Run the launcher for your computer as a normal user:
    - Windows: double-click `download-ubuntu.cmd`.
    - macOS: open `download-ubuntu.command`.
    - Linux: run `sh ./download-ubuntu.sh` in that folder.
-3. Let the helper download **6 parts**, verify each SHA-256, and combine them automatically. Running the same launcher again resumes interrupted downloads and reuses verified parts. It creates:
+3. Let the helper download **7 parts**, verify each SHA-256, and combine them automatically. Running the same launcher again resumes interrupted downloads and reuses verified parts. It creates:
 
    ```
-   Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz
+   Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz
    ```
 
 4. Open [Raspberry Pi Imager](https://www.raspberrypi.com/software/), choose **Use custom**, and select that completed **`.img.xz` file directly**. Do not choose the helper ZIP or an individual part; manual decompression is not needed.
 5. Select the intended **16 GB or larger SD card**, confirm writing, and let verification finish before booting HackberryPi CM5.
 
-The helper only downloads and combines files on the computer; Imager chooses and writes the SD card. The download needs space for the parts and completed compressed image at the same time. The folder's filesystem must support a file of **3017984912 bytes**. After successful writing, the hidden `.ubuntu-download-parts` cache can be removed.
+The helper only downloads and combines files on the computer; Imager chooses and writes the SD card. The download needs space for the parts and completed compressed image at the same time. The folder's filesystem must support a file of **3190467412 bytes**. After successful writing, the hidden `.ubuntu-download-parts` cache can be removed.
 
 This image uses the same download-and-merge method as Omarchy and Kali. Ubuntu is **not an online `os_list_imager.json` entry**: first run the helper, then choose **Use custom** in Imager. Read the [installation guide](../Imager/Ubuntu.md).
 
@@ -50,32 +50,34 @@ The retained native kernel is **6.8.0-1064-raspi**, with matching Ubuntu headers
 
 ## Validation
 
-The owner tested and accepted the configured source card. Factory privacy audit: **passed: fresh filesystems and excluded personal state**. Final filesystem/offline audit: **passed: native filesystem and retained integration checks**. Complete compressed-to-raw verification: **passed: complete XZ integrity and compressed-to-raw SHA-256 round-trip**. Standalone root expansion: **passed using the shipped helper in an isolated loop test; physical first boot remains pending**.
+The owner confirmed Firefox starts on the repaired Ubuntu PINN card. This release is rebuilt from the previously published clean factory image; no files or personal data were copied from that card. The patch retains only public Snap model identity and restores an empty native Mesa content directory. Native content-mount profile regeneration and headless Firefox rendering passed in disposable tests. The isolated browser test exercised the native GPU wrapper, GNOME libraries and Firefox binary directly; it did not exercise the GNOME desktop wrapper or full Snap confinement. The clean-source file delta, unchanged boot partition and geometry, filesystem checks, complete XZ decode and all delivery-part hashes passed.
 
-The rebuilt sanitized release image has not received a separate physical flash and first-boot test. Actual Wi-Fi association, Bluetooth pairing, audio output and idle/manual-lock checks on that final image remain separate from offline and isolated-compositor checks.
+The newly rebuilt clean release image still awaits a separate physical flash and first-boot test. The repaired-card result and isolated browser checks do not establish a complete physical test of this new image. Native hardware integration, package versions and factory identity/root-growth setup are retained. Prior isolated root-growth checks remain applicable to the unchanged helper.
 
 ## Checksums
 
 | Artifact | Bytes | SHA-256 |
 | --- | --- | --- |
-| `Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz` | `3017984912` | `afdd7664a3fc3c6ea389d429fcf5a4f45a1e335b30d13f8d3d485043b5cf9a7b` |
-| Expanded `.img` | `9318694912` | `56dadec8025ee6026f6feec66da7d40245e5ceb03e4d0ec7bc5a8f579d78b1d9` |
+| `Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz` | `3190467412` | `5ca2ce54cfd54642971fc0dc5fd743b071a411024b26d68e0ef42145dc6f8bf5` |
+| Expanded `.img` | `9318694912` | `996fac2304fa55fea9c4a80731bb0d03ee0d5f4ce1bd23fd22a50008f7da7950` |
 
-Release: [ubuntu-displayscale-hackberrypi-2026-11-13](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/tag/ubuntu-displayscale-hackberrypi-2026-11-13). `SHA256SUMS`, `factory-status.json` and `image-verification.json` accompany the image.
+Release: [ubuntu-firefox-hackberrypi-2026-11-22](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/tag/ubuntu-firefox-hackberrypi-2026-11-22). `SHA256SUMS`, `factory-status.json` and `image-verification.json` accompany the image.
 
-## PINN migration
+## PINN multiboot
 
-This release is **standalone for Raspberry Pi Imager**. It replaces the old Ubuntu PINN preview, whose entry and obsolete partition-archive metadata have been withdrawn. A complete `.img.xz` is not a PINN filesystem archive; do not put it in a PINN `tarballs` list.
-
-The old `Ubuntu/os_list_v3.json` address remains a valid empty catalog. Existing PINN users who want the other systems should use the combined root source:
+The corrected Ubuntu package is also available as **Ubuntu for HackberryPi** in the prepared HackberryPi CM5 PINN combined catalog:
 
 ```
 alt_image_source=https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/os_list_v3.json
 ```
 
-The other five PINN systems keep their existing packages. Installing this standalone Ubuntu image replaces the whole selected card, including any existing PINN layout; keep a separate backup of needed files first.
+Keep the network connected while PINN installs its verified supplemental payload. Use the prepared HackberryPi PINN edition and select the systems that fit the card. Read the [PINN installation guide](../Imager/PINN.md). The refreshed Ubuntu recipe affects new installations; it does not update an Ubuntu installation already on a card. All other systems' entries and payloads remain unchanged by this Ubuntu refresh.
+
+The standalone Imager file is a complete disk image. Writing it replaces the selected card and its existing PINN layout; choose the PINN package for multiboot installation. Never use an individual `.partNN` or the helper ZIP as an Imager image.
 
 ## Sources and notices
+
+The [2026-11-22 Firefox correction source](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/Ubuntu-Firefox-Fix-Sources-20261122.tar.gz) contains the reproducible clean-image patch, publication tools and verification support. Native packages, kernel and previous integration binaries are unchanged; the original matching source archives and notices linked below remain available.
 
 The [integration source archive](https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/Ubuntu-HackberryPi-Integration-Source-20261113.tar.gz) includes the exact Display Scale frontend/controller, native Wayland scale adapter C source and build instructions, screen/touch overlay, MAX17048 DKMS driver, window-placement extension, Wi-Fi/Bluetooth Settings action extension, and complete patched DING source. Original component notices and licenses remain with the sources.
 

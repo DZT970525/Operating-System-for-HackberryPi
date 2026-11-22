@@ -1,3 +1,27 @@
 {
-  "os_list": []
+  "os_list": [
+    {
+      "description": "Ubuntu 24.04.5 GNOME for HackberryPi CM5 \u2014 Display Scale + Neofetch. PINN multiboot preview; 900 workspace, Display Scale, screen/touch and battery, with Neofetch. Online Install downloads the partition data.",
+      "download_size": 3174090151,
+      "group": "General",
+      "icon": "https://raw.githubusercontent.com/DZT970525/Operating-System-for-HackberryPi/main/Ubuntu/Ubuntu_HackberryPi.png",
+      "nominal_size": 9398,
+      "online_install_only": true,
+      "os_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/ubuntu-os.json",
+      "os_name": "Ubuntu for HackberryPi",
+      "partition_setup": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/ubuntu-partition_setup.sh",
+      "partitions_info": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/ubuntu-partitions.json",
+      "release_date": "2026-11-22",
+      "supported_models": [
+        "Compute Module 5"
+      ],
+      "supports_usb_boot": false,
+      "supports_usb_root": false,
+      "tarballs": [
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/ubuntu-boot.tar.xz",
+        "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/ubuntu-slot2-stub.img.gz"
+      ],
+      "use_partuuid": false
+    }
+  ]
 }

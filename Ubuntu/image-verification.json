@@ -1,11 +1,11 @@
 {
   "status": "verified",
   "image": {
-    "name": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz",
-    "bytes": 3017984912,
-    "sha256": "afdd7664a3fc3c6ea389d429fcf5a4f45a1e335b30d13f8d3d485043b5cf9a7b",
+    "name": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz",
+    "bytes": 3190467412,
+    "sha256": "5ca2ce54cfd54642971fc0dc5fd743b071a411024b26d68e0ef42145dc6f8bf5",
     "extract_size": 9318694912,
-    "extract_sha256": "56dadec8025ee6026f6feec66da7d40245e5ceb03e4d0ec7bc5a8f579d78b1d9"
+    "extract_sha256": "996fac2304fa55fea9c4a80731bb0d03ee0d5f4ce1bd23fd22a50008f7da7950"
   },
   "factory_privacy_offline_audit_passed": true,
   "complete_decompressed_stream_verified": true,
@@ -30,71 +30,106 @@
     {
       "name": "Ubuntu-HackberryPi-Integration-Source-20261113.tar.gz",
       "bytes": 319526,
-      "sha256": "95d7ccda9c5adfc3e22e4392399b9f7c0799575d53d10c4970df5d12bf592d97"
+      "sha256": "95d7ccda9c5adfc3e22e4392399b9f7c0799575d53d10c4970df5d12bf592d97",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/Ubuntu-HackberryPi-Integration-Source-20261113.tar.gz"
     },
     {
       "name": "Ubuntu-HackberryPi-Source-Notices-20261113.tar.gz",
       "bytes": 5155750,
-      "sha256": "99f837316cd76da01369a9803037a3d66d108142fe77fcc09bdb9910cc670055"
+      "sha256": "99f837316cd76da01369a9803037a3d66d108142fe77fcc09bdb9910cc670055",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/Ubuntu-HackberryPi-Source-Notices-20261113.tar.gz"
     },
     {
       "name": "linux-raspi_6.8.0.orig.tar.gz",
       "bytes": 230060117,
-      "sha256": "26512115972bdf017a4ac826cc7d3e9b0ba397d4f85cd330e4e4ff54c78061c8"
+      "sha256": "26512115972bdf017a4ac826cc7d3e9b0ba397d4f85cd330e4e4ff54c78061c8",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/linux-raspi_6.8.0.orig.tar.gz"
     },
     {
       "name": "linux-raspi_6.8.0-1064.68.diff.gz",
       "bytes": 13183502,
-      "sha256": "e2348a899108ccec1a139145c418e9026228c0475aa6837133e42de28fa9ddc0"
+      "sha256": "e2348a899108ccec1a139145c418e9026228c0475aa6837133e42de28fa9ddc0",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/linux-raspi_6.8.0-1064.68.diff.gz"
     },
     {
       "name": "linux-raspi_6.8.0-1064.68.dsc",
       "bytes": 4511,
-      "sha256": "72fcd4e1949df46ba4d72b35a5fd4c045b98083e672128a64c4eb67d3ee57176"
+      "sha256": "72fcd4e1949df46ba4d72b35a5fd4c045b98083e672128a64c4eb67d3ee57176",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-displayscale-hackberrypi-2026-11-13/linux-raspi_6.8.0-1064.68.dsc"
     }
   ],
   "download_method": "automatic-download-merge-then-Imager-Use-custom",
   "imager_online_json_entry": false,
   "download_helper": {
-    "zip_name": "Ubuntu-Imager-Download-Tools-20261113.zip",
-    "zip_bytes": 15818,
-    "zip_sha256": "c4295fec2067f6d552bfbd71ba855c9a69166c1c20136e1a4e0a4485e19d7a1c",
-    "part_count": 6,
-    "first_download_working_space_bytes": 6304405280,
+    "zip_name": "Ubuntu-Imager-Download-Tools-20261122.zip",
+    "part_count": 7,
+    "first_download_working_space_bytes": 6649370280,
     "first_download_recommended_free_gb": 7,
+    "windows_command_characters": 5802,
     "windows_runtime_tested": false,
-    "macos_runtime_tested": false
+    "macos_runtime_tested": false,
+    "zip_bytes": 15896,
+    "zip_sha256": "1a16f17b50282072d2ca9352b3eb026898205288eab2ca052df39876d69aacfd"
   },
   "download_parts": [
     {
-      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part01",
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz.part01",
       "size": 524288000,
-      "sha256": "b11af98a9559e3611189a68eed7a5628ff9ff0c1146cd73449093fb49df68ffa"
+      "sha256": "70cbc1c27288def8a09f4d7a88c7fb276682235943f23316f84eefe76dc769cc"
     },
     {
-      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part02",
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz.part02",
       "size": 524288000,
-      "sha256": "0b9054f0d5d94b92b87805f6751432984bd233b7558b81c4457e81952bc92bc7"
+      "sha256": "c73b35d75eba3ba8b01a6a3382f93750ac15a704b7c091a0341db8708f607704"
     },
     {
-      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part03",
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz.part03",
       "size": 524288000,
-      "sha256": "d7c2ca3244f29bc2e3523f4a9a2ad78e987056d0d36ae634b905a5d68e5e06dc"
+      "sha256": "b3176d8fdacd5f84d99f7afda71a067c7ca16ee916f6e92d15d620b2655823bf"
     },
     {
-      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part04",
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz.part04",
       "size": 524288000,
-      "sha256": "4be96d4ed537354ee46d5458e06519dcfb3ed1bf666b704071aa61714efdbd9d"
+      "sha256": "24af621109da535ec5497ba9b0b386fe2aab0ba50fe124cc1ad33959b2612a3f"
     },
     {
-      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part05",
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz.part05",
       "size": 524288000,
-      "sha256": "b3b566e26c8f3be5c158a4a2cc76a59a42a308e5f7c4661d62055ea89edb16d9"
+      "sha256": "e0ad54398837affd993aa0729cdc14fdb947f6bf9ffc0b88563e9f5cab88c1cd"
     },
     {
-      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261113.img.xz.part06",
-      "size": 396544912,
-      "sha256": "64a4e986fcab0b46734713573caaa77c3825c9088ef0f1cdc243dbf2f9ef751c"
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz.part06",
+      "size": 524288000,
+      "sha256": "4485c5cd7485836524b850daedb0fbd49b3c6cd26749eb4f6f2d1913800ce18f"
+    },
+    {
+      "filename": "Ubuntu-24.04.5-GNOME-HackberryPi-CM5-DisplayScale-Neofetch-20261122.img.xz.part07",
+      "size": 44739412,
+      "sha256": "d012cb9cb4e12b3eead02ba705078ebc51019a6a90617f29cc90ca68f84d0af9"
     }
-  ]
+  ],
+  "release_tag": "ubuntu-firefox-hackberrypi-2026-11-22",
+  "firefox_startup_fix": {
+    "release_date": "2026-11-22",
+    "clean_published_image_used": true,
+    "private_card_data_copied": false,
+    "change": [
+      "retain public Snap model identity without source device credentials",
+      "restore the empty native Mesa kernel-gpu-2404 content source directory"
+    ],
+    "native_content_mount_profile_regeneration_test_passed": true,
+    "owner_confirmed_firefox_on_repaired_card": true,
+    "native_headless_firefox_render_test_passed": true,
+    "isolated_browser_test_scope": "Direct native GPU wrapper, GNOME libraries and Firefox binary; GNOME desktop wrapper and full Snap confinement were not exercised in isolation",
+    "new_clean_release_image_physical_boot_tested": false,
+    "reproducible_source": {
+      "name": "Ubuntu-Firefox-Fix-Sources-20261122.tar.gz",
+      "bytes": 67589,
+      "sha256": "e53bd2c85d5befa97ebe4f92d5aec8e513dfa7609219c4aad074f80e0447db23",
+      "url": "https://github.com/DZT970525/Operating-System-for-HackberryPi/releases/download/ubuntu-firefox-hackberrypi-2026-11-22/Ubuntu-Firefox-Fix-Sources-20261122.tar.gz"
+    }
+  },
+  "clean_source_patch_delta_verified": true,
+  "boot_partition_and_geometry_unchanged": true,
+  "pinn_supported_in_this_release": true
 }
