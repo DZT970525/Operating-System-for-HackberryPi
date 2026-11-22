@@ -1,0 +1,90 @@
+name: Refresh Ubuntu Firefox image for HackberryPi
+on:
+  workflow_dispatch:
+permissions: {}
+concurrency:
+  group: hackberrypi-ubuntu-firefox-20261122
+  cancel-in-progress: false
+env:
+  SOURCE_BUNDLE: tools/ubuntu-firefox-refresh-20261122.tar.gz
+  SOURCE_BUNDLE_SHA256: e53bd2c85d5befa97ebe4f92d5aec8e513dfa7609219c4aad074f80e0447db23
+  TOOL_ROOT: /mnt/ubuntu-firefox-tool
+  BUILD_ROOT: /mnt/hackberrypi-ubuntu-firefox-20261122
+jobs:
+  refresh:
+    if: >-
+      ${{ github.repository == 'DZT970525/Operating-System-for-HackberryPi'
+          && github.event_name == 'workflow_dispatch'
+          && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    permissions:
+      contents: write
+    steps:
+      - name: Check out exact build source
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Verify reviewed source archive
+        run: |
+          set -euo pipefail
+          printf '%s  %s\n' "$SOURCE_BUNDLE_SHA256" "$SOURCE_BUNDLE" | sha256sum --check --strict
+          test ! -e "$TOOL_ROOT"
+          sudo install -d -o "$(id -u)" -g "$(id -g)" "$TOOL_ROOT"
+          tar --no-same-owner -xzf "$SOURCE_BUNDLE" -C "$TOOL_ROOT"
+      - name: Install official image tools
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run: |
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y python3 xz-utils gzip tar \
+            util-linux fdisk e2fsprogs dosfstools fakeroot curl gh
+      - name: Run source-only regression fixtures
+        run: |
+          set -euo pipefail
+          PINN_SOURCE_BUNDLE="$GITHUB_WORKSPACE/tools/pinn-refresh-source-20261118-dietpi-fix.tar.gz" \
+            fakeroot python3 -B -m unittest discover -s "$TOOL_ROOT/build" -p 'test_*.py' -v
+          python3 -B "$TOOL_ROOT/docs/test_docs.py" --baseline "$TOOL_ROOT/input/repository"
+          python3 -B "$TOOL_ROOT/audit/test_publish.py"
+      - name: Reserve disposable runner storage
+        run: |
+          set -euo pipefail
+          test "$RUNNER_ENVIRONMENT" = github-hosted
+          available=$(df --output=avail -B1 /mnt | tail -n 1 | tr -d ' ')
+          if [ "$available" -lt 42949672960 ]; then
+            # Fixed unused SDK caches on this disposable hosted VM only.
+            sudo rm -rf -- /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          fi
+          df -h /mnt
+      - name: Build only Ubuntu from the verified clean public image
+        run: |
+          set -euo pipefail
+          # No release token or source device enters this build process.
+          sudo --preserve-env=GITHUB_ACTIONS,GITHUB_REPOSITORY,RUNNER_ENVIRONMENT,GITHUB_EVENT_NAME,GITHUB_SHA,GITHUB_RUN_ID \
+            unshare --mount --propagation private -- \
+            python3 -B "$TOOL_ROOT/build/build.py" --repository "$GITHUB_WORKSPACE"
+          sudo chown -R "$(id -u):$(id -g)" "$BUILD_ROOT/assets"
+      - name: Prepare verified download tools and Ubuntu-only metadata
+        run: |
+          python3 -B "$TOOL_ROOT/prepare-publication.py" --source-bundle "$GITHUB_WORKSPACE/$SOURCE_BUNDLE" \
+            --tool-root "$TOOL_ROOT" --output "$RUNNER_TEMP/ubuntu-publication"
+      - name: Publish fixed release, then atomically update Ubuntu download sources
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Retry publication on the same verified files, without rebuilding.
+          for attempt in 1 2 3 4 5; do
+            if python3 -B "$TOOL_ROOT/publish.py" --assets "$BUILD_ROOT/assets" \
+              --repository-files "$RUNNER_TEMP/ubuntu-publication/docs/repository" \
+              --baseline "$TOOL_ROOT/input/repository" \
+              --notes "$RUNNER_TEMP/ubuntu-publication/docs/release-notes.md" \
+              --facts "$RUNNER_TEMP/ubuntu-publication/publication-facts.json" \
+              --receipt "$RUNNER_TEMP/ubuntu-publication/Ubuntu-PUBLICATION-20261122.json"; then
+              exit 0
+            fi
+            test "$attempt" -lt 5
+            sleep 20
+          done
